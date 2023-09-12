@@ -5,30 +5,30 @@ using UnityEngine.InputSystem;
 
 public class InputManager : MonoBehaviour
 {
-    public static InputManager instance;
-    private PlayerInput playerInput;
+    //public static InputManager instance;
+    //private PlayerInput playerInput;
 
     [SerializeField] private Rigidbody2D rb;
     [SerializeField] private float tiltForce = 5f;
 
-    private void Awake()
-    {
-        if (instance == null)
-        {
-            instance = this;
-        }
-        else
-        {
-            Debug.LogWarning("Already existing singleton of InputManager");
-        }
-        playerInput = GetComponent<PlayerInput>();
+    //private void Awake()
+    //{
+    //    if (instance == null)
+    //    {
+    //        instance = this;
+    //    }
+    //    else
+    //    {
+    //        Debug.LogWarning("Already existing singleton of InputManager");
+    //    }
+    //    playerInput = GetComponent<PlayerInput>();
 
-    }
+    //}
 
-    public static InputManager GetInstance()
-    {
-        return instance;
-    }
+    //public static InputManager GetInstance()
+    //{
+    //    return instance;
+    //}
 
     public void OnTilt(InputValue value)
     {

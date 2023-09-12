@@ -13,6 +13,7 @@ public class DialogueGame : MonoBehaviour
         {
             DialogueButtons.Add(child);
         }
+        Debug.Log(GlobalVariables.Get<int>("currentDay"));
     }
     public void OnButtonClicked(int id)
     {
