@@ -103,6 +103,15 @@
       },
       "url": "https://packages.unity.com"
     },
+    "com.unity.cinemachine": {
+      "version": "2.9.5",
+      "depth": 1,
+      "source": "registry",
+      "dependencies": {
+        "com.unity.test-framework": "1.1.31"
+      },
+      "url": "https://packages.unity.com"
+    },
     "com.unity.collab-proxy": {
       "version": "2.0.5",
       "depth": 0,
@@ -142,6 +151,16 @@
         "com.unity.2d.aseprite": "1.0.0"
       }
     },
+    "com.unity.feature.gameplay-storytelling": {
+      "version": "1.0.0",
+      "depth": 0,
+      "source": "builtin",
+      "dependencies": {
+        "com.unity.cinemachine": "2.9.5",
+        "com.unity.timeline": "1.7.5",
+        "com.unity.visualscripting": "1.8.0"
+      }
+    },
     "com.unity.ide.rider": {
       "version": "3.0.24",
       "depth": 0,
@@ -152,11 +171,20 @@
       "url": "https://packages.unity.com"
     },
     "com.unity.ide.visualstudio": {
-      "version": "2.0.18",
+      "version": "2.0.20",
       "depth": 0,
       "source": "registry",
       "dependencies": {
         "com.unity.test-framework": "1.1.9"
+      },
+      "url": "https://packages.unity.com"
+    },
+    "com.unity.inputsystem": {
+      "version": "1.6.3",
+      "depth": 0,
+      "source": "registry",
+      "dependencies": {
+        "com.unity.modules.uielements": "1.0.0"
       },
       "url": "https://packages.unity.com"
     },

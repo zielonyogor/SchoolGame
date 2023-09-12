@@ -1,0 +1,152 @@
+{
+    "name": "ActionMap",
+    "maps": [
+        {
+            "name": "BalanceGame",
+            "id": "edc123c1-124d-42e9-bdc3-6b402452fd74",
+            "actions": [
+                {
+                    "name": "Click",
+                    "type": "Button",
+                    "id": "8be0012f-c13c-4c4d-9302-8ca51070d212",
+                    "expectedControlType": "Button",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": false
+                },
+                {
+                    "name": "Tilt",
+                    "type": "Value",
+                    "id": "85505c07-0c4a-4ae4-a9e8-e7df907a96f5",
+                    "expectedControlType": "Axis",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": true
+                }
+            ],
+            "bindings": [
+                {
+                    "name": "",
+                    "id": "cf2a93b6-f980-41f8-aebf-4a66e194ef1a",
+                    "path": "<Mouse>/leftButton",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "Click",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "1D Axis",
+                    "id": "7276af27-0e71-49d0-b992-7ae8b67da70b",
+                    "path": "1DAxis",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "Tilt",
+                    "isComposite": true,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "positive",
+                    "id": "e4a8186e-26ff-4d2e-ac5b-e6974fbadc5f",
+                    "path": "<Keyboard>/#(A)",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "Tilt",
+                    "isComposite": false,
+                    "isPartOfComposite": true
+                },
+                {
+                    "name": "negative",
+                    "id": "d07afa47-3887-47ac-b77e-ff31d9fd1d48",
+                    "path": "<Keyboard>/#(D)",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "Tilt",
+                    "isComposite": false,
+                    "isPartOfComposite": true
+                }
+            ]
+        },
+        {
+            "name": "UI",
+            "id": "a70fabfa-2ddd-4b5c-9dad-98bd909dadc1",
+            "actions": [
+                {
+                    "name": "Click",
+                    "type": "Button",
+                    "id": "22c83e1a-6dc2-4729-ab08-53c74aa6c1ec",
+                    "expectedControlType": "Button",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": false
+                },
+                {
+                    "name": "New action",
+                    "type": "Button",
+                    "id": "b81549e2-5b4d-4c36-b895-c432ff7a0bd4",
+                    "expectedControlType": "Button",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": false
+                }
+            ],
+            "bindings": [
+                {
+                    "name": "",
+                    "id": "7ccf690e-b3c7-49a5-b4c1-0294b783d935",
+                    "path": "<Mouse>/leftButton",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "Click",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "ad1af5a4-a1bd-48ef-8901-2c57af837400",
+                    "path": "",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "New action",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                }
+            ]
+        },
+        {
+            "name": "DragDropGame",
+            "id": "7e007c35-3c19-4151-9e3a-3052d9e3f33b",
+            "actions": [
+                {
+                    "name": "New action",
+                    "type": "Button",
+                    "id": "96c93604-a18a-4720-b9d1-6d4a7becf6c4",
+                    "expectedControlType": "Button",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": false
+                }
+            ],
+            "bindings": [
+                {
+                    "name": "",
+                    "id": "9c1dd139-0e51-4a2d-b07d-428c20eb3ae6",
+                    "path": "",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "New action",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                }
+            ]
+        }
+    ],
+    "controlSchemes": []
+}
