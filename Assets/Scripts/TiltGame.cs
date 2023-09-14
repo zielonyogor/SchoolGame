@@ -11,6 +11,7 @@ public class GameManager : MonoBehaviour
     private ActionMap actionMap;
     [SerializeField] private Rigidbody2D rb;
     [SerializeField] private float tiltForce = 5f;
+    [SerializeField] Vector2 m_centerOfMass;
 
     private WaitForFixedUpdate waitForFixedUpdate;
 
@@ -18,6 +19,7 @@ public class GameManager : MonoBehaviour
     {
         actionMap = new ActionMap();
         waitForFixedUpdate = new WaitForFixedUpdate();
+        //rb.centerOfMass = m_centerOfMass;
     }
     private void Start()
     {
@@ -62,6 +64,15 @@ public class GameManager : MonoBehaviour
             Debug.Log("tilt action");
             rb.AddTorque(tiltValue * tiltForce);
         }
+    }
+
+    private void OnDrawGizmosSelected()
+    {
+        Vector2 worldCenterOfMass = transform.TransformPoint(m_centerOfMass);
+        Gizmos.color = Color.cyan;
+        Gizmos.DrawSphere(transform.TransformPoint(m_centerOfMass), 0.1f);
+        Gizmos.DrawLine(worldCenterOfMass + Vector2.up, worldCenterOfMass - Vector2.up);
+        Gizmos.DrawLine(worldCenterOfMass + Vector2.right, worldCenterOfMass - Vector2.right);
     }
 
     //private void Update()

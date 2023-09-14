@@ -5,7 +5,6 @@ using static UnityEngine.Rendering.DebugUI;
 
 public class DragDrop : MonoBehaviour
 {
-    private ActionMap actionMap;
     private Camera mainCamera;
     private InputAction mouseClick;
 
@@ -14,21 +13,20 @@ public class DragDrop : MonoBehaviour
     Vector2 velocity = Vector2.zero;
     private void Awake()
     {
-        actionMap = new ActionMap();
         mainCamera = Camera.main;
-        mouseClick = actionMap.Gameplay.DragDrop;
+        mouseClick = new ActionMap().Gameplay.DragDrop;
         waitForFixedUpdate = new WaitForFixedUpdate();
     }
 
     private void OnEnable()
     {
-        actionMap.Enable();
+        mouseClick.Enable();
         mouseClick.performed += OnDragDrop;
     }
     private void OnDisable()
     {
         mouseClick.performed -= OnDragDrop;
-        actionMap.Disable();
+        mouseClick.Disable();
     }
 
     private void OnDragDrop(InputAction.CallbackContext context)
@@ -38,15 +36,15 @@ public class DragDrop : MonoBehaviour
 
         if (hit.collider != null)
         {
-            Debug.Log("ciagnij");
+            if(hit.collider.gameObject.CompareTag("DraggableCorrect") || hit.collider.gameObject.CompareTag("DraggableIncorrect"))
+            {
             StartCoroutine(DragUpdate(hit.collider.gameObject));
+            }
         }
     }
 
     private IEnumerator DragUpdate(GameObject clickedObject)
     {
-        //float initialDistance = Vector2.Distance(clickedObject.transform.position, mainCamera.transform.position);
-        //Debug.Log(initialDistance)
         while(mouseClick.ReadValue<float>() != 0)
         {
             Vector2 point = mainCamera.ScreenToWorldPoint(Mouse.current.position.ReadValue());
@@ -55,14 +53,5 @@ public class DragDrop : MonoBehaviour
         }
         yield return null;
     }
-    /*
-      Ray ray = mainCamera.ScreenPointToRay(Mouse.current.position.ReadValue());
-        RaycastHit hit;
-        if (Physics.Raycast(ray, out hit))
-        {
-            if (hit.collider != null)
-            {
-                Debug.Log("essa");
-            }
-        }*/
+    
 }
