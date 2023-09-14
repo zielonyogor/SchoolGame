@@ -39,6 +39,7 @@ public class Timer : MonoBehaviour
 
     public IEnumerator DecreaseTimer(float time)
     {
+        yield return new WaitForFixedUpdate();
         time_bar.enabled = true;
         bar.enabled = true;
         float time_left = time;

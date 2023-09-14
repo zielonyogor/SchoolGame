@@ -3,6 +3,8 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.InputSystem;
 
+
+//This is an old script, propably useless
 public class InputManager : MonoBehaviour
 {
     //public static InputManager instance;
