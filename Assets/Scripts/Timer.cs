@@ -50,6 +50,12 @@ public class Timer : MonoBehaviour
             yield return new WaitForFixedUpdate();
         }
         TimeUp = true;
+        DisableTimer();
+    }
+
+    public void DisableTimer()
+    {
+        StopAllCoroutines();
         bar.enabled = false;
         time_bar.enabled = false;
         time_bar.fillAmount = 1f;

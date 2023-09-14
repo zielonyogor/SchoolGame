@@ -11,6 +11,12 @@ public class DragDrop : MonoBehaviour
     private WaitForFixedUpdate waitForFixedUpdate;
     [SerializeField] float mouseDragTime = 1f;
     Vector2 velocity = Vector2.zero;
+
+    [SerializeField] private BoxCollider2D handCollider;
+    [SerializeField] private int goodItems = 3;
+
+    [SerializeField] private Timer timeScript;
+
     private void Awake()
     {
         mainCamera = Camera.main;
@@ -18,10 +24,16 @@ public class DragDrop : MonoBehaviour
         waitForFixedUpdate = new WaitForFixedUpdate();
     }
 
+    private void Start()
+    {
+        StartCoroutine(timeScript.DecreaseTimer(10f));
+    }
+
     private void OnEnable()
     {
         mouseClick.Enable();
         mouseClick.performed += OnDragDrop;
+        timeScript.OnTimeUp += GameEnd;
     }
     private void OnDisable()
     {
@@ -36,7 +48,7 @@ public class DragDrop : MonoBehaviour
 
         if (hit.collider != null)
         {
-            if(hit.collider.gameObject.CompareTag("DraggableCorrect") || hit.collider.gameObject.CompareTag("DraggableIncorrect"))
+            if( hit.collider.gameObject.CompareTag("DraggableIncorrect") || hit.collider.gameObject.CompareTag("DraggableCorrect"))
             {
             StartCoroutine(DragUpdate(hit.collider.gameObject));
             }
@@ -51,7 +63,34 @@ public class DragDrop : MonoBehaviour
             clickedObject.transform.position = Vector2.SmoothDamp(clickedObject.transform.position, point, ref velocity, mouseDragTime);
             yield return waitForFixedUpdate;
         }
-        yield return null;
+        CheckCollision(clickedObject);
     }
-    
+
+    private void CheckCollision(GameObject clickedObject)
+    {
+        BoxCollider2D collider = clickedObject.GetComponent<BoxCollider2D>();
+        if (Physics2D.IsTouching(collider, handCollider))
+        {
+            if (clickedObject.gameObject.CompareTag("DraggableCorrect"))
+            {
+                goodItems--;
+                clickedObject.tag = "Untagged";
+                if (goodItems == 0)
+                {
+                    UnityEngine.SceneManagement.SceneManager.LoadScene("LevelMenu");
+                }
+            }
+            else
+            {
+                GameEnd();
+            }
+        }
+    }
+
+    private void GameEnd()
+    {
+        timeScript.DisableTimer();
+        timeScript.OnTimeUp -= GameEnd;
+
+    }
 }

@@ -11,7 +11,7 @@ public class GameManager : MonoBehaviour
     private ActionMap actionMap;
     [SerializeField] private Rigidbody2D rb;
     [SerializeField] private float tiltForce = 5f;
-    [SerializeField] Vector2 m_centerOfMass;
+    //[SerializeField] Vector2 m_centerOfMass;
 
     private WaitForFixedUpdate waitForFixedUpdate;
 
@@ -23,17 +23,17 @@ public class GameManager : MonoBehaviour
     }
     private void Start()
     {
-        timeScript.OnTimeUp += GameEnd;
-        var r = Random.Range(-15f, 15f);
-        rb.rotation = r;
-        Debug.Log(r);
+        float rotate = Random.Range(5f, 15f) * ((int)Random.Range(0,2) == 0 ? -1 : 1);
+        rb.rotation = rotate;
         StartCoroutine(CheckRotation());
+        StartCoroutine(timeScript.DecreaseTimer(10f));
     }
 
     private void OnEnable()
     {
         actionMap.Enable();
         actionMap.Gameplay.Tilt.performed += OnTilt;
+        timeScript.OnTimeUp += GameCompleted;
     }
     private void OnDisable()
     {
@@ -53,7 +53,14 @@ public class GameManager : MonoBehaviour
     private void GameEnd()
     {
         Debug.Log("Game ended");
-        timeScript.OnTimeUp -= GameEnd;
+        timeScript.DisableTimer();
+        timeScript.OnTimeUp -= GameCompleted;
+    }
+
+    private void GameCompleted()
+    {
+        timeScript.OnTimeUp -= GameCompleted;
+        UnityEngine.SceneManagement.SceneManager.LoadScene("LevelMenu");
     }
 
     private void OnTilt(InputAction.CallbackContext context)
@@ -61,26 +68,17 @@ public class GameManager : MonoBehaviour
         float tiltValue = context.ReadValue<float>();
         if (tiltValue != 0)
         {
-            Debug.Log("tilt action");
             rb.AddTorque(tiltValue * tiltForce);
         }
     }
 
-    private void OnDrawGizmosSelected()
-    {
-        Vector2 worldCenterOfMass = transform.TransformPoint(m_centerOfMass);
-        Gizmos.color = Color.cyan;
-        Gizmos.DrawSphere(transform.TransformPoint(m_centerOfMass), 0.1f);
-        Gizmos.DrawLine(worldCenterOfMass + Vector2.up, worldCenterOfMass - Vector2.up);
-        Gizmos.DrawLine(worldCenterOfMass + Vector2.right, worldCenterOfMass - Vector2.right);
-    }
-
-    //private void Update()
+    //private void OnDrawGizmosSelected()
     //{
-    //    if (Input.GetKeyDown("1"))
-    //    {
-    //        StartCoroutine(timeScript.DecreaseTimer(10f));
-    //    }
+    //    Vector2 worldCenterOfMass = transform.TransformPoint(m_centerOfMass);
+    //    Gizmos.color = Color.cyan;
+    //    Gizmos.DrawSphere(transform.TransformPoint(m_centerOfMass), 0.1f);
+    //    Gizmos.DrawLine(worldCenterOfMass + Vector2.up, worldCenterOfMass - Vector2.up);
+    //    Gizmos.DrawLine(worldCenterOfMass + Vector2.right, worldCenterOfMass - Vector2.right);
     //}
 
 }
