@@ -44,6 +44,15 @@ public partial class @ActionMap: IInputActionCollection2, IDisposable
                     ""processors"": """",
                     ""interactions"": """",
                     ""initialStateCheck"": false
+                },
+                {
+                    ""name"": ""MoveBar"",
+                    ""type"": ""Button"",
+                    ""id"": ""3a86df02-7878-45bb-a43c-7bdf6be83943"",
+                    ""expectedControlType"": ""Button"",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": false
                 }
             ],
             ""bindings"": [
@@ -88,6 +97,17 @@ public partial class @ActionMap: IInputActionCollection2, IDisposable
                     ""processors"": """",
                     ""groups"": """",
                     ""action"": ""DragDrop"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""f9563256-2c51-4072-9b80-1983b22bc9cf"",
+                    ""path"": ""<Keyboard>/space"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""MoveBar"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
                 }
@@ -616,6 +636,7 @@ public partial class @ActionMap: IInputActionCollection2, IDisposable
         m_Gameplay = asset.FindActionMap("Gameplay", throwIfNotFound: true);
         m_Gameplay_Tilt = m_Gameplay.FindAction("Tilt", throwIfNotFound: true);
         m_Gameplay_DragDrop = m_Gameplay.FindAction("DragDrop", throwIfNotFound: true);
+        m_Gameplay_MoveBar = m_Gameplay.FindAction("MoveBar", throwIfNotFound: true);
         // UI
         m_UI = asset.FindActionMap("UI", throwIfNotFound: true);
         m_UI_Navigate = m_UI.FindAction("Navigate", throwIfNotFound: true);
@@ -691,12 +712,14 @@ public partial class @ActionMap: IInputActionCollection2, IDisposable
     private List<IGameplayActions> m_GameplayActionsCallbackInterfaces = new List<IGameplayActions>();
     private readonly InputAction m_Gameplay_Tilt;
     private readonly InputAction m_Gameplay_DragDrop;
+    private readonly InputAction m_Gameplay_MoveBar;
     public struct GameplayActions
     {
         private @ActionMap m_Wrapper;
         public GameplayActions(@ActionMap wrapper) { m_Wrapper = wrapper; }
         public InputAction @Tilt => m_Wrapper.m_Gameplay_Tilt;
         public InputAction @DragDrop => m_Wrapper.m_Gameplay_DragDrop;
+        public InputAction @MoveBar => m_Wrapper.m_Gameplay_MoveBar;
         public InputActionMap Get() { return m_Wrapper.m_Gameplay; }
         public void Enable() { Get().Enable(); }
         public void Disable() { Get().Disable(); }
@@ -712,6 +735,9 @@ public partial class @ActionMap: IInputActionCollection2, IDisposable
             @DragDrop.started += instance.OnDragDrop;
             @DragDrop.performed += instance.OnDragDrop;
             @DragDrop.canceled += instance.OnDragDrop;
+            @MoveBar.started += instance.OnMoveBar;
+            @MoveBar.performed += instance.OnMoveBar;
+            @MoveBar.canceled += instance.OnMoveBar;
         }
 
         private void UnregisterCallbacks(IGameplayActions instance)
@@ -722,6 +748,9 @@ public partial class @ActionMap: IInputActionCollection2, IDisposable
             @DragDrop.started -= instance.OnDragDrop;
             @DragDrop.performed -= instance.OnDragDrop;
             @DragDrop.canceled -= instance.OnDragDrop;
+            @MoveBar.started -= instance.OnMoveBar;
+            @MoveBar.performed -= instance.OnMoveBar;
+            @MoveBar.canceled -= instance.OnMoveBar;
         }
 
         public void RemoveCallbacks(IGameplayActions instance)
@@ -861,6 +890,7 @@ public partial class @ActionMap: IInputActionCollection2, IDisposable
     {
         void OnTilt(InputAction.CallbackContext context);
         void OnDragDrop(InputAction.CallbackContext context);
+        void OnMoveBar(InputAction.CallbackContext context);
     }
     public interface IUIActions
     {
