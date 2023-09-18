@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.UI;
-using static Unity.VisualScripting.Metadata;
+//using static Unity.VisualScripting.Metadata;
 
 public class DraggableManager : MonoBehaviour
 {
@@ -28,7 +28,7 @@ public class DraggableManager : MonoBehaviour
             int randomIndex = Random.Range(0, items.Count - i);
             pickedChildren.Add(items[randomIndex]);
             items[randomIndex].gameObject.tag = "DraggableCorrect";
-            images[i].color = items[randomIndex].GetComponent<SpriteRenderer>().color;
+            images[i].sprite = items[randomIndex].GetComponent<SpriteRenderer>().sprite;
             items.RemoveAt(randomIndex);
         }
         //foreach (Transform pickedChild in pickedChildren)
