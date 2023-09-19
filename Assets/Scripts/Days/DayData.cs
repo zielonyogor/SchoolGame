@@ -8,6 +8,7 @@ public class DayData : ScriptableObject
     public List<string> miniGames;
 
     public bool isCutscene = false;
+    public string cutscene = "";
 
     public string dialogue = "";
 

@@ -12,7 +12,7 @@ public class LevelSelector : MonoBehaviour
     }
     public void LoadScene(int day)
     {
-        GlobalVariables.Set("currentDay", day);
+        //GlobalVariables.Set("currentDay", day); - nie ma tego juz
         SceneManager.LoadScene("DialogueGame");
     }
 }

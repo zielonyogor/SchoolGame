@@ -13,6 +13,9 @@ MonoBehaviour:
   m_Name: Day_1
   m_EditorClassIdentifier: 
   miniGames: []
+  isCutscene: 0
+  cutscene: 
   dialogue: 
   numberOfMeds: -1
   time: 0
+  timeBalance: -1
