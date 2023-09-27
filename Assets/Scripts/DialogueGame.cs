@@ -7,17 +7,16 @@ public class DialogueGame : MonoBehaviour
     private List<Transform> DialogueButtons = new List<Transform>();
     private int expectedID;
 
-    [SerializeField] Timer timeScript;
     void Start()
     {
         expectedID = 0;
-        timeScript.OnTimeUp += GameEnd;
+        Timer.instance.OnTimeUp += GameEnd;
         foreach (Transform child in transform)
         {
             DialogueButtons.Add(child);
         }
         //Debug.Log(GlobalVariables.Get<int>("currentDay"));
-        StartCoroutine(timeScript.DecreaseTimer(5f));
+        StartCoroutine(Timer.instance.DecreaseTimer(5f));
     }
 
 
@@ -44,6 +43,6 @@ public class DialogueGame : MonoBehaviour
         {
             child.gameObject.SetActive(false);
         }
-        timeScript.OnTimeUp -= GameEnd;
+        Timer.instance.OnTimeUp -= GameEnd;
     }
 }

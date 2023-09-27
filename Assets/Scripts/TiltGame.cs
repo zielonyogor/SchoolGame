@@ -6,7 +6,6 @@ using static UnityEngine.Rendering.DebugUI;
 
 public class GameManager : MonoBehaviour
 {
-    [SerializeField]private Timer timeScript;
 
     private ActionMap actionMap;
     [SerializeField] private Rigidbody2D rb;
@@ -24,14 +23,14 @@ public class GameManager : MonoBehaviour
         float rotate = Random.Range(5f, 15f) * ((int)Random.Range(0,2) == 0 ? -1 : 1);
         rb.rotation = rotate;
         StartCoroutine(CheckRotation());
-        StartCoroutine(timeScript.DecreaseTimer(10f));
+        StartCoroutine(Timer.instance.DecreaseTimer(10f));
     }
 
     private void OnEnable()
     {
         actionMap.Enable();
         actionMap.Gameplay.Tilt.performed += OnTilt;
-        timeScript.OnTimeUp += GameCompleted;
+        Timer.instance.OnTimeUp += GameCompleted;
     }
     private void OnDisable()
     {
@@ -51,14 +50,14 @@ public class GameManager : MonoBehaviour
     private void GameEnd()
     {
         Debug.Log("Game ended");
-        timeScript.DisableTimer();
-        timeScript.OnTimeUp -= GameCompleted;
+        Timer.instance.DisableTimer();
+        Timer.instance.OnTimeUp -= GameCompleted;
         rb.bodyType = RigidbodyType2D.Static;
     }
 
     private void GameCompleted()
     {
-        timeScript.OnTimeUp -= GameCompleted;
+        Timer.instance.OnTimeUp -= GameCompleted;
         UnityEngine.SceneManagement.SceneManager.LoadScene("LevelMenu");
     }
 

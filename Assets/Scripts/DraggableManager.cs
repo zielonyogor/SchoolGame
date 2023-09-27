@@ -26,6 +26,7 @@ public class DraggableManager : MonoBehaviour
             int randomIndex = Random.Range(0, items.Count - i);
             pickedChildren.Add(items[randomIndex]);
             items[randomIndex].gameObject.tag = "DraggableCorrect";
+            items[randomIndex].transform.rotation = Quaternion.Euler(0, 0, Random.Range(-80,80));
             images[i].sprite = items[randomIndex].GetComponent<SpriteRenderer>().sprite;
             items.RemoveAt(randomIndex);
         }

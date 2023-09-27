@@ -15,8 +15,6 @@ public class DragDrop : MonoBehaviour
     [SerializeField] private BoxCollider2D handCollider;
     [SerializeField] private int goodItems = 3;
 
-    [SerializeField] private Timer timeScript;
-
     private void Awake()
     {
         mainCamera = Camera.main;
@@ -26,14 +24,14 @@ public class DragDrop : MonoBehaviour
 
     private void Start()
     {
-        StartCoroutine(timeScript.DecreaseTimer(10f));
+        StartCoroutine(Timer.instance.DecreaseTimer(10f));
     }
 
     private void OnEnable()
     {
         mouseClick.Enable();
         mouseClick.performed += OnDragDrop;
-        timeScript.OnTimeUp += GameEnd;
+        Timer.instance.OnTimeUp += GameEnd;
     }
     private void OnDisable()
     {
@@ -89,8 +87,8 @@ public class DragDrop : MonoBehaviour
 
     private void GameEnd()
     {
-        timeScript.DisableTimer();
-        timeScript.OnTimeUp -= GameEnd;
+        Timer.instance.DisableTimer();
+        Timer.instance.OnTimeUp -= GameEnd;
 
     }
 }

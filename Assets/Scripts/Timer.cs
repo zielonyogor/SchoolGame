@@ -5,6 +5,7 @@ using UnityEngine.UI;
 
 public class Timer : MonoBehaviour
 {
+    public static Timer instance {get; private set; }
     private Image time_bar;
     private Image bar;
 
