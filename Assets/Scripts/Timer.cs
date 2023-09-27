@@ -10,6 +10,19 @@ public class Timer : MonoBehaviour
     private Image bar;
 
     private bool m_TimeUp= false;
+
+    private void Awake()
+    {
+        if (instance == null)
+        {
+            instance = this;
+        }
+        else
+        {
+            Destroy(gameObject);
+        }
+    }
+
     public bool TimeUp
     {
         get

@@ -15,7 +15,6 @@ public class DialogueGame : MonoBehaviour
         {
             DialogueButtons.Add(child);
         }
-        //Debug.Log(GlobalVariables.Get<int>("currentDay"));
         StartCoroutine(Timer.instance.DecreaseTimer(5f));
     }
 
@@ -43,6 +42,7 @@ public class DialogueGame : MonoBehaviour
         {
             child.gameObject.SetActive(false);
         }
+        Timer.instance.DisableTimer();
         Timer.instance.OnTimeUp -= GameEnd;
     }
 }
