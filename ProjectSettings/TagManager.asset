@@ -6,6 +6,7 @@ TagManager:
   tags:
   - DraggableIncorrect
   - DraggableCorrect
+  - PuzzlePiece
   layers:
   - Default
   - TransparentFX
