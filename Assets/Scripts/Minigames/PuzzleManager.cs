@@ -1,12 +1,10 @@
 using System.Collections;
 using System.Collections.Generic;
-using System.Drawing;
 using UnityEngine;
-using UnityEngine.UIElements;
 
 public class PuzzleManager : MonoBehaviour
 {
-    public int numberOfPuzzles = 3; //this one needs to be implemented with level_so
+    private int numberOfPuzzles;
 
     private Camera mainCamera;
 
@@ -18,6 +16,7 @@ public class PuzzleManager : MonoBehaviour
     void Start()
     {
         mainCamera = Camera.main;
+        numberOfPuzzles = MiniGameManager.instance.dayInfo.numberOfPuzzles;
         for(int i = 0; i < numberOfPuzzles; i++)
         {
             puzzleHoles.Add(transform.GetChild(i));

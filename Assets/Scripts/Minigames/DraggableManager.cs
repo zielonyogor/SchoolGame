@@ -30,10 +30,6 @@ public class DraggableManager : MonoBehaviour
             images[i].sprite = items[randomIndex].GetComponent<SpriteRenderer>().sprite;
             items.RemoveAt(randomIndex);
         }
-        //foreach (Transform pickedChild in pickedChildren)
-        //{
-        //    Debug.Log("Picked child: " + pickedChild.name);
-        //}
     }
 
 }

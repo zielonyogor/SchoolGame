@@ -6,13 +6,8 @@ using UnityEngine.SceneManagement;
 public class LevelSelector : MonoBehaviour
 {
 
-    public void LoadSelector()
+    public void LoadScene(DayData day)
     {
-        
-    }
-    public void LoadScene(int day)
-    {
-        //GlobalVariables.Set("currentDay", day); - nie ma tego juz
-        SceneManager.LoadScene("DialogueGame");
+        MiniGameManager.instance.LoadDay(day);
     }
 }

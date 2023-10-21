@@ -4,7 +4,7 @@ using Unity.Collections.LowLevel.Unsafe;
 using UnityEngine;
 using UnityEngine.InputSystem;
 
-public class Puzzle : MonoBehaviour
+public class Puzzle : MonoBehaviour, IMiniGame
 {
     private Camera mainCamera;
     private InputAction mouseClick;
@@ -13,7 +13,7 @@ public class Puzzle : MonoBehaviour
     [SerializeField] float mouseDragTime = 1f;
     Vector2 velocity = Vector2.zero;
 
-    public int numberOfPuzzles = 3;
+    private int numberOfPuzzles;
 
     private void Awake()
     {
@@ -24,6 +24,7 @@ public class Puzzle : MonoBehaviour
 
     private void Start()
     {
+        numberOfPuzzles = MiniGameManager.instance.dayInfo.numberOfPuzzles;
         StartCoroutine(Timer.instance.DecreaseTimer(10f));
     }
 
@@ -69,19 +70,24 @@ public class Puzzle : MonoBehaviour
         BoxCollider2D collider = clickedObject.GetComponent<BoxCollider2D>();
         if (Physics2D.IsTouching(collider, clickedObject.transform.parent.GetComponent<BoxCollider2D>()))
         {
-            Debug.Log("yay");
             clickedObject.tag = "Untagged";
             numberOfPuzzles--;
         }
         if (numberOfPuzzles == 0)
         {
-            UnityEngine.SceneManagement.SceneManager.LoadScene("LevelMenu");
+            GameFinished();
         }
     }
 
-    private void GameEnd()
+    public void GameEnd()
     {
         Timer.instance.DisableTimer();
-        Timer.instance.OnTimeUp -= GameEnd;
+        //Timer.instance.OnTimeUp -= GameEnd;
+        MiniGameManager.instance.NextLevel();
+    }
+
+    public void GameFinished()
+    {
+        MiniGameManager.instance.NextLevel();
     }
 }

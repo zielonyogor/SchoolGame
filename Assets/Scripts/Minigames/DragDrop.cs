@@ -3,14 +3,14 @@ using UnityEngine;
 using UnityEngine.InputSystem;
 using static UnityEngine.Rendering.DebugUI;
 
-public class DragDrop : MonoBehaviour
+public class DragDrop : MonoBehaviour, IMiniGame
 {
     private Camera mainCamera;
     private InputAction mouseClick;
 
     private WaitForFixedUpdate waitForFixedUpdate;
-    [SerializeField] float mouseDragTime = 1f;
     Vector2 velocity = Vector2.zero;
+    [SerializeField] float mouseDragTime = 1f;
 
     [SerializeField] private BoxCollider2D handCollider;
     [SerializeField] private int goodItems = 3;
@@ -75,7 +75,7 @@ public class DragDrop : MonoBehaviour
                 clickedObject.tag = "Untagged";
                 if (goodItems == 0)
                 {
-                    UnityEngine.SceneManagement.SceneManager.LoadScene("LevelMenu");
+                    MiniGameManager.instance.NextLevel();
                 }
             }
             else
@@ -85,10 +85,17 @@ public class DragDrop : MonoBehaviour
         }
     }
 
-    private void GameEnd()
+    public void GameEnd()
     {
         Timer.instance.DisableTimer();
         Timer.instance.OnTimeUp -= GameEnd;
+        //tu trzeba przegrac
+        MiniGameManager.instance.NextLevel();
+    }
 
+    public void GameFinished()
+    {
+        Timer.instance.DisableTimer();
+        MiniGameManager.instance.NextLevel();
     }
 }

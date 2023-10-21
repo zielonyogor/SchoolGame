@@ -1,19 +1,29 @@
 using System.Collections;
 using System.Collections.Generic;
+using System.Linq;
 using UnityEngine;
 
-public class DialogueGame : MonoBehaviour
+public class DialogueGame : MonoBehaviour, IMiniGame
 {
-    private List<Transform> DialogueButtons = new List<Transform>();
+    private List<Transform> DialogueButtons = new();
+    private string[] dialogueParts;
     private int expectedID;
+    private int numberOfButtons;
 
     void Start()
     {
+        dialogueParts = MiniGameManager.instance.dayInfo.dialogue.Split('_');
+
         expectedID = 0;
+        numberOfButtons = dialogueParts.Length;
+
         Timer.instance.OnTimeUp += GameEnd;
-        foreach (Transform child in transform)
+
+        for (int i = 0; i < numberOfButtons; i++)
         {
-            DialogueButtons.Add(child);
+            DialogueButtons.Add(transform.GetChild(i));
+            DialogueButtons[i].gameObject.SetActive(true);
+            //need to also change text here
         }
         StartCoroutine(Timer.instance.DecreaseTimer(5f));
     }
@@ -25,24 +35,27 @@ public class DialogueGame : MonoBehaviour
             expectedID += 1;
         else
         {
-            Debug.Log("Wrong!");
             GameEnd();
         }
         if (DialogueButtons.Count == expectedID)
         {
-            Debug.Log("Yay!");
             UnityEngine.SceneManagement.SceneManager.LoadScene("LevelMenu");
         }
     }
 
-    private void GameEnd()
+    public void GameEnd()
     {
-        Debug.Log("Game ended");
         foreach (Transform child in DialogueButtons)
         {
             child.gameObject.SetActive(false);
         }
         Timer.instance.DisableTimer();
         Timer.instance.OnTimeUp -= GameEnd;
+        MiniGameManager.instance.NextLevel();
+    }
+
+    public void GameFinished()
+    {
+        MiniGameManager.instance.NextLevel();
     }
 }

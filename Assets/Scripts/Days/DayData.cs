@@ -14,6 +14,7 @@ public class DayData : ScriptableObject
 
     public int numberOfMeds = -1;
 
+    public int numberOfPuzzles = -1;
+
     public float time;
-    public float timeBalance = -1f;
 }

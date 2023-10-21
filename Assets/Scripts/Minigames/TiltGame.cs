@@ -5,7 +5,7 @@ using UnityEngine.InputSystem;
 using UnityEngine.UIElements;
 using static UnityEngine.Rendering.DebugUI;
 
-public class GameManager : MonoBehaviour
+public class GameManager : MonoBehaviour, IMiniGame
 {
 
     private ActionMap actionMap;
@@ -25,6 +25,7 @@ public class GameManager : MonoBehaviour
     {
         float startTilt = (int)Random.Range(0,2) == 0 ? -1 : 1;
         rb.AddTorque(startTilt * tiltForce);
+        Timer.instance.isDecreasing = false;
         StartCoroutine(CheckRotation());
         StartCoroutine(Timer.instance.DecreaseTimer(10f));
     }
@@ -33,7 +34,7 @@ public class GameManager : MonoBehaviour
     {
         actionMap.Enable();
         actionMap.Gameplay.Tilt.performed += OnTilt;
-        Timer.instance.OnTimeUp += GameCompleted;
+        Timer.instance.OnTimeUp += GameFinished;
     }
     private void OnDisable()
     {
@@ -50,37 +51,27 @@ public class GameManager : MonoBehaviour
         GameEnd();
     }
 
-    private void GameEnd()
-    {
-        StopAllCoroutines();
-        Debug.Log("Game ended");
-        Timer.instance.DisableTimer();
-        Timer.instance.OnTimeUp -= GameCompleted;
-        rb.bodyType = RigidbodyType2D.Static;
-    }
-
-    private void GameCompleted()
-    {
-        Timer.instance.OnTimeUp -= GameCompleted;
-        UnityEngine.SceneManagement.SceneManager.LoadScene("LevelMenu");
-    }
 
     private void OnTilt(InputAction.CallbackContext context)
     {
         float tiltValue = context.ReadValue<float>();
         if (tiltValue != 0)
         {
-            Debug.Log(tiltValue);
             rb.AddTorque(tiltValue * tiltForce);
         }
     }
 
-    private void OnDrawGizmosSelected()
+    public void GameEnd()
     {
-        Vector2 worldCenterOfMass = transform.TransformPoint(m_centerOfMass);
-        Gizmos.color = Color.cyan;
-        Gizmos.DrawSphere(transform.TransformPoint(m_centerOfMass), 0.1f);
-        Gizmos.DrawLine(worldCenterOfMass + Vector2.up, worldCenterOfMass - Vector2.up);
-        Gizmos.DrawLine(worldCenterOfMass + Vector2.right, worldCenterOfMass - Vector2.right);
+        StopAllCoroutines();
+        Timer.instance.DisableTimer();
+        rb.bodyType = RigidbodyType2D.Static;
+        MiniGameManager.instance.NextLevel();
+    }
+
+    public void GameFinished()
+    {
+        Timer.instance.OnTimeUp -= GameFinished;
+        MiniGameManager.instance.NextLevel();
     }
 }

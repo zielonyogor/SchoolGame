@@ -6,6 +6,7 @@ using UnityEngine.UI;
 public class Timer : MonoBehaviour
 {
     public static Timer instance {get; private set; }
+    public bool isDecreasing = true;
     private Image time_bar;
     private Image bar;
 
@@ -57,11 +58,23 @@ public class Timer : MonoBehaviour
         time_bar.enabled = true;
         bar.enabled = true;
         float time_left = time;
-        while(time_left > 0)
+        if(isDecreasing)
         {
-            time_left -= Time.deltaTime;
-            time_bar.fillAmount = time_left / time;
-            yield return new WaitForFixedUpdate();
+            while (time_left > 0)
+            {
+                time_left -= Time.deltaTime;
+                time_bar.fillAmount = time_left / time;
+                yield return new WaitForFixedUpdate();
+            }
+        }
+        else
+        {
+            while (time_left > 0)
+            {
+                time_left -= Time.deltaTime;
+                time_bar.fillAmount = (time - time_left) / time;
+                yield return new WaitForFixedUpdate();
+            }
         }
         TimeUp = true;
         DisableTimer();
