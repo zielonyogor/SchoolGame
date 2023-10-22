@@ -12,6 +12,8 @@ public class Timer : MonoBehaviour
 
     private bool m_TimeUp= false;
 
+    [SerializeField] private GameObject timingObject;
+
     private void Awake()
     {
         if (instance == null)
@@ -55,6 +57,8 @@ public class Timer : MonoBehaviour
     public IEnumerator DecreaseTimer(float time)
     {
         yield return new WaitForFixedUpdate();
+        float spawnPrefabTime = Random.Range(1f, time - 4f);
+        StartCoroutine(SpawnTimingGame(spawnPrefabTime));
         time_bar.enabled = true;
         bar.enabled = true;
         float time_left = time;
@@ -78,6 +82,16 @@ public class Timer : MonoBehaviour
         }
         TimeUp = true;
         DisableTimer();
+    }
+
+    //probably move to minigameManager
+    private IEnumerator SpawnTimingGame(float time)
+    {
+        Debug.Log("meow");
+        yield return new WaitForSeconds(time);
+        Debug.Log("meowmeow");
+        Instantiate(timingObject, new Vector3(0,0,0), Quaternion.identity);
+        yield return null;
     }
 
     public void DisableTimer()

@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
 using UnityEngine;
+using TMPro;
 
 public class DialogueGame : MonoBehaviour, IMiniGame
 {
@@ -23,9 +24,9 @@ public class DialogueGame : MonoBehaviour, IMiniGame
         {
             DialogueButtons.Add(transform.GetChild(i));
             DialogueButtons[i].gameObject.SetActive(true);
-            //need to also change text here
+            DialogueButtons[i].GetChild(0).GetComponent<TextMeshProUGUI>().text = dialogueParts[i];
         }
-        StartCoroutine(Timer.instance.DecreaseTimer(5f));
+        StartCoroutine(Timer.instance.DecreaseTimer(MiniGameManager.instance.dayInfo.time));
     }
 
 

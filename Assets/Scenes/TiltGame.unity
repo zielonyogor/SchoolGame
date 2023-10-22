@@ -392,7 +392,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   rb: {fileID: 334680960}
-  tiltForce: 4000
+  tiltForce: 100000
   m_centerOfMass: {x: 0, y: 0}
 --- !u!61 &334680965
 BoxCollider2D:

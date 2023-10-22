@@ -164,3 +164,5 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3f23a7b16d2e6eb40a4f67df12a29e98, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  isDecreasing: 1
+  timingObject: {fileID: 6455216028456204200, guid: a10e31a7bda3b664d9fdd7c42ddc8fa0, type: 3}

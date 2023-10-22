@@ -46,15 +46,6 @@ public partial class @ActionMap: IInputActionCollection2, IDisposable
                     ""initialStateCheck"": false
                 },
                 {
-                    ""name"": ""MoveBar"",
-                    ""type"": ""Button"",
-                    ""id"": ""3a86df02-7878-45bb-a43c-7bdf6be83943"",
-                    ""expectedControlType"": ""Button"",
-                    ""processors"": """",
-                    ""interactions"": """",
-                    ""initialStateCheck"": false
-                },
-                {
                     ""name"": ""StopBar"",
                     ""type"": ""Button"",
                     ""id"": ""8dcf2f9e-4ea6-469e-813b-f4333ec09dfe"",
@@ -106,17 +97,6 @@ public partial class @ActionMap: IInputActionCollection2, IDisposable
                     ""processors"": """",
                     ""groups"": """",
                     ""action"": ""DragDrop"",
-                    ""isComposite"": false,
-                    ""isPartOfComposite"": false
-                },
-                {
-                    ""name"": """",
-                    ""id"": ""f9563256-2c51-4072-9b80-1983b22bc9cf"",
-                    ""path"": ""<Keyboard>/space"",
-                    ""interactions"": """",
-                    ""processors"": """",
-                    ""groups"": """",
-                    ""action"": ""MoveBar"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
                 },
@@ -656,7 +636,6 @@ public partial class @ActionMap: IInputActionCollection2, IDisposable
         m_Gameplay = asset.FindActionMap("Gameplay", throwIfNotFound: true);
         m_Gameplay_Tilt = m_Gameplay.FindAction("Tilt", throwIfNotFound: true);
         m_Gameplay_DragDrop = m_Gameplay.FindAction("DragDrop", throwIfNotFound: true);
-        m_Gameplay_MoveBar = m_Gameplay.FindAction("MoveBar", throwIfNotFound: true);
         m_Gameplay_StopBar = m_Gameplay.FindAction("StopBar", throwIfNotFound: true);
         // UI
         m_UI = asset.FindActionMap("UI", throwIfNotFound: true);
@@ -733,7 +712,6 @@ public partial class @ActionMap: IInputActionCollection2, IDisposable
     private List<IGameplayActions> m_GameplayActionsCallbackInterfaces = new List<IGameplayActions>();
     private readonly InputAction m_Gameplay_Tilt;
     private readonly InputAction m_Gameplay_DragDrop;
-    private readonly InputAction m_Gameplay_MoveBar;
     private readonly InputAction m_Gameplay_StopBar;
     public struct GameplayActions
     {
@@ -741,7 +719,6 @@ public partial class @ActionMap: IInputActionCollection2, IDisposable
         public GameplayActions(@ActionMap wrapper) { m_Wrapper = wrapper; }
         public InputAction @Tilt => m_Wrapper.m_Gameplay_Tilt;
         public InputAction @DragDrop => m_Wrapper.m_Gameplay_DragDrop;
-        public InputAction @MoveBar => m_Wrapper.m_Gameplay_MoveBar;
         public InputAction @StopBar => m_Wrapper.m_Gameplay_StopBar;
         public InputActionMap Get() { return m_Wrapper.m_Gameplay; }
         public void Enable() { Get().Enable(); }
@@ -758,9 +735,6 @@ public partial class @ActionMap: IInputActionCollection2, IDisposable
             @DragDrop.started += instance.OnDragDrop;
             @DragDrop.performed += instance.OnDragDrop;
             @DragDrop.canceled += instance.OnDragDrop;
-            @MoveBar.started += instance.OnMoveBar;
-            @MoveBar.performed += instance.OnMoveBar;
-            @MoveBar.canceled += instance.OnMoveBar;
             @StopBar.started += instance.OnStopBar;
             @StopBar.performed += instance.OnStopBar;
             @StopBar.canceled += instance.OnStopBar;
@@ -774,9 +748,6 @@ public partial class @ActionMap: IInputActionCollection2, IDisposable
             @DragDrop.started -= instance.OnDragDrop;
             @DragDrop.performed -= instance.OnDragDrop;
             @DragDrop.canceled -= instance.OnDragDrop;
-            @MoveBar.started -= instance.OnMoveBar;
-            @MoveBar.performed -= instance.OnMoveBar;
-            @MoveBar.canceled -= instance.OnMoveBar;
             @StopBar.started -= instance.OnStopBar;
             @StopBar.performed -= instance.OnStopBar;
             @StopBar.canceled -= instance.OnStopBar;
@@ -919,7 +890,6 @@ public partial class @ActionMap: IInputActionCollection2, IDisposable
     {
         void OnTilt(InputAction.CallbackContext context);
         void OnDragDrop(InputAction.CallbackContext context);
-        void OnMoveBar(InputAction.CallbackContext context);
         void OnStopBar(InputAction.CallbackContext context);
     }
     public interface IUIActions

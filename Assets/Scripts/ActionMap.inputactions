@@ -24,15 +24,6 @@
                     "initialStateCheck": false
                 },
                 {
-                    "name": "MoveBar",
-                    "type": "Button",
-                    "id": "3a86df02-7878-45bb-a43c-7bdf6be83943",
-                    "expectedControlType": "Button",
-                    "processors": "",
-                    "interactions": "",
-                    "initialStateCheck": false
-                },
-                {
                     "name": "StopBar",
                     "type": "Button",
                     "id": "8dcf2f9e-4ea6-469e-813b-f4333ec09dfe",
@@ -84,17 +75,6 @@
                     "processors": "",
                     "groups": "",
                     "action": "DragDrop",
-                    "isComposite": false,
-                    "isPartOfComposite": false
-                },
-                {
-                    "name": "",
-                    "id": "f9563256-2c51-4072-9b80-1983b22bc9cf",
-                    "path": "<Keyboard>/space",
-                    "interactions": "",
-                    "processors": "",
-                    "groups": "",
-                    "action": "MoveBar",
                     "isComposite": false,
                     "isPartOfComposite": false
                 },

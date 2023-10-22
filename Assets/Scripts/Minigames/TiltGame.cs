@@ -27,7 +27,9 @@ public class GameManager : MonoBehaviour, IMiniGame
         rb.AddTorque(startTilt * tiltForce);
         Timer.instance.isDecreasing = false;
         StartCoroutine(CheckRotation());
-        StartCoroutine(Timer.instance.DecreaseTimer(10f));
+        //in tilt game it should be a little different, the harder it gets the more time you have to spend tilting
+        StartCoroutine(Timer.instance.DecreaseTimer(MiniGameManager.instance.dayInfo.time));
+        //StartCoroutine(Timer.instance.DecreaseTimer(10f));
     }
 
     private void OnEnable()
@@ -44,7 +46,7 @@ public class GameManager : MonoBehaviour, IMiniGame
 
     private IEnumerator CheckRotation()
     {
-        while (Mathf.Abs(rb.rotation) < 30f)
+        while (Mathf.Abs(rb.rotation) < 20f)
         {
             yield return waitForFixedUpdate;
         }

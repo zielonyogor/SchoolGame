@@ -25,7 +25,7 @@ public class Puzzle : MonoBehaviour, IMiniGame
     private void Start()
     {
         numberOfPuzzles = MiniGameManager.instance.dayInfo.numberOfPuzzles;
-        StartCoroutine(Timer.instance.DecreaseTimer(10f));
+        StartCoroutine(Timer.instance.DecreaseTimer(MiniGameManager.instance.dayInfo.time));
     }
 
     private void OnEnable()

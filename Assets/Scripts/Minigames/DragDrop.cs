@@ -24,7 +24,7 @@ public class DragDrop : MonoBehaviour, IMiniGame
 
     private void Start()
     {
-        StartCoroutine(Timer.instance.DecreaseTimer(10f));
+        StartCoroutine(Timer.instance.DecreaseTimer(MiniGameManager.instance.dayInfo.time));
     }
 
     private void OnEnable()
