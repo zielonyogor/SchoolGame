@@ -11,7 +11,6 @@ public class GameManager : MonoBehaviour, IMiniGame
     private ActionMap actionMap;
     [SerializeField] private Rigidbody2D rb;
     [SerializeField] private float tiltForce = 5f;
-    [SerializeField] Vector2 m_centerOfMass;
 
     private WaitForFixedUpdate waitForFixedUpdate;
 
@@ -19,7 +18,6 @@ public class GameManager : MonoBehaviour, IMiniGame
     {
         actionMap = new ActionMap();
         waitForFixedUpdate = new WaitForFixedUpdate();
-        //rb.centerOfMass = m_centerOfMass;
     }
     private void Start()
     {
@@ -27,9 +25,8 @@ public class GameManager : MonoBehaviour, IMiniGame
         rb.AddTorque(startTilt * tiltForce);
         Timer.instance.isDecreasing = false;
         StartCoroutine(CheckRotation());
-        //in tilt game it should be a little different, the harder it gets the more time you have to spend tilting
+        //in tilt game it should be a little different, the harder it gets the more time you have to spend balansing
         StartCoroutine(Timer.instance.DecreaseTimer(MiniGameManager.instance.dayInfo.time));
-        //StartCoroutine(Timer.instance.DecreaseTimer(10f));
     }
 
     private void OnEnable()
@@ -56,6 +53,7 @@ public class GameManager : MonoBehaviour, IMiniGame
 
     private void OnTilt(InputAction.CallbackContext context)
     {
+        rb.velocity = Vector3.zero;
         float tiltValue = context.ReadValue<float>();
         if (tiltValue != 0)
         {

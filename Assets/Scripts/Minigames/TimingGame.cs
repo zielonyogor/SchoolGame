@@ -68,6 +68,7 @@ public class TimingGame : MonoBehaviour
         else
         {
             Debug.Log("does not");
+            Destroy(gameObject);
         }
     }
     bool rectOverlaps(RectTransform rectTrans1, RectTransform rectTrans2)
