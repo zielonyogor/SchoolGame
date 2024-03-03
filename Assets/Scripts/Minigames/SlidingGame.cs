@@ -1,56 +1,87 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.InputSystem;
 using UnityEngine.UIElements;
 
-public class SlidingGame : MonoBehaviour
+public class SlidingGame : MonoBehaviour /*, IMiniGame*/
 {
     private bool isMoving = false;
     private WaitForFixedUpdate waitForFixedUpdate;
 
     [SerializeField] Rigidbody2D player;
 
+    private InputAction turnHorizontal, turnVertical;
+    [SerializeField] LayerMask blockMask;
+
+    [SerializeField] float moveSpeed = 10f;
+
+    SpriteRenderer sRenderer;
+    float spriteWidth;
+
+
     private void Start()
     {
         waitForFixedUpdate = new WaitForFixedUpdate();
+        sRenderer = GetComponent<SpriteRenderer>();
+        spriteWidth = sRenderer.sprite.bounds.size.x * transform.lossyScale.x / 2;
     }
 
-    private void Update()
+    private void Awake()
     {
-        if (Input.GetKeyDown(KeyCode.RightArrow) && !isMoving)
-        {
-            //isMoving = true;
-            Debug.Log("prawo");
-            player.AddForce( new Vector2(100f, 0f));
+        turnHorizontal = new ActionMap().Gameplay.SlideHorizontal;
+        turnVertical = new ActionMap().Gameplay.SlideVertical;
+    }
 
-        }
-        else if (Input.GetKeyDown(KeyCode.LeftArrow) && !isMoving)
-        {
-            //isMoving = true;
-            Debug.Log("lewo");
+    private void OnEnable()
+    {
+        turnHorizontal.Enable();
+        turnVertical.Enable();
+        turnHorizontal.performed += SlideHorizontal; 
+        turnVertical.performed += SlideVertical;
+    }
 
-            player.AddForce(new Vector2(-100f, 0f));
-        }
-        else if (Input.GetKeyDown(KeyCode.UpArrow) && !isMoving)
+    void SlideHorizontal(InputAction.CallbackContext context)
+    {
+        
+        if (!isMoving)
         {
-            //isMoving = true;
-            Debug.Log("up");
-
-            player.AddForce(new Vector2(0f, 100f));
-        }
-        else if (Input.GetKeyDown(KeyCode.DownArrow) && !isMoving)
-        {
-            //isMoving = true;
-            Debug.Log("dul");
-
-            player.AddForce(new Vector2(0f, -100f));
+            isMoving = true;
+            StartCoroutine(Move(new Vector3(context.ReadValue<float>(), 0)));
         }
     }
 
-    //private IEnumerator MovePlayer(int dir)
-    //{
-    //    while ()
-    //    yield return new WaitForFixedUpdate();
-    //}
+    void SlideVertical(InputAction.CallbackContext context)
+    {
+        if (!isMoving)
+        {
+            isMoving = true;
+            StartCoroutine(Move(new Vector3(0, context.ReadValue<float>())));
+        }
+    }
 
+    private IEnumerator Move(Vector2 vec)
+    {
+        Vector2 currentPosition;
+        RaycastHit2D hit;
+        do
+        {
+            currentPosition = player.transform.position;
+            Debug.Log(currentPosition);
+            Vector2 newPosition = currentPosition + moveSpeed * vec;
+            hit = Physics2D.Raycast(currentPosition, vec, spriteWidth + 0.03f, blockMask);
+
+            //Debugging Raycast
+            Debug.DrawLine(currentPosition, currentPosition + ( spriteWidth + 0.03f) * vec, Color.green);
+
+            if (hit.collider != null)
+            {
+                break;
+            }
+            player.MovePosition(newPosition);
+            yield return waitForFixedUpdate;
+
+        } while (true);
+        isMoving = false;
+    }
 }

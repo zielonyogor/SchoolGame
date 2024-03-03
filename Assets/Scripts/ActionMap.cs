@@ -53,6 +53,24 @@ public partial class @ActionMap: IInputActionCollection2, IDisposable
                     ""processors"": """",
                     ""interactions"": """",
                     ""initialStateCheck"": false
+                },
+                {
+                    ""name"": ""SlideHorizontal"",
+                    ""type"": ""Button"",
+                    ""id"": ""058cf49e-3c0a-4704-bb47-f54fab2984f8"",
+                    ""expectedControlType"": ""Button"",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": false
+                },
+                {
+                    ""name"": ""SlideVertical"",
+                    ""type"": ""Button"",
+                    ""id"": ""5ef8fd6e-0150-4df4-85dd-e215a2ecaf12"",
+                    ""expectedControlType"": ""Button"",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": false
                 }
             ],
             ""bindings"": [
@@ -110,6 +128,72 @@ public partial class @ActionMap: IInputActionCollection2, IDisposable
                     ""action"": ""StopBar"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": ""Horizontal"",
+                    ""id"": ""d17f30bb-35de-4a3e-ba7a-fbab3caa94bb"",
+                    ""path"": ""1DAxis"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""SlideHorizontal"",
+                    ""isComposite"": true,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": ""negative"",
+                    ""id"": ""12705683-31e0-4ec6-b614-8af323d184ef"",
+                    ""path"": ""<Keyboard>/a"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""SlideHorizontal"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": true
+                },
+                {
+                    ""name"": ""positive"",
+                    ""id"": ""795b78ee-a0f2-4f47-ab3a-0663c2230a89"",
+                    ""path"": ""<Keyboard>/d"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""SlideHorizontal"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": true
+                },
+                {
+                    ""name"": ""Vertical"",
+                    ""id"": ""caa52952-0a7d-4371-b4fe-00c173c65ba4"",
+                    ""path"": ""1DAxis"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""SlideVertical"",
+                    ""isComposite"": true,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": ""negative"",
+                    ""id"": ""4b6f1fa3-c6e3-4662-8e06-4434b999a5f9"",
+                    ""path"": ""<Keyboard>/s"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""SlideVertical"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": true
+                },
+                {
+                    ""name"": ""positive"",
+                    ""id"": ""713ed5fd-abcd-4863-b8b3-d3047156ce0a"",
+                    ""path"": ""<Keyboard>/w"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""SlideVertical"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": true
                 }
             ]
         },
@@ -637,6 +721,8 @@ public partial class @ActionMap: IInputActionCollection2, IDisposable
         m_Gameplay_Tilt = m_Gameplay.FindAction("Tilt", throwIfNotFound: true);
         m_Gameplay_DragDrop = m_Gameplay.FindAction("DragDrop", throwIfNotFound: true);
         m_Gameplay_StopBar = m_Gameplay.FindAction("StopBar", throwIfNotFound: true);
+        m_Gameplay_SlideHorizontal = m_Gameplay.FindAction("SlideHorizontal", throwIfNotFound: true);
+        m_Gameplay_SlideVertical = m_Gameplay.FindAction("SlideVertical", throwIfNotFound: true);
         // UI
         m_UI = asset.FindActionMap("UI", throwIfNotFound: true);
         m_UI_Navigate = m_UI.FindAction("Navigate", throwIfNotFound: true);
@@ -713,6 +799,8 @@ public partial class @ActionMap: IInputActionCollection2, IDisposable
     private readonly InputAction m_Gameplay_Tilt;
     private readonly InputAction m_Gameplay_DragDrop;
     private readonly InputAction m_Gameplay_StopBar;
+    private readonly InputAction m_Gameplay_SlideHorizontal;
+    private readonly InputAction m_Gameplay_SlideVertical;
     public struct GameplayActions
     {
         private @ActionMap m_Wrapper;
@@ -720,6 +808,8 @@ public partial class @ActionMap: IInputActionCollection2, IDisposable
         public InputAction @Tilt => m_Wrapper.m_Gameplay_Tilt;
         public InputAction @DragDrop => m_Wrapper.m_Gameplay_DragDrop;
         public InputAction @StopBar => m_Wrapper.m_Gameplay_StopBar;
+        public InputAction @SlideHorizontal => m_Wrapper.m_Gameplay_SlideHorizontal;
+        public InputAction @SlideVertical => m_Wrapper.m_Gameplay_SlideVertical;
         public InputActionMap Get() { return m_Wrapper.m_Gameplay; }
         public void Enable() { Get().Enable(); }
         public void Disable() { Get().Disable(); }
@@ -738,6 +828,12 @@ public partial class @ActionMap: IInputActionCollection2, IDisposable
             @StopBar.started += instance.OnStopBar;
             @StopBar.performed += instance.OnStopBar;
             @StopBar.canceled += instance.OnStopBar;
+            @SlideHorizontal.started += instance.OnSlideHorizontal;
+            @SlideHorizontal.performed += instance.OnSlideHorizontal;
+            @SlideHorizontal.canceled += instance.OnSlideHorizontal;
+            @SlideVertical.started += instance.OnSlideVertical;
+            @SlideVertical.performed += instance.OnSlideVertical;
+            @SlideVertical.canceled += instance.OnSlideVertical;
         }
 
         private void UnregisterCallbacks(IGameplayActions instance)
@@ -751,6 +847,12 @@ public partial class @ActionMap: IInputActionCollection2, IDisposable
             @StopBar.started -= instance.OnStopBar;
             @StopBar.performed -= instance.OnStopBar;
             @StopBar.canceled -= instance.OnStopBar;
+            @SlideHorizontal.started -= instance.OnSlideHorizontal;
+            @SlideHorizontal.performed -= instance.OnSlideHorizontal;
+            @SlideHorizontal.canceled -= instance.OnSlideHorizontal;
+            @SlideVertical.started -= instance.OnSlideVertical;
+            @SlideVertical.performed -= instance.OnSlideVertical;
+            @SlideVertical.canceled -= instance.OnSlideVertical;
         }
 
         public void RemoveCallbacks(IGameplayActions instance)
@@ -891,6 +993,8 @@ public partial class @ActionMap: IInputActionCollection2, IDisposable
         void OnTilt(InputAction.CallbackContext context);
         void OnDragDrop(InputAction.CallbackContext context);
         void OnStopBar(InputAction.CallbackContext context);
+        void OnSlideHorizontal(InputAction.CallbackContext context);
+        void OnSlideVertical(InputAction.CallbackContext context);
     }
     public interface IUIActions
     {
