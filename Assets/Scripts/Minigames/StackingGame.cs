@@ -11,14 +11,13 @@ public class StackingGame : MonoBehaviour
 
     private Vector2 blockStartPosition = new Vector2(0f, 4f);
 
-    private float blockSpeed = 8f;
-    private float blockSpeedIncrement = 0.5f;
+    private float blockSpeed = 16f;
     private int blockDirection = 1;
-    private float xLimit = 5;
+    private float xLimit = 30;
 
     private float timeBetweenRounds = 1f;
 
-    // Start is called before the first frame update
+
     void Start()
     {
         SpawnNewBlock();
@@ -26,13 +25,9 @@ public class StackingGame : MonoBehaviour
 
     private void SpawnNewBlock()
     {
-        // Create a block with the desired properties.
-        currentBlock = Instantiate(blockPrefab, blockHolder);
+        currentBlock = Instantiate(blockPrefab, blockHolder); //Add random sprite hehe
         currentBlock.position = blockStartPosition;
-        currentBlock.GetComponent<SpriteRenderer>().color = Random.ColorHSV();
         currentRigidbody = currentBlock.GetComponent<Rigidbody2D>();
-        // Increase the block speed each time to make it harder.
-        blockSpeed += blockSpeedIncrement;
     }
 
     private IEnumerator DelayedSpawn()
@@ -42,7 +37,6 @@ public class StackingGame : MonoBehaviour
 
     }
 
-    // Update is called once per frame
     void Update()
     {
         // If we have a waiting block, move it about.
