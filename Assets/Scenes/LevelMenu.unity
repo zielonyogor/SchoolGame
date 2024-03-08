@@ -1798,6 +1798,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   dayInfo: {fileID: 0}
+  cutsceneText: 
 --- !u!1 &839462956
 GameObject:
   m_ObjectHideFlags: 0
@@ -4009,14 +4010,14 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 1092338321}
         m_TargetAssemblyTypeName: LevelSelector, Assembly-CSharp
-        m_MethodName: LoadScene
-        m_Mode: 2
+        m_MethodName: LoadCutscene
+        m_Mode: 5
         m_Arguments:
-          m_ObjectArgument: {fileID: 11400000, guid: c9dc8eed6ba48dc419b185b133a72deb, type: 2}
-          m_ObjectArgumentAssemblyTypeName: DayData, Assembly-CSharp
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
           m_IntArgument: 6
           m_FloatArgument: 0
-          m_StringArgument: 
+          m_StringArgument: First week done_YIPPPEEE_WOWWI
           m_BoolArgument: 0
         m_CallState: 2
 --- !u!114 &1716978944

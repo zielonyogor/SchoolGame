@@ -11,6 +11,7 @@ public class MiniGameManager : MonoBehaviour
     public DayData dayInfo;
     private int currentGameIndex = 0;
 
+    public string cutsceneText;
 
     private void Awake()
     {
@@ -28,6 +29,12 @@ public class MiniGameManager : MonoBehaviour
     {
         dayInfo = newDay;
         SceneManager.LoadScene(dayInfo.miniGames[currentGameIndex]);
+    }
+
+    public void LoadCutscene(string text)
+    {
+        cutsceneText = text;
+        SceneManager.LoadScene("Cutscene");
     }
 
     public void NextLevel()

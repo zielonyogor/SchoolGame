@@ -12,8 +12,8 @@ public class TextChange : MonoBehaviour
 
     void Start()
     {
-        //dialogueParts = MiniGameManager.instance.dayInfo.dialogue.Split('_');
-        dialogueParts = "everything is simply a shape, a form, an identifier to let other recognize me as me.. but then what am i...? is this me? my true self, my fake self? what is it that i am?! NOBODY UNDERSTANDS ME. !!_MEOW MEOW MEOW".Split('_');
+        dialogueParts = MiniGameManager.instance.cutsceneText.Split('_');
+        //dialogueParts = "everything is simply a shape, a form, an identifier to let other recognize me as me.. but then what am i...? is this me? my true self, my fake self? what is it that i am?! NOBODY UNDERSTANDS ME. !!_MEOW MEOW MEOW".Split('_');
         StartCoroutine(playDialogue());
     }
 
