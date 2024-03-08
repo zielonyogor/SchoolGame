@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.InputSystem;
+using UnityEngine.SceneManagement;
 using UnityEngine.UIElements;
 
 public class SlidingGame : MonoBehaviour /*, IMiniGame*/
@@ -67,7 +68,6 @@ public class SlidingGame : MonoBehaviour /*, IMiniGame*/
         do
         {
             currentPosition = player.transform.position;
-            Debug.Log(currentPosition);
             Vector2 newPosition = currentPosition + moveSpeed * vec;
             hit = Physics2D.Raycast(currentPosition, vec, spriteWidth + 0.03f, blockMask);
 
@@ -79,6 +79,12 @@ public class SlidingGame : MonoBehaviour /*, IMiniGame*/
                 break;
             }
             player.MovePosition(newPosition);
+            Debug.Log(Mathf.Abs(newPosition.y));
+            if (Mathf.Abs(newPosition.x) > 110 || Mathf.Abs(newPosition.y) > 70)
+            {
+                Debug.Log("przegrama");
+                SceneManager.LoadScene("LevelMenu");
+            }
             yield return waitForFixedUpdate;
 
         } while (true);

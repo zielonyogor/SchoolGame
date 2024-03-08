@@ -301,8 +301,8 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: 21300000, guid: e4832cc5916c7a645a4fe759c65e6c5d, type: 3}
-  m_Color: {r: 0.504717, g: 0.83397627, b: 1, a: 1}
+  m_Sprite: {fileID: -446603054, guid: 26ed79a67b5f2fa43a10ebe5b9cbb249, type: 3}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
@@ -500,7 +500,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: 21300000, guid: e4832cc5916c7a645a4fe759c65e6c5d, type: 3}
+  m_Sprite: {fileID: -1364786664, guid: 26ed79a67b5f2fa43a10ebe5b9cbb249, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -556,8 +556,8 @@ Transform:
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: -16, y: -32, z: 0}
-  m_LocalScale: {x: 0.6, y: 0.6, z: 1}
-  m_ConstrainProportionsScale: 1
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -624,14 +624,14 @@ BoxCollider2D:
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
-    oldSize: {x: 16, y: 16}
+    oldSize: {x: 15.333333, y: 13.333333}
     newSize: {x: 1, y: 1}
     adaptiveTilingThreshold: 0.5
     drawMode: 0
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 16, y: 16}
+  m_Size: {x: 15, y: 13}
   m_EdgeRadius: 0
 --- !u!212 &356126648
 SpriteRenderer:
@@ -674,7 +674,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: 21300000, guid: e4832cc5916c7a645a4fe759c65e6c5d, type: 3}
+  m_Sprite: {fileID: -1512112308, guid: 26ed79a67b5f2fa43a10ebe5b9cbb249, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -806,7 +806,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: 21300000, guid: e4832cc5916c7a645a4fe759c65e6c5d, type: 3}
+  m_Sprite: {fileID: -1364786664, guid: 26ed79a67b5f2fa43a10ebe5b9cbb249, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -1012,7 +1012,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: 21300000, guid: e4832cc5916c7a645a4fe759c65e6c5d, type: 3}
+  m_Sprite: {fileID: -1364786664, guid: 26ed79a67b5f2fa43a10ebe5b9cbb249, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -1195,7 +1195,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: 21300000, guid: e4832cc5916c7a645a4fe759c65e6c5d, type: 3}
+  m_Sprite: {fileID: -1364786664, guid: 26ed79a67b5f2fa43a10ebe5b9cbb249, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -1340,7 +1340,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: 21300000, guid: e4832cc5916c7a645a4fe759c65e6c5d, type: 3}
+  m_Sprite: {fileID: -1364786664, guid: 26ed79a67b5f2fa43a10ebe5b9cbb249, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -1455,7 +1455,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: 21300000, guid: e4832cc5916c7a645a4fe759c65e6c5d, type: 3}
+  m_Sprite: {fileID: -1364786664, guid: 26ed79a67b5f2fa43a10ebe5b9cbb249, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -1590,7 +1590,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: 21300000, guid: e4832cc5916c7a645a4fe759c65e6c5d, type: 3}
+  m_Sprite: {fileID: -1364786664, guid: 26ed79a67b5f2fa43a10ebe5b9cbb249, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -1832,7 +1832,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: 21300000, guid: e4832cc5916c7a645a4fe759c65e6c5d, type: 3}
+  m_Sprite: {fileID: -1364786664, guid: 26ed79a67b5f2fa43a10ebe5b9cbb249, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0

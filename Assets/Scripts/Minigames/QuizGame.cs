@@ -2,16 +2,11 @@ using System.Collections;
 using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 
 public class QuizGame : MonoBehaviour
 {
-    //[SerializeField] TextMeshProUGUI firstNumber;
-    //[SerializeField] TextMeshProUGUI secondNumber;
-    //[SerializeField] TextMeshProUGUI symbolText;
-
-    //[SerializeField] TMP_InputField inputField;
-    //int correctAnswer;
 
     [SerializeField] int numberOfQuestions = 3;
 
@@ -74,18 +69,15 @@ public class QuizGame : MonoBehaviour
     {
         for (int i = 0; i < numberOfQuestions; i++)
         {
-            Debug.Log(questionObjects[i].GetChild(3).GetComponent<InputField>().text);
-            if (int.Parse("0") == correctAnswers[i]){
+            if (int.Parse(questionObjects[i].GetChild(3).GetComponent<TMP_InputField>().text) == correctAnswers[i])
+            {
+                Debug.Log("dobrze nr: " + i);
+            }
+            else
+            {
+                Debug.Log("przegrana");
+            }
         }
-        }
-        //if (int.Parse(inputField.text) == correctAnswer)
-        //{
-        //    inputField.text = "";
-        //    ChangeEquation();
-        //}
-        //else
-        //{
-        //    Debug.Log("upsi pupsi");
-        //}
+        SceneManager.LoadScene("LevelMenu");
     }
 }
