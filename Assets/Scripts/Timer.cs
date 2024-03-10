@@ -58,7 +58,7 @@ public class Timer : MonoBehaviour
     {
         yield return new WaitForFixedUpdate();
         float spawnPrefabTime = Random.Range(1f, time - 4f);
-        StartCoroutine(SpawnTimingGame(spawnPrefabTime));
+        //StartCoroutine(SpawnTimingGame(spawnPrefabTime));
         time_bar.enabled = true;
         bar.enabled = true;
         float time_left = time;

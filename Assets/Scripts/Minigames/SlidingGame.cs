@@ -5,7 +5,7 @@ using UnityEngine.InputSystem;
 using UnityEngine.SceneManagement;
 using UnityEngine.UIElements;
 
-public class SlidingGame : MonoBehaviour /*, IMiniGame*/
+public class SlidingGame : MonoBehaviour 
 {
     private bool isMoving = false;
     private WaitForFixedUpdate waitForFixedUpdate;
@@ -20,6 +20,7 @@ public class SlidingGame : MonoBehaviour /*, IMiniGame*/
     SpriteRenderer sRenderer;
     float spriteWidth;
 
+    [SerializeField] SlidingGameManager slidingGameManager;
 
     private void Start()
     {
@@ -79,11 +80,10 @@ public class SlidingGame : MonoBehaviour /*, IMiniGame*/
                 break;
             }
             player.MovePosition(newPosition);
-            Debug.Log(Mathf.Abs(newPosition.y));
             if (Mathf.Abs(newPosition.x) > 110 || Mathf.Abs(newPosition.y) > 70)
             {
-                Debug.Log("przegrama");
-                SceneManager.LoadScene("LevelMenu");
+                Debug.Log("przegrana");
+                slidingGameManager.GameEnd();
             }
             yield return waitForFixedUpdate;
 

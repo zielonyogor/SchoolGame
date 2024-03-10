@@ -7,6 +7,7 @@ TagManager:
   - DraggableIncorrect
   - DraggableCorrect
   - PuzzlePiece
+  - Book
   layers:
   - Default
   - TransparentFX

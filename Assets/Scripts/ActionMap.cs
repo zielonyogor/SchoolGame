@@ -71,6 +71,15 @@ public partial class @ActionMap: IInputActionCollection2, IDisposable
                     ""processors"": """",
                     ""interactions"": """",
                     ""initialStateCheck"": false
+                },
+                {
+                    ""name"": ""DropBook"",
+                    ""type"": ""Button"",
+                    ""id"": ""f7ab0918-559a-4e36-b074-873ddc51b903"",
+                    ""expectedControlType"": ""Button"",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": false
                 }
             ],
             ""bindings"": [
@@ -194,6 +203,17 @@ public partial class @ActionMap: IInputActionCollection2, IDisposable
                     ""action"": ""SlideVertical"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": true
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""1d80bcc9-08ad-4b2c-9e5e-a8aae20d53c8"",
+                    ""path"": ""<Keyboard>/s"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""DropBook"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
                 }
             ]
         },
@@ -723,6 +743,7 @@ public partial class @ActionMap: IInputActionCollection2, IDisposable
         m_Gameplay_StopBar = m_Gameplay.FindAction("StopBar", throwIfNotFound: true);
         m_Gameplay_SlideHorizontal = m_Gameplay.FindAction("SlideHorizontal", throwIfNotFound: true);
         m_Gameplay_SlideVertical = m_Gameplay.FindAction("SlideVertical", throwIfNotFound: true);
+        m_Gameplay_DropBook = m_Gameplay.FindAction("DropBook", throwIfNotFound: true);
         // UI
         m_UI = asset.FindActionMap("UI", throwIfNotFound: true);
         m_UI_Navigate = m_UI.FindAction("Navigate", throwIfNotFound: true);
@@ -801,6 +822,7 @@ public partial class @ActionMap: IInputActionCollection2, IDisposable
     private readonly InputAction m_Gameplay_StopBar;
     private readonly InputAction m_Gameplay_SlideHorizontal;
     private readonly InputAction m_Gameplay_SlideVertical;
+    private readonly InputAction m_Gameplay_DropBook;
     public struct GameplayActions
     {
         private @ActionMap m_Wrapper;
@@ -810,6 +832,7 @@ public partial class @ActionMap: IInputActionCollection2, IDisposable
         public InputAction @StopBar => m_Wrapper.m_Gameplay_StopBar;
         public InputAction @SlideHorizontal => m_Wrapper.m_Gameplay_SlideHorizontal;
         public InputAction @SlideVertical => m_Wrapper.m_Gameplay_SlideVertical;
+        public InputAction @DropBook => m_Wrapper.m_Gameplay_DropBook;
         public InputActionMap Get() { return m_Wrapper.m_Gameplay; }
         public void Enable() { Get().Enable(); }
         public void Disable() { Get().Disable(); }
@@ -834,6 +857,9 @@ public partial class @ActionMap: IInputActionCollection2, IDisposable
             @SlideVertical.started += instance.OnSlideVertical;
             @SlideVertical.performed += instance.OnSlideVertical;
             @SlideVertical.canceled += instance.OnSlideVertical;
+            @DropBook.started += instance.OnDropBook;
+            @DropBook.performed += instance.OnDropBook;
+            @DropBook.canceled += instance.OnDropBook;
         }
 
         private void UnregisterCallbacks(IGameplayActions instance)
@@ -853,6 +879,9 @@ public partial class @ActionMap: IInputActionCollection2, IDisposable
             @SlideVertical.started -= instance.OnSlideVertical;
             @SlideVertical.performed -= instance.OnSlideVertical;
             @SlideVertical.canceled -= instance.OnSlideVertical;
+            @DropBook.started -= instance.OnDropBook;
+            @DropBook.performed -= instance.OnDropBook;
+            @DropBook.canceled -= instance.OnDropBook;
         }
 
         public void RemoveCallbacks(IGameplayActions instance)
@@ -995,6 +1024,7 @@ public partial class @ActionMap: IInputActionCollection2, IDisposable
         void OnStopBar(InputAction.CallbackContext context);
         void OnSlideHorizontal(InputAction.CallbackContext context);
         void OnSlideVertical(InputAction.CallbackContext context);
+        void OnDropBook(InputAction.CallbackContext context);
     }
     public interface IUIActions
     {

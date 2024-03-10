@@ -1,7 +1,10 @@
+using System.Buffers;
 using System.Collections;
+using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.InputSystem;
 
-public class StackingGame : MonoBehaviour
+public class StackingGame : MonoBehaviour, IMiniGame
 {
     [SerializeField] private Transform blockPrefab;
     [SerializeField] private Transform blockHolder;
@@ -9,23 +12,51 @@ public class StackingGame : MonoBehaviour
     private Transform currentBlock = null;
     private Rigidbody2D currentRigidbody;
 
-    private Vector2 blockStartPosition = new Vector2(0f, 4f);
+    private Vector2 blockStartPosition = new Vector2(0f, 0f);
 
-    private float blockSpeed = 16f;
-    private int blockDirection = 1;
-    private float xLimit = 30;
+    private int bookDirection = 1;
+    private float xLimit = 70;
 
     private float timeBetweenRounds = 1f;
 
+    private InputAction dropAction;
+
+    [SerializeField] private List<Sprite> spriteList = new List<Sprite>();
+
+    //MiniGame Manager variables
+    private float bookSpeed = 30f;
+    private int numberOfBooks = 4;
+
+    private void Awake()
+    {
+        dropAction = new ActionMap().Gameplay.DropBook;
+    }
+    private void OnEnable()
+    {
+        dropAction.Enable();
+        dropAction.performed += DropBook;
+        Timer.instance.OnTimeUp += GameFinished;
+    }
+    private void OnDisable()
+    {
+        dropAction.performed -= DropBook;
+        dropAction.Disable();
+    }
 
     void Start()
     {
+        Timer.instance.isDecreasing = false;
+
+        numberOfBooks = MiniGameManager.instance.numberOfBooks;
+        bookSpeed = MiniGameManager.instance.bookSpeed;
+
         SpawnNewBlock();
     }
 
     private void SpawnNewBlock()
     {
-        currentBlock = Instantiate(blockPrefab, blockHolder); //Add random sprite hehe
+        currentBlock = Instantiate(blockPrefab, blockHolder);
+        currentBlock.GetComponent<SpriteRenderer>().sprite = spriteList[(int)Random.Range(0, spriteList.Count)];
         currentBlock.position = blockStartPosition;
         currentRigidbody = currentBlock.GetComponent<Rigidbody2D>();
     }
@@ -33,35 +64,59 @@ public class StackingGame : MonoBehaviour
     private IEnumerator DelayedSpawn()
     {
         yield return new WaitForSeconds(timeBetweenRounds);
+        blockStartPosition = new Vector2(Random.Range(-xLimit, xLimit), 0);
         SpawnNewBlock();
-
+        dropAction.performed += DropBook;
     }
 
-    void Update()
+    void FixedUpdate()
     {
         // If we have a waiting block, move it about.
         if (currentBlock)
         {
-            float moveAmount = Time.deltaTime * blockSpeed * blockDirection;
+            float moveAmount = Time.deltaTime * bookSpeed * bookDirection;
             currentBlock.position += new Vector3(moveAmount, 0, 0);
-            // If we've gone as far as we want, reverse direction.
             if (Mathf.Abs(currentBlock.position.x) > xLimit)
             {
-                // Set it to the limit so it doesn't go further.
-                currentBlock.position = new Vector3(blockDirection * xLimit, currentBlock.position.y, 0);
-                blockDirection = -blockDirection;
-            }
-
-            // If we press space drop the block.
-            if (Input.GetKeyDown(KeyCode.Space))
-            {
-                // Stop it moving.
-                currentBlock = null;
-                // Activate the RigidBody to enable gravity to drop it.
-                currentRigidbody.simulated = true;
-                // Spawn the next block.
-                StartCoroutine(DelayedSpawn());
+                currentBlock.position = new Vector3(bookDirection * xLimit, currentBlock.position.y, 0);
+                bookDirection = -bookDirection;
             }
         }
+    }
+
+    private void DropBook(InputAction.CallbackContext context)
+    {
+        numberOfBooks--;
+        currentBlock = null;
+        currentRigidbody.simulated = true;
+        dropAction.performed -= DropBook;
+        if (numberOfBooks == 0)
+        {
+            StartCoroutine(Timer.instance.DecreaseTimer(MiniGameManager.instance.time));
+        }
+        else
+        {
+            StartCoroutine(DelayedSpawn());
+        }
+    }
+
+    private void OnTriggerEnter2D(Collider2D collision)
+    {
+        if (collision.CompareTag("Book"))
+        {
+            GameEnd();
+        }
+    }
+
+    public void GameEnd()
+    {
+        Timer.instance.DisableTimer();
+        Timer.instance.OnTimeUp -= GameFinished;
+        MiniGameManager.instance.HandleGameLoss();
+    }
+
+    public void GameFinished()
+    {
+        MiniGameManager.instance.NextLevel();
     }
 }

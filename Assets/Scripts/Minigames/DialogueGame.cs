@@ -13,7 +13,7 @@ public class DialogueGame : MonoBehaviour, IMiniGame
 
     void Start()
     {
-        dialogueParts = MiniGameManager.instance.dayInfo.dialogue.Split('_');
+        dialogueParts = MiniGameManager.instance.dialogueText.Split('_');
 
         expectedID = 0;
         numberOfButtons = dialogueParts.Length;
@@ -26,21 +26,20 @@ public class DialogueGame : MonoBehaviour, IMiniGame
             DialogueButtons[i].gameObject.SetActive(true);
             DialogueButtons[i].GetChild(0).GetComponent<TextMeshProUGUI>().text = dialogueParts[i];
         }
-        StartCoroutine(Timer.instance.DecreaseTimer(MiniGameManager.instance.dayInfo.time));
+        StartCoroutine(Timer.instance.DecreaseTimer(MiniGameManager.instance.time));
     }
 
 
     public void OnButtonClicked(int id)
     {
-        if (expectedID == id)
-            expectedID += 1;
+        if (expectedID == id) expectedID += 1;
         else
         {
             GameEnd();
         }
         if (DialogueButtons.Count == expectedID)
         {
-            UnityEngine.SceneManagement.SceneManager.LoadScene("LevelMenu");
+            GameFinished();
         }
     }
 
@@ -52,7 +51,7 @@ public class DialogueGame : MonoBehaviour, IMiniGame
         }
         Timer.instance.DisableTimer();
         Timer.instance.OnTimeUp -= GameEnd;
-        MiniGameManager.instance.NextLevel();
+        MiniGameManager.instance.HandleGameLoss();
     }
 
     public void GameFinished()

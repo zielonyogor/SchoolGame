@@ -49,6 +49,15 @@
                     "processors": "",
                     "interactions": "",
                     "initialStateCheck": false
+                },
+                {
+                    "name": "DropBook",
+                    "type": "Button",
+                    "id": "f7ab0918-559a-4e36-b074-873ddc51b903",
+                    "expectedControlType": "Button",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": false
                 }
             ],
             "bindings": [
@@ -172,6 +181,17 @@
                     "action": "SlideVertical",
                     "isComposite": false,
                     "isPartOfComposite": true
+                },
+                {
+                    "name": "",
+                    "id": "1d80bcc9-08ad-4b2c-9e5e-a8aae20d53c8",
+                    "path": "<Keyboard>/s",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "DropBook",
+                    "isComposite": false,
+                    "isPartOfComposite": false
                 }
             ]
         },

@@ -16,7 +16,7 @@ public class PuzzleManager : MonoBehaviour
     void Start()
     {
         mainCamera = Camera.main;
-        numberOfPuzzles = MiniGameManager.instance.dayInfo.numberOfPuzzles;
+        numberOfPuzzles = MiniGameManager.instance.numberOfPuzzles;
         for(int i = 0; i < numberOfPuzzles; i++)
         {
             puzzleHoles.Add(transform.GetChild(i));
@@ -24,11 +24,6 @@ public class PuzzleManager : MonoBehaviour
             transform.GetChild(i).gameObject.SetActive(true);
         }
 
-        //foreach (Transform child in transform)
-        //{
-        //    puzzleHoles.Add(child);
-        //    puzzlePieces.Add(child.GetChild(0));
-        //}
         ChangePositions();
     }
 

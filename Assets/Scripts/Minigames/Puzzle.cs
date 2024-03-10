@@ -24,8 +24,8 @@ public class Puzzle : MonoBehaviour, IMiniGame
 
     private void Start()
     {
-        numberOfPuzzles = MiniGameManager.instance.dayInfo.numberOfPuzzles;
-        StartCoroutine(Timer.instance.DecreaseTimer(MiniGameManager.instance.dayInfo.time));
+        numberOfPuzzles = MiniGameManager.instance.numberOfPuzzles;
+        StartCoroutine(Timer.instance.DecreaseTimer(MiniGameManager.instance.time));
     }
 
     private void OnEnable()
@@ -82,8 +82,8 @@ public class Puzzle : MonoBehaviour, IMiniGame
     public void GameEnd()
     {
         Timer.instance.DisableTimer();
-        //Timer.instance.OnTimeUp -= GameEnd;
-        MiniGameManager.instance.NextLevel();
+        Timer.instance.OnTimeUp -= GameEnd;
+        MiniGameManager.instance.HandleGameLoss();
     }
 
     public void GameFinished()

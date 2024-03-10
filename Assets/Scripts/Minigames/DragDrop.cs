@@ -24,7 +24,7 @@ public class DragDrop : MonoBehaviour, IMiniGame
 
     private void Start()
     {
-        StartCoroutine(Timer.instance.DecreaseTimer(MiniGameManager.instance.dayInfo.time));
+        StartCoroutine(Timer.instance.DecreaseTimer(MiniGameManager.instance.time));
     }
 
     private void OnEnable()
@@ -75,7 +75,7 @@ public class DragDrop : MonoBehaviour, IMiniGame
                 clickedObject.tag = "Untagged";
                 if (goodItems == 0)
                 {
-                    MiniGameManager.instance.NextLevel();
+                    GameFinished();
                 }
             }
             else
@@ -89,8 +89,7 @@ public class DragDrop : MonoBehaviour, IMiniGame
     {
         Timer.instance.DisableTimer();
         Timer.instance.OnTimeUp -= GameEnd;
-        //tu trzeba przegrac
-        MiniGameManager.instance.NextLevel();
+        MiniGameManager.instance.HandleGameLoss();
     }
 
     public void GameFinished()

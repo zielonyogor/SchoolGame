@@ -8,10 +8,21 @@ public class MiniGameManager : MonoBehaviour
 {
     public static MiniGameManager instance { get; private set; }
 
-    public DayData dayInfo;
     private int currentGameIndex = 0;
 
     public string cutsceneText;
+
+    public List<string> miniGames;
+    public float time = 0;
+
+    [Header("MiniGame variables")]
+    public int numberOfPuzzles;
+    public int numberOfMeds;
+    public string dialogueText;
+    public int numberOfQuestions;
+    public int numberOfBooks;
+    public int bookSpeed;
+    public SlidingMapLayout slidingMapLayout;
 
     private void Awake()
     {
@@ -25,10 +36,12 @@ public class MiniGameManager : MonoBehaviour
         }
     }
 
-    public void LoadDay(DayData newDay)
+    public void LoadDay(Levelnfo newDay)
     {
-        dayInfo = newDay;
-        SceneManager.LoadScene(dayInfo.miniGames[currentGameIndex]);
+        newDay.LoadData();
+        Debug.Log(miniGames.Count);
+        SceneManager.LoadScene(miniGames[currentGameIndex]);
+        //Should add (maybe here) handling Anxiety Game
     }
 
     public void LoadCutscene(string text)
@@ -40,14 +53,28 @@ public class MiniGameManager : MonoBehaviour
     public void NextLevel()
     {
         currentGameIndex++;
-        if (currentGameIndex >= dayInfo.miniGames.Count)
+        if (currentGameIndex >= miniGames.Count)
         {
             currentGameIndex = 0;
             SceneManager.LoadScene("LevelMenu");
         }
         else
         {
-            SceneManager.LoadScene(dayInfo.miniGames[currentGameIndex]);
+            SceneManager.LoadScene(miniGames[currentGameIndex]);
+        }
+    }
+
+    public void HandleGameLoss()
+    {
+        //currentGameIndex++;
+        if (currentGameIndex >= miniGames.Count)
+        {
+            currentGameIndex = 0;
+            SceneManager.LoadScene("LevelMenu");
+        }
+        else
+        {
+            SceneManager.LoadScene(miniGames[currentGameIndex]);
         }
     }
 }

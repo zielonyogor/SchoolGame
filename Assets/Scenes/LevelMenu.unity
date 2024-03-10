@@ -205,13 +205,13 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1092338321}
-        m_TargetAssemblyTypeName: LevelSelector, Assembly-CSharp
-        m_MethodName: LoadScene
+      - m_Target: {fileID: 799443420}
+        m_TargetAssemblyTypeName: MiniGameManager, Assembly-CSharp
+        m_MethodName: LoadDay
         m_Mode: 2
         m_Arguments:
-          m_ObjectArgument: {fileID: 11400000, guid: c9dc8eed6ba48dc419b185b133a72deb, type: 2}
-          m_ObjectArgumentAssemblyTypeName: DayData, Assembly-CSharp
+          m_ObjectArgument: {fileID: 11400000, guid: f858f5f299c5b824995127283c43e156, type: 2}
+          m_ObjectArgumentAssemblyTypeName: Levelnfo, Assembly-CSharp
           m_IntArgument: 23
           m_FloatArgument: 0
           m_StringArgument: 
@@ -337,13 +337,13 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1092338321}
-        m_TargetAssemblyTypeName: LevelSelector, Assembly-CSharp
-        m_MethodName: LoadScene
+      - m_Target: {fileID: 799443420}
+        m_TargetAssemblyTypeName: MiniGameManager, Assembly-CSharp
+        m_MethodName: LoadDay
         m_Mode: 2
         m_Arguments:
-          m_ObjectArgument: {fileID: 11400000, guid: c9dc8eed6ba48dc419b185b133a72deb, type: 2}
-          m_ObjectArgumentAssemblyTypeName: DayData, Assembly-CSharp
+          m_ObjectArgument: {fileID: 11400000, guid: f858f5f299c5b824995127283c43e156, type: 2}
+          m_ObjectArgumentAssemblyTypeName: Levelnfo, Assembly-CSharp
           m_IntArgument: 12
           m_FloatArgument: 0
           m_StringArgument: 
@@ -547,13 +547,13 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1092338321}
-        m_TargetAssemblyTypeName: LevelSelector, Assembly-CSharp
-        m_MethodName: LoadScene
+      - m_Target: {fileID: 799443420}
+        m_TargetAssemblyTypeName: MiniGameManager, Assembly-CSharp
+        m_MethodName: LoadDay
         m_Mode: 2
         m_Arguments:
-          m_ObjectArgument: {fileID: 11400000, guid: c9dc8eed6ba48dc419b185b133a72deb, type: 2}
-          m_ObjectArgumentAssemblyTypeName: DayData, Assembly-CSharp
+          m_ObjectArgument: {fileID: 11400000, guid: f858f5f299c5b824995127283c43e156, type: 2}
+          m_ObjectArgumentAssemblyTypeName: Levelnfo, Assembly-CSharp
           m_IntArgument: 4
           m_FloatArgument: 0
           m_StringArgument: 
@@ -679,13 +679,13 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1092338321}
-        m_TargetAssemblyTypeName: LevelSelector, Assembly-CSharp
-        m_MethodName: LoadScene
+      - m_Target: {fileID: 799443420}
+        m_TargetAssemblyTypeName: MiniGameManager, Assembly-CSharp
+        m_MethodName: LoadDay
         m_Mode: 2
         m_Arguments:
-          m_ObjectArgument: {fileID: 11400000, guid: c9dc8eed6ba48dc419b185b133a72deb, type: 2}
-          m_ObjectArgumentAssemblyTypeName: DayData, Assembly-CSharp
+          m_ObjectArgument: {fileID: 11400000, guid: f858f5f299c5b824995127283c43e156, type: 2}
+          m_ObjectArgumentAssemblyTypeName: Levelnfo, Assembly-CSharp
           m_IntArgument: 8
           m_FloatArgument: 0
           m_StringArgument: 
@@ -915,16 +915,16 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1092338321}
-        m_TargetAssemblyTypeName: LevelSelector, Assembly-CSharp
-        m_MethodName: LoadScene
-        m_Mode: 2
+      - m_Target: {fileID: 799443420}
+        m_TargetAssemblyTypeName: MiniGameManager, Assembly-CSharp
+        m_MethodName: LoadCutscene
+        m_Mode: 5
         m_Arguments:
-          m_ObjectArgument: {fileID: 11400000, guid: c9dc8eed6ba48dc419b185b133a72deb, type: 2}
-          m_ObjectArgumentAssemblyTypeName: DayData, Assembly-CSharp
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
           m_IntArgument: 20
           m_FloatArgument: 0
-          m_StringArgument: 
+          m_StringArgument: '"MEOW_MEOW_MEOW"'
           m_BoolArgument: 0
         m_CallState: 2
 --- !u!114 &537625736
@@ -1047,13 +1047,13 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1092338321}
-        m_TargetAssemblyTypeName: LevelSelector, Assembly-CSharp
-        m_MethodName: LoadScene
+      - m_Target: {fileID: 799443420}
+        m_TargetAssemblyTypeName: MiniGameManager, Assembly-CSharp
+        m_MethodName: LoadDay
         m_Mode: 2
         m_Arguments:
-          m_ObjectArgument: {fileID: 11400000, guid: c9dc8eed6ba48dc419b185b133a72deb, type: 2}
-          m_ObjectArgumentAssemblyTypeName: DayData, Assembly-CSharp
+          m_ObjectArgument: {fileID: 11400000, guid: f858f5f299c5b824995127283c43e156, type: 2}
+          m_ObjectArgumentAssemblyTypeName: Levelnfo, Assembly-CSharp
           m_IntArgument: 5
           m_FloatArgument: 0
           m_StringArgument: 
@@ -1179,13 +1179,13 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1092338321}
-        m_TargetAssemblyTypeName: LevelSelector, Assembly-CSharp
-        m_MethodName: LoadScene
+      - m_Target: {fileID: 799443420}
+        m_TargetAssemblyTypeName: MiniGameManager, Assembly-CSharp
+        m_MethodName: LoadDay
         m_Mode: 2
         m_Arguments:
-          m_ObjectArgument: {fileID: 11400000, guid: c9dc8eed6ba48dc419b185b133a72deb, type: 2}
-          m_ObjectArgumentAssemblyTypeName: DayData, Assembly-CSharp
+          m_ObjectArgument: {fileID: 11400000, guid: f858f5f299c5b824995127283c43e156, type: 2}
+          m_ObjectArgumentAssemblyTypeName: Levelnfo, Assembly-CSharp
           m_IntArgument: 7
           m_FloatArgument: 0
           m_StringArgument: 
@@ -1311,13 +1311,13 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1092338321}
-        m_TargetAssemblyTypeName: LevelSelector, Assembly-CSharp
-        m_MethodName: LoadScene
+      - m_Target: {fileID: 799443420}
+        m_TargetAssemblyTypeName: MiniGameManager, Assembly-CSharp
+        m_MethodName: LoadDay
         m_Mode: 2
         m_Arguments:
-          m_ObjectArgument: {fileID: 11400000, guid: c9dc8eed6ba48dc419b185b133a72deb, type: 2}
-          m_ObjectArgumentAssemblyTypeName: DayData, Assembly-CSharp
+          m_ObjectArgument: {fileID: 11400000, guid: f858f5f299c5b824995127283c43e156, type: 2}
+          m_ObjectArgumentAssemblyTypeName: Levelnfo, Assembly-CSharp
           m_IntArgument: 17
           m_FloatArgument: 0
           m_StringArgument: 
@@ -1571,13 +1571,13 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1092338321}
-        m_TargetAssemblyTypeName: LevelSelector, Assembly-CSharp
-        m_MethodName: LoadScene
+      - m_Target: {fileID: 799443420}
+        m_TargetAssemblyTypeName: MiniGameManager, Assembly-CSharp
+        m_MethodName: LoadDay
         m_Mode: 2
         m_Arguments:
-          m_ObjectArgument: {fileID: 11400000, guid: c9dc8eed6ba48dc419b185b133a72deb, type: 2}
-          m_ObjectArgumentAssemblyTypeName: DayData, Assembly-CSharp
+          m_ObjectArgument: {fileID: 11400000, guid: f858f5f299c5b824995127283c43e156, type: 2}
+          m_ObjectArgumentAssemblyTypeName: Levelnfo, Assembly-CSharp
           m_IntArgument: 21
           m_FloatArgument: 0
           m_StringArgument: 
@@ -1703,13 +1703,13 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1092338321}
-        m_TargetAssemblyTypeName: LevelSelector, Assembly-CSharp
-        m_MethodName: LoadScene
+      - m_Target: {fileID: 799443420}
+        m_TargetAssemblyTypeName: MiniGameManager, Assembly-CSharp
+        m_MethodName: LoadDay
         m_Mode: 2
         m_Arguments:
-          m_ObjectArgument: {fileID: 11400000, guid: c9dc8eed6ba48dc419b185b133a72deb, type: 2}
-          m_ObjectArgumentAssemblyTypeName: DayData, Assembly-CSharp
+          m_ObjectArgument: {fileID: 11400000, guid: f858f5f299c5b824995127283c43e156, type: 2}
+          m_ObjectArgumentAssemblyTypeName: Levelnfo, Assembly-CSharp
           m_IntArgument: 11
           m_FloatArgument: 0
           m_StringArgument: 
@@ -1797,8 +1797,16 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 04143be0cd8320f44a120cfa9b85c01f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  dayInfo: {fileID: 0}
   cutsceneText: 
+  miniGames: []
+  time: 0
+  numberOfPuzzles: 0
+  numberOfMeds: 0
+  dialogueText: 
+  numberOfQuestions: 0
+  numberOfBooks: 0
+  bookSpeed: 0
+  slidingMapLayout: {fileID: 0}
 --- !u!1 &839462956
 GameObject:
   m_ObjectHideFlags: 0
@@ -1881,13 +1889,13 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1092338321}
-        m_TargetAssemblyTypeName: LevelSelector, Assembly-CSharp
-        m_MethodName: LoadScene
+      - m_Target: {fileID: 799443420}
+        m_TargetAssemblyTypeName: MiniGameManager, Assembly-CSharp
+        m_MethodName: LoadDay
         m_Mode: 2
         m_Arguments:
-          m_ObjectArgument: {fileID: 11400000, guid: c9dc8eed6ba48dc419b185b133a72deb, type: 2}
-          m_ObjectArgumentAssemblyTypeName: DayData, Assembly-CSharp
+          m_ObjectArgument: {fileID: 11400000, guid: f858f5f299c5b824995127283c43e156, type: 2}
+          m_ObjectArgumentAssemblyTypeName: Levelnfo, Assembly-CSharp
           m_IntArgument: 25
           m_FloatArgument: 0
           m_StringArgument: 
@@ -2013,13 +2021,13 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1092338321}
-        m_TargetAssemblyTypeName: LevelSelector, Assembly-CSharp
-        m_MethodName: LoadScene
+      - m_Target: {fileID: 799443420}
+        m_TargetAssemblyTypeName: MiniGameManager, Assembly-CSharp
+        m_MethodName: LoadDay
         m_Mode: 2
         m_Arguments:
-          m_ObjectArgument: {fileID: 11400000, guid: c9dc8eed6ba48dc419b185b133a72deb, type: 2}
-          m_ObjectArgumentAssemblyTypeName: DayData, Assembly-CSharp
+          m_ObjectArgument: {fileID: 11400000, guid: f858f5f299c5b824995127283c43e156, type: 2}
+          m_ObjectArgumentAssemblyTypeName: Levelnfo, Assembly-CSharp
           m_IntArgument: 9
           m_FloatArgument: 0
           m_StringArgument: 
@@ -2279,13 +2287,13 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1092338321}
-        m_TargetAssemblyTypeName: LevelSelector, Assembly-CSharp
-        m_MethodName: LoadScene
+      - m_Target: {fileID: 799443420}
+        m_TargetAssemblyTypeName: MiniGameManager, Assembly-CSharp
+        m_MethodName: LoadDay
         m_Mode: 2
         m_Arguments:
-          m_ObjectArgument: {fileID: 11400000, guid: 882da88a23fa30049ba6ddbc1a64d4a7, type: 2}
-          m_ObjectArgumentAssemblyTypeName: DayData, Assembly-CSharp
+          m_ObjectArgument: {fileID: 11400000, guid: 0aad7ea3bf73f4246bc250ed0dffb9dc, type: 2}
+          m_ObjectArgumentAssemblyTypeName: Levelnfo, Assembly-CSharp
           m_IntArgument: 1
           m_FloatArgument: 0
           m_StringArgument: 
@@ -2455,13 +2463,13 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1092338321}
-        m_TargetAssemblyTypeName: LevelSelector, Assembly-CSharp
-        m_MethodName: LoadScene
+      - m_Target: {fileID: 799443420}
+        m_TargetAssemblyTypeName: MiniGameManager, Assembly-CSharp
+        m_MethodName: LoadDay
         m_Mode: 2
         m_Arguments:
-          m_ObjectArgument: {fileID: 11400000, guid: c9dc8eed6ba48dc419b185b133a72deb, type: 2}
-          m_ObjectArgumentAssemblyTypeName: DayData, Assembly-CSharp
+          m_ObjectArgument: {fileID: 11400000, guid: f858f5f299c5b824995127283c43e156, type: 2}
+          m_ObjectArgumentAssemblyTypeName: Levelnfo, Assembly-CSharp
           m_IntArgument: 16
           m_FloatArgument: 0
           m_StringArgument: 
@@ -2721,13 +2729,13 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1092338321}
-        m_TargetAssemblyTypeName: LevelSelector, Assembly-CSharp
-        m_MethodName: LoadScene
+      - m_Target: {fileID: 799443420}
+        m_TargetAssemblyTypeName: MiniGameManager, Assembly-CSharp
+        m_MethodName: LoadDay
         m_Mode: 2
         m_Arguments:
-          m_ObjectArgument: {fileID: 11400000, guid: c9dc8eed6ba48dc419b185b133a72deb, type: 2}
-          m_ObjectArgumentAssemblyTypeName: DayData, Assembly-CSharp
+          m_ObjectArgument: {fileID: 11400000, guid: f858f5f299c5b824995127283c43e156, type: 2}
+          m_ObjectArgumentAssemblyTypeName: Levelnfo, Assembly-CSharp
           m_IntArgument: 18
           m_FloatArgument: 0
           m_StringArgument: 
@@ -2853,16 +2861,16 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1092338321}
-        m_TargetAssemblyTypeName: LevelSelector, Assembly-CSharp
-        m_MethodName: LoadScene
-        m_Mode: 2
+      - m_Target: {fileID: 799443420}
+        m_TargetAssemblyTypeName: MiniGameManager, Assembly-CSharp
+        m_MethodName: LoadCutscene
+        m_Mode: 5
         m_Arguments:
-          m_ObjectArgument: {fileID: 11400000, guid: c9dc8eed6ba48dc419b185b133a72deb, type: 2}
-          m_ObjectArgumentAssemblyTypeName: DayData, Assembly-CSharp
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
           m_IntArgument: 27
           m_FloatArgument: 0
-          m_StringArgument: 
+          m_StringArgument: '"MEOW_MEOW_MEOW"'
           m_BoolArgument: 0
         m_CallState: 2
 --- !u!114 &1315327266
@@ -2985,13 +2993,13 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1092338321}
-        m_TargetAssemblyTypeName: LevelSelector, Assembly-CSharp
-        m_MethodName: LoadScene
+      - m_Target: {fileID: 799443420}
+        m_TargetAssemblyTypeName: MiniGameManager, Assembly-CSharp
+        m_MethodName: LoadDay
         m_Mode: 2
         m_Arguments:
-          m_ObjectArgument: {fileID: 11400000, guid: c9dc8eed6ba48dc419b185b133a72deb, type: 2}
-          m_ObjectArgumentAssemblyTypeName: DayData, Assembly-CSharp
+          m_ObjectArgument: {fileID: 11400000, guid: f858f5f299c5b824995127283c43e156, type: 2}
+          m_ObjectArgumentAssemblyTypeName: Levelnfo, Assembly-CSharp
           m_IntArgument: 22
           m_FloatArgument: 0
           m_StringArgument: 
@@ -3117,13 +3125,13 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1092338321}
-        m_TargetAssemblyTypeName: LevelSelector, Assembly-CSharp
-        m_MethodName: LoadScene
+      - m_Target: {fileID: 799443420}
+        m_TargetAssemblyTypeName: MiniGameManager, Assembly-CSharp
+        m_MethodName: LoadDay
         m_Mode: 2
         m_Arguments:
-          m_ObjectArgument: {fileID: 11400000, guid: c9dc8eed6ba48dc419b185b133a72deb, type: 2}
-          m_ObjectArgumentAssemblyTypeName: DayData, Assembly-CSharp
+          m_ObjectArgument: {fileID: 11400000, guid: f858f5f299c5b824995127283c43e156, type: 2}
+          m_ObjectArgumentAssemblyTypeName: Levelnfo, Assembly-CSharp
           m_IntArgument: 0
           m_FloatArgument: 0
           m_StringArgument: 
@@ -3249,13 +3257,13 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1092338321}
-        m_TargetAssemblyTypeName: LevelSelector, Assembly-CSharp
-        m_MethodName: LoadScene
+      - m_Target: {fileID: 799443420}
+        m_TargetAssemblyTypeName: MiniGameManager, Assembly-CSharp
+        m_MethodName: LoadDay
         m_Mode: 2
         m_Arguments:
-          m_ObjectArgument: {fileID: 11400000, guid: c9dc8eed6ba48dc419b185b133a72deb, type: 2}
-          m_ObjectArgumentAssemblyTypeName: DayData, Assembly-CSharp
+          m_ObjectArgument: {fileID: 11400000, guid: f858f5f299c5b824995127283c43e156, type: 2}
+          m_ObjectArgumentAssemblyTypeName: Levelnfo, Assembly-CSharp
           m_IntArgument: 3
           m_FloatArgument: 0
           m_StringArgument: 
@@ -3381,13 +3389,13 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1092338321}
-        m_TargetAssemblyTypeName: LevelSelector, Assembly-CSharp
-        m_MethodName: LoadScene
+      - m_Target: {fileID: 799443420}
+        m_TargetAssemblyTypeName: MiniGameManager, Assembly-CSharp
+        m_MethodName: LoadDay
         m_Mode: 2
         m_Arguments:
-          m_ObjectArgument: {fileID: 11400000, guid: c9dc8eed6ba48dc419b185b133a72deb, type: 2}
-          m_ObjectArgumentAssemblyTypeName: DayData, Assembly-CSharp
+          m_ObjectArgument: {fileID: 11400000, guid: f858f5f299c5b824995127283c43e156, type: 2}
+          m_ObjectArgumentAssemblyTypeName: Levelnfo, Assembly-CSharp
           m_IntArgument: 19
           m_FloatArgument: 0
           m_StringArgument: 
@@ -3646,16 +3654,16 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1092338321}
-        m_TargetAssemblyTypeName: LevelSelector, Assembly-CSharp
-        m_MethodName: LoadScene
-        m_Mode: 2
+      - m_Target: {fileID: 799443420}
+        m_TargetAssemblyTypeName: MiniGameManager, Assembly-CSharp
+        m_MethodName: LoadCutscene
+        m_Mode: 5
         m_Arguments:
-          m_ObjectArgument: {fileID: 11400000, guid: c9dc8eed6ba48dc419b185b133a72deb, type: 2}
-          m_ObjectArgumentAssemblyTypeName: DayData, Assembly-CSharp
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
           m_IntArgument: 13
           m_FloatArgument: 0
-          m_StringArgument: 
+          m_StringArgument: '"MEOW_MEOW_MEOW"'
           m_BoolArgument: 0
         m_CallState: 2
 --- !u!114 &1578157520
@@ -3778,13 +3786,13 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1092338321}
-        m_TargetAssemblyTypeName: LevelSelector, Assembly-CSharp
-        m_MethodName: LoadScene
+      - m_Target: {fileID: 799443420}
+        m_TargetAssemblyTypeName: MiniGameManager, Assembly-CSharp
+        m_MethodName: LoadDay
         m_Mode: 2
         m_Arguments:
-          m_ObjectArgument: {fileID: 11400000, guid: c9dc8eed6ba48dc419b185b133a72deb, type: 2}
-          m_ObjectArgumentAssemblyTypeName: DayData, Assembly-CSharp
+          m_ObjectArgument: {fileID: 11400000, guid: f858f5f299c5b824995127283c43e156, type: 2}
+          m_ObjectArgumentAssemblyTypeName: Levelnfo, Assembly-CSharp
           m_IntArgument: 10
           m_FloatArgument: 0
           m_StringArgument: 
@@ -4008,8 +4016,8 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1092338321}
-        m_TargetAssemblyTypeName: LevelSelector, Assembly-CSharp
+      - m_Target: {fileID: 799443420}
+        m_TargetAssemblyTypeName: MiniGameManager, Assembly-CSharp
         m_MethodName: LoadCutscene
         m_Mode: 5
         m_Arguments:
@@ -4017,7 +4025,7 @@ MonoBehaviour:
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
           m_IntArgument: 6
           m_FloatArgument: 0
-          m_StringArgument: First week done_YIPPPEEE_WOWWI
+          m_StringArgument: '"MEOW_MEOW_MEOW"'
           m_BoolArgument: 0
         m_CallState: 2
 --- !u!114 &1716978944
@@ -4140,13 +4148,13 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1092338321}
-        m_TargetAssemblyTypeName: LevelSelector, Assembly-CSharp
-        m_MethodName: LoadScene
+      - m_Target: {fileID: 799443420}
+        m_TargetAssemblyTypeName: MiniGameManager, Assembly-CSharp
+        m_MethodName: LoadDay
         m_Mode: 2
         m_Arguments:
-          m_ObjectArgument: {fileID: 11400000, guid: c9dc8eed6ba48dc419b185b133a72deb, type: 2}
-          m_ObjectArgumentAssemblyTypeName: DayData, Assembly-CSharp
+          m_ObjectArgument: {fileID: 11400000, guid: f858f5f299c5b824995127283c43e156, type: 2}
+          m_ObjectArgumentAssemblyTypeName: Levelnfo, Assembly-CSharp
           m_IntArgument: 24
           m_FloatArgument: 0
           m_StringArgument: 
@@ -4272,13 +4280,13 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1092338321}
-        m_TargetAssemblyTypeName: LevelSelector, Assembly-CSharp
-        m_MethodName: LoadScene
+      - m_Target: {fileID: 799443420}
+        m_TargetAssemblyTypeName: MiniGameManager, Assembly-CSharp
+        m_MethodName: LoadDay
         m_Mode: 2
         m_Arguments:
-          m_ObjectArgument: {fileID: 11400000, guid: c9dc8eed6ba48dc419b185b133a72deb, type: 2}
-          m_ObjectArgumentAssemblyTypeName: DayData, Assembly-CSharp
+          m_ObjectArgument: {fileID: 11400000, guid: f858f5f299c5b824995127283c43e156, type: 2}
+          m_ObjectArgumentAssemblyTypeName: Levelnfo, Assembly-CSharp
           m_IntArgument: 14
           m_FloatArgument: 0
           m_StringArgument: 
@@ -4404,13 +4412,13 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1092338321}
-        m_TargetAssemblyTypeName: LevelSelector, Assembly-CSharp
-        m_MethodName: LoadScene
+      - m_Target: {fileID: 799443420}
+        m_TargetAssemblyTypeName: MiniGameManager, Assembly-CSharp
+        m_MethodName: LoadDay
         m_Mode: 2
         m_Arguments:
-          m_ObjectArgument: {fileID: 11400000, guid: c9dc8eed6ba48dc419b185b133a72deb, type: 2}
-          m_ObjectArgumentAssemblyTypeName: DayData, Assembly-CSharp
+          m_ObjectArgument: {fileID: 11400000, guid: f858f5f299c5b824995127283c43e156, type: 2}
+          m_ObjectArgumentAssemblyTypeName: Levelnfo, Assembly-CSharp
           m_IntArgument: 26
           m_FloatArgument: 0
           m_StringArgument: 
@@ -4536,13 +4544,13 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1092338321}
-        m_TargetAssemblyTypeName: LevelSelector, Assembly-CSharp
-        m_MethodName: LoadScene
+      - m_Target: {fileID: 799443420}
+        m_TargetAssemblyTypeName: MiniGameManager, Assembly-CSharp
+        m_MethodName: LoadDay
         m_Mode: 2
         m_Arguments:
-          m_ObjectArgument: {fileID: 11400000, guid: c9dc8eed6ba48dc419b185b133a72deb, type: 2}
-          m_ObjectArgumentAssemblyTypeName: DayData, Assembly-CSharp
+          m_ObjectArgument: {fileID: 11400000, guid: 9d46343766b10924096e51c89dff012c, type: 2}
+          m_ObjectArgumentAssemblyTypeName: Levelnfo, Assembly-CSharp
           m_IntArgument: 2
           m_FloatArgument: 0
           m_StringArgument: 
@@ -4668,13 +4676,13 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1092338321}
-        m_TargetAssemblyTypeName: LevelSelector, Assembly-CSharp
-        m_MethodName: LoadScene
+      - m_Target: {fileID: 799443420}
+        m_TargetAssemblyTypeName: MiniGameManager, Assembly-CSharp
+        m_MethodName: LoadDay
         m_Mode: 2
         m_Arguments:
-          m_ObjectArgument: {fileID: 11400000, guid: c9dc8eed6ba48dc419b185b133a72deb, type: 2}
-          m_ObjectArgumentAssemblyTypeName: DayData, Assembly-CSharp
+          m_ObjectArgument: {fileID: 11400000, guid: f858f5f299c5b824995127283c43e156, type: 2}
+          m_ObjectArgumentAssemblyTypeName: Levelnfo, Assembly-CSharp
           m_IntArgument: 15
           m_FloatArgument: 0
           m_StringArgument: 

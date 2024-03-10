@@ -3,7 +3,6 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.InputSystem;
 using UnityEngine.UIElements;
-using static UnityEngine.Rendering.DebugUI;
 
 public class GameManager : MonoBehaviour, IMiniGame
 {
@@ -21,12 +20,8 @@ public class GameManager : MonoBehaviour, IMiniGame
     }
     private void Start()
     {
-        float startTilt = (int)Random.Range(0,2) == 0 ? -1 : 1;
-        rb.AddTorque(startTilt * tiltForce);
         Timer.instance.isDecreasing = false;
-        StartCoroutine(CheckRotation());
-        //in tilt game it should be a little different, the harder it gets the more time you have to spend balansing
-        StartCoroutine(Timer.instance.DecreaseTimer(MiniGameManager.instance.dayInfo.time));
+        StartCoroutine(StartGame());
     }
 
     private void OnEnable()
@@ -39,6 +34,19 @@ public class GameManager : MonoBehaviour, IMiniGame
     {
         actionMap.Gameplay.Tilt.performed -= OnTilt;
         actionMap.Disable();
+    }
+
+    private IEnumerator StartGame()
+    {
+        yield return new WaitForSecondsRealtime(0.1f);
+
+        float startTilt = (int)Random.Range(0,2) == 0 ? -1 : 1;
+        rb.AddTorque(startTilt * tiltForce);
+
+        StartCoroutine(CheckRotation());
+        //in tilt game it should be a little different,
+        //the harder it gets the more time you have to spend balansing
+        StartCoroutine(Timer.instance.DecreaseTimer(MiniGameManager.instance.time));
     }
 
     private IEnumerator CheckRotation()
@@ -66,7 +74,7 @@ public class GameManager : MonoBehaviour, IMiniGame
         StopAllCoroutines();
         Timer.instance.DisableTimer();
         rb.bodyType = RigidbodyType2D.Static;
-        MiniGameManager.instance.NextLevel();
+        MiniGameManager.instance.HandleGameLoss();
     }
 
     public void GameFinished()
