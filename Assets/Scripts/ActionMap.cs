@@ -80,6 +80,15 @@ public partial class @ActionMap: IInputActionCollection2, IDisposable
                     ""processors"": """",
                     ""interactions"": """",
                     ""initialStateCheck"": false
+                },
+                {
+                    ""name"": ""SubmitQuestion"",
+                    ""type"": ""Button"",
+                    ""id"": ""38f12b40-c30f-4dca-ae0a-c109ab7878c0"",
+                    ""expectedControlType"": ""Button"",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": false
                 }
             ],
             ""bindings"": [
@@ -212,6 +221,17 @@ public partial class @ActionMap: IInputActionCollection2, IDisposable
                     ""processors"": """",
                     ""groups"": """",
                     ""action"": ""DropBook"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""30e57ff6-924a-4cc2-86ff-fa630098e277"",
+                    ""path"": ""<Keyboard>/enter"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""SubmitQuestion"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
                 }
@@ -744,6 +764,7 @@ public partial class @ActionMap: IInputActionCollection2, IDisposable
         m_Gameplay_SlideHorizontal = m_Gameplay.FindAction("SlideHorizontal", throwIfNotFound: true);
         m_Gameplay_SlideVertical = m_Gameplay.FindAction("SlideVertical", throwIfNotFound: true);
         m_Gameplay_DropBook = m_Gameplay.FindAction("DropBook", throwIfNotFound: true);
+        m_Gameplay_SubmitQuestion = m_Gameplay.FindAction("SubmitQuestion", throwIfNotFound: true);
         // UI
         m_UI = asset.FindActionMap("UI", throwIfNotFound: true);
         m_UI_Navigate = m_UI.FindAction("Navigate", throwIfNotFound: true);
@@ -823,6 +844,7 @@ public partial class @ActionMap: IInputActionCollection2, IDisposable
     private readonly InputAction m_Gameplay_SlideHorizontal;
     private readonly InputAction m_Gameplay_SlideVertical;
     private readonly InputAction m_Gameplay_DropBook;
+    private readonly InputAction m_Gameplay_SubmitQuestion;
     public struct GameplayActions
     {
         private @ActionMap m_Wrapper;
@@ -833,6 +855,7 @@ public partial class @ActionMap: IInputActionCollection2, IDisposable
         public InputAction @SlideHorizontal => m_Wrapper.m_Gameplay_SlideHorizontal;
         public InputAction @SlideVertical => m_Wrapper.m_Gameplay_SlideVertical;
         public InputAction @DropBook => m_Wrapper.m_Gameplay_DropBook;
+        public InputAction @SubmitQuestion => m_Wrapper.m_Gameplay_SubmitQuestion;
         public InputActionMap Get() { return m_Wrapper.m_Gameplay; }
         public void Enable() { Get().Enable(); }
         public void Disable() { Get().Disable(); }
@@ -860,6 +883,9 @@ public partial class @ActionMap: IInputActionCollection2, IDisposable
             @DropBook.started += instance.OnDropBook;
             @DropBook.performed += instance.OnDropBook;
             @DropBook.canceled += instance.OnDropBook;
+            @SubmitQuestion.started += instance.OnSubmitQuestion;
+            @SubmitQuestion.performed += instance.OnSubmitQuestion;
+            @SubmitQuestion.canceled += instance.OnSubmitQuestion;
         }
 
         private void UnregisterCallbacks(IGameplayActions instance)
@@ -882,6 +908,9 @@ public partial class @ActionMap: IInputActionCollection2, IDisposable
             @DropBook.started -= instance.OnDropBook;
             @DropBook.performed -= instance.OnDropBook;
             @DropBook.canceled -= instance.OnDropBook;
+            @SubmitQuestion.started -= instance.OnSubmitQuestion;
+            @SubmitQuestion.performed -= instance.OnSubmitQuestion;
+            @SubmitQuestion.canceled -= instance.OnSubmitQuestion;
         }
 
         public void RemoveCallbacks(IGameplayActions instance)
@@ -1025,6 +1054,7 @@ public partial class @ActionMap: IInputActionCollection2, IDisposable
         void OnSlideHorizontal(InputAction.CallbackContext context);
         void OnSlideVertical(InputAction.CallbackContext context);
         void OnDropBook(InputAction.CallbackContext context);
+        void OnSubmitQuestion(InputAction.CallbackContext context);
     }
     public interface IUIActions
     {

@@ -2,18 +2,39 @@ using System.Collections;
 using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
+using UnityEngine.InputSystem;
 using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 
 public class QuizGame : MonoBehaviour
 {
-
-    [SerializeField] int numberOfQuestions = 3;
-
     List<int> correctAnswers;
     List<Transform> questionObjects = new List<Transform>();
 
     [SerializeField] Transform questionPrefab;
+
+    private InputAction submitAction;
+    private int currentQuestion=0;
+
+    [SerializeField] int numberOfQuestions = 3;
+    private int correct = 0;
+    private void Awake()
+    {
+        submitAction = new ActionMap().Gameplay.SubmitQuestion;
+    }
+
+    private void OnEnable()
+    {
+        submitAction.Enable();
+        submitAction.performed += SubmitQuestion;
+        Timer.instance.OnTimeUp += GameFinished;
+    }
+
+    private void OnDisable()
+    {
+        submitAction.performed -= SubmitQuestion;
+        submitAction.Disable();
+    }
 
     void Start()
     {
@@ -28,15 +49,7 @@ public class QuizGame : MonoBehaviour
             ChangeEquation(i);
             questionObjects[i].gameObject.SetActive(true);
         }
-    }
-
-
-    void Update()
-    {
-        if(Input.GetKeyDown(KeyCode.Return))
-        {
-            CheckAnswer();
-        }
+        questionObjects[0].GetChild(3).GetComponent<TMP_InputField>().Select();
     }
 
     void ChangeEquation(int i)
@@ -65,19 +78,46 @@ public class QuizGame : MonoBehaviour
 
     }
 
-    void CheckAnswer()
+    void SubmitQuestion(InputAction.CallbackContext context)
     {
-        for (int i = 0; i < numberOfQuestions; i++)
+        if (currentQuestion >= numberOfQuestions - 1)
         {
-            if (int.Parse(questionObjects[i].GetChild(3).GetComponent<TMP_InputField>().text) == correctAnswers[i])
+            if (correct == numberOfQuestions) GameFinished();
+            else GameEnd();
+        }
+        else
+        {
+            //maybe not tryparse but just check if null?
+            if (int.TryParse(questionObjects[currentQuestion].GetChild(3).GetComponent<TMP_InputField>().text, out int answer))
             {
-                Debug.Log("dobrze nr: " + i);
+                if (answer == correctAnswers[currentQuestion])
+                {
+                    Debug.Log("dobrze nr: " + correctAnswers);
+                    correct++;
+                }
+                currentQuestion++;
+                questionObjects[currentQuestion].GetChild(3).GetComponent<TMP_InputField>().Select();
             }
             else
             {
-                Debug.Log("przegrana");
+                questionObjects[currentQuestion].GetChild(3).GetComponent<TMP_InputField>().text = null;
+                Debug.Log("nie int");
+                questionObjects[0].GetChild(3).GetComponent<TMP_InputField>().Select();
+
             }
         }
-        SceneManager.LoadScene("LevelMenu");
     }
+
+    public void GameEnd()
+    {
+        Timer.instance.DisableTimer();
+        Timer.instance.OnTimeUp -= GameEnd;
+        MiniGameManager.instance.HandleGameLoss();
+    }
+
+    public void GameFinished()
+    {
+        MiniGameManager.instance.NextLevel();
+    }
+
 }
