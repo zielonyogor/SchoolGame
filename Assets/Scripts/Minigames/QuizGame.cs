@@ -96,15 +96,14 @@ public class QuizGame : MonoBehaviour
                     correct++;
                 }
                 currentQuestion++;
-                questionObjects[currentQuestion].GetChild(3).GetComponent<TMP_InputField>().Select();
             }
             else
             {
                 questionObjects[currentQuestion].GetChild(3).GetComponent<TMP_InputField>().text = null;
                 Debug.Log("nie int");
-                questionObjects[0].GetChild(3).GetComponent<TMP_InputField>().Select();
 
             }
+            questionObjects[currentQuestion].GetChild(3).GetComponent<TMP_InputField>().Select();
         }
     }
 
