@@ -51,3 +51,6 @@ TagManager:
   - name: Foreground
     uniqueID: 1219366865
     locked: 0
+  - name: Confetti
+    uniqueID: 3991823301
+    locked: 0

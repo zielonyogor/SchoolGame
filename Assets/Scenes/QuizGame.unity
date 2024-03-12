@@ -323,6 +323,22 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 3574128407686079190, guid: 8889913bf1291e541815239d206193f5, type: 3}
+      propertyPath: m_OnEndEdit.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 1061799658}
+    - target: {fileID: 3574128407686079190, guid: 8889913bf1291e541815239d206193f5, type: 3}
+      propertyPath: m_OnEndEdit.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: HandleClick
+      objectReference: {fileID: 0}
+    - target: {fileID: 3574128407686079190, guid: 8889913bf1291e541815239d206193f5, type: 3}
+      propertyPath: m_OnEndEdit.m_PersistentCalls.m_Calls.Array.data[0].m_TargetAssemblyTypeName
+      value: QuizGame, Assembly-CSharp
+      objectReference: {fileID: 0}
+    - target: {fileID: 3574128407686079190, guid: 8889913bf1291e541815239d206193f5, type: 3}
+      propertyPath: m_OnEndEdit.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgumentAssemblyTypeName
+      value: UnityEngine.Object, UnityEngine
+      objectReference: {fileID: 0}
     - target: {fileID: 6577026992256135067, guid: 8889913bf1291e541815239d206193f5, type: 3}
       propertyPath: m_Name
       value: Question (4)
@@ -721,6 +737,22 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 3574128407686079190, guid: 8889913bf1291e541815239d206193f5, type: 3}
+      propertyPath: m_OnEndEdit.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 1061799658}
+    - target: {fileID: 3574128407686079190, guid: 8889913bf1291e541815239d206193f5, type: 3}
+      propertyPath: m_OnEndEdit.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: HandleClick
+      objectReference: {fileID: 0}
+    - target: {fileID: 3574128407686079190, guid: 8889913bf1291e541815239d206193f5, type: 3}
+      propertyPath: m_OnEndEdit.m_PersistentCalls.m_Calls.Array.data[0].m_TargetAssemblyTypeName
+      value: QuizGame, Assembly-CSharp
+      objectReference: {fileID: 0}
+    - target: {fileID: 3574128407686079190, guid: 8889913bf1291e541815239d206193f5, type: 3}
+      propertyPath: m_OnEndEdit.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgumentAssemblyTypeName
+      value: UnityEngine.Object, UnityEngine
+      objectReference: {fileID: 0}
     - target: {fileID: 6577026992256135067, guid: 8889913bf1291e541815239d206193f5, type: 3}
       propertyPath: m_Name
       value: Question (3)
@@ -821,6 +853,22 @@ PrefabInstance:
     - target: {fileID: 110314817219726557, guid: 8889913bf1291e541815239d206193f5, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3574128407686079190, guid: 8889913bf1291e541815239d206193f5, type: 3}
+      propertyPath: m_OnEndEdit.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 1061799658}
+    - target: {fileID: 3574128407686079190, guid: 8889913bf1291e541815239d206193f5, type: 3}
+      propertyPath: m_OnEndEdit.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: HandleClick
+      objectReference: {fileID: 0}
+    - target: {fileID: 3574128407686079190, guid: 8889913bf1291e541815239d206193f5, type: 3}
+      propertyPath: m_OnEndEdit.m_PersistentCalls.m_Calls.Array.data[0].m_TargetAssemblyTypeName
+      value: QuizGame, Assembly-CSharp
+      objectReference: {fileID: 0}
+    - target: {fileID: 3574128407686079190, guid: 8889913bf1291e541815239d206193f5, type: 3}
+      propertyPath: m_OnEndEdit.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgumentAssemblyTypeName
+      value: UnityEngine.Object, UnityEngine
       objectReference: {fileID: 0}
     - target: {fileID: 6577026992256135067, guid: 8889913bf1291e541815239d206193f5, type: 3}
       propertyPath: m_Name
@@ -1026,6 +1074,22 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 3574128407686079190, guid: 8889913bf1291e541815239d206193f5, type: 3}
+      propertyPath: m_OnEndEdit.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 1061799658}
+    - target: {fileID: 3574128407686079190, guid: 8889913bf1291e541815239d206193f5, type: 3}
+      propertyPath: m_OnEndEdit.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: HandleClick
+      objectReference: {fileID: 0}
+    - target: {fileID: 3574128407686079190, guid: 8889913bf1291e541815239d206193f5, type: 3}
+      propertyPath: m_OnEndEdit.m_PersistentCalls.m_Calls.Array.data[0].m_TargetAssemblyTypeName
+      value: QuizGame, Assembly-CSharp
+      objectReference: {fileID: 0}
+    - target: {fileID: 3574128407686079190, guid: 8889913bf1291e541815239d206193f5, type: 3}
+      propertyPath: m_OnEndEdit.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgumentAssemblyTypeName
+      value: UnityEngine.Object, UnityEngine
+      objectReference: {fileID: 0}
     - target: {fileID: 6577026992256135067, guid: 8889913bf1291e541815239d206193f5, type: 3}
       propertyPath: m_Name
       value: Question (2)
@@ -1130,6 +1194,22 @@ PrefabInstance:
     - target: {fileID: 3574128407686079190, guid: 8889913bf1291e541815239d206193f5, type: 3}
       propertyPath: m_RichText
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3574128407686079190, guid: 8889913bf1291e541815239d206193f5, type: 3}
+      propertyPath: m_OnEndEdit.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 1061799658}
+    - target: {fileID: 3574128407686079190, guid: 8889913bf1291e541815239d206193f5, type: 3}
+      propertyPath: m_OnEndEdit.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: HandleClick
+      objectReference: {fileID: 0}
+    - target: {fileID: 3574128407686079190, guid: 8889913bf1291e541815239d206193f5, type: 3}
+      propertyPath: m_OnEndEdit.m_PersistentCalls.m_Calls.Array.data[0].m_TargetAssemblyTypeName
+      value: QuizGame, Assembly-CSharp
+      objectReference: {fileID: 0}
+    - target: {fileID: 3574128407686079190, guid: 8889913bf1291e541815239d206193f5, type: 3}
+      propertyPath: m_OnEndEdit.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgumentAssemblyTypeName
+      value: UnityEngine.Object, UnityEngine
       objectReference: {fileID: 0}
     - target: {fileID: 6577026992256135067, guid: 8889913bf1291e541815239d206193f5, type: 3}
       propertyPath: m_Name

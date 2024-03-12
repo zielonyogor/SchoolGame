@@ -9,11 +9,11 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 511af35fc123cc44a94d1d8b95897674, type: 3}
-  m_Name: DayOne
+  m_Script: {fileID: 11500000, guid: cbc52ca9184d5174088c4943de128667, type: 3}
+  m_Name: Day_4
   m_EditorClassIdentifier: 
   miniGames:
+  - QuizGame
   - TiltGame
-  - PuzzleGame
-  time: 20
-  numberOfPuzzles: 2
+  time: 15
+  numberOfQuestions: 4

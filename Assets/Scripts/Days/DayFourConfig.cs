@@ -1,7 +1,7 @@
 using UnityEngine;
 
-[CreateAssetMenu(fileName = "DayTwo", menuName = "DayConfigs/Day Two")]
-public class DayTwoConfig : Levelnfo
+[CreateAssetMenu(fileName = "DayFour", menuName = "DayConfigs/Day Four")]
+public class DayFourConfig : Levelnfo
 {
     public int numberOfQuestions;
 
@@ -9,6 +9,5 @@ public class DayTwoConfig : Levelnfo
     {
         base.LoadData();
         MiniGameManager.instance.numberOfQuestions = numberOfQuestions;
-        Debug.Log("udalo sie");
     }
 }

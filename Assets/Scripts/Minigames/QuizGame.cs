@@ -16,7 +16,7 @@ public class QuizGame : MonoBehaviour
     private InputAction submitAction;
     private int currentQuestion=0;
 
-    [SerializeField] int numberOfQuestions = 3;
+    [SerializeField] int numberOfQuestions;
     private int correct = 0;
     private void Awake()
     {
@@ -27,7 +27,7 @@ public class QuizGame : MonoBehaviour
     {
         submitAction.Enable();
         submitAction.performed += SubmitQuestion;
-        Timer.instance.OnTimeUp += GameFinished;
+        Timer.instance.OnTimeUp += GameEnd;
     }
 
     private void OnDisable()
@@ -38,7 +38,7 @@ public class QuizGame : MonoBehaviour
 
     void Start()
     {
-        //change number of questions based on day
+        numberOfQuestions = MiniGameManager.instance.numberOfQuestions;
         correctAnswers = new List<int>(numberOfQuestions);
         for (int i = 0; i < numberOfQuestions; i++)
         {
@@ -50,6 +50,9 @@ public class QuizGame : MonoBehaviour
             questionObjects[i].gameObject.SetActive(true);
         }
         questionObjects[0].GetChild(3).GetComponent<TMP_InputField>().Select();
+
+
+        StartCoroutine(Timer.instance.DecreaseTimer(MiniGameManager.instance.time));
     }
 
     void ChangeEquation(int i)
@@ -78,33 +81,35 @@ public class QuizGame : MonoBehaviour
 
     }
 
+    public void HandleClick()
+    {
+        questionObjects[currentQuestion].GetChild(3).GetComponent<TMP_InputField>().Select();
+        questionObjects[currentQuestion].GetChild(3).GetComponent<TMP_InputField>().ActivateInputField();
+    }
+
     void SubmitQuestion(InputAction.CallbackContext context)
     {
-        if (currentQuestion >= numberOfQuestions - 1)
+        if (int.TryParse(questionObjects[currentQuestion].GetChild(3).GetComponent<TMP_InputField>().text, out int answer))
         {
-            if (correct == numberOfQuestions) GameFinished();
-            else GameEnd();
+            if (answer == correctAnswers[currentQuestion])
+                correct++;
+
+            currentQuestion++;
         }
         else
         {
-            //maybe not tryparse but just check if null?
-            if (int.TryParse(questionObjects[currentQuestion].GetChild(3).GetComponent<TMP_InputField>().text, out int answer))
-            {
-                if (answer == correctAnswers[currentQuestion])
-                {
-                    Debug.Log("dobrze nr: " + correctAnswers);
-                    correct++;
-                }
-                currentQuestion++;
-            }
-            else
-            {
-                questionObjects[currentQuestion].GetChild(3).GetComponent<TMP_InputField>().text = null;
-                Debug.Log("nie int");
+            questionObjects[currentQuestion].GetChild(3).GetComponent<TMP_InputField>().text = null;
+            questionObjects[currentQuestion].GetChild(3).GetComponent<TMP_InputField>().ActivateInputField();
 
-            }
-            questionObjects[currentQuestion].GetChild(3).GetComponent<TMP_InputField>().Select();
         }
+        if (currentQuestion == numberOfQuestions)
+            currentQuestion--;
+        questionObjects[currentQuestion].GetChild(3).GetComponent<TMP_InputField>().Select();
+
+        if (correct == numberOfQuestions)
+            GameFinished();
+        else if (currentQuestion == numberOfQuestions)
+            GameEnd();
     }
 
     public void GameEnd()

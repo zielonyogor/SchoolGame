@@ -9,13 +9,11 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 5a32e0c0bb924e644a797c6820c02637, type: 3}
-  m_Name: DayThree
+  m_Script: {fileID: 11500000, guid: facdea831a5a5c64088e4d416bb96044, type: 3}
+  m_Name: Day_2
   m_EditorClassIdentifier: 
   miniGames:
-  - StackingGame
-  - SlidingGame
-  time: 5
-  numberOfBooks: 3
-  bookSpeed: 30
-  slidingMapLayout: {fileID: 11400000, guid: 44f2fb8583222aa4bbed58ae201a12f6, type: 2}
+  - QuizGame
+  - TiltGame
+  time: 10
+  numberOfQuestions: 2
