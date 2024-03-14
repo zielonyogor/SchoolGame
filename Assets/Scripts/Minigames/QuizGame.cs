@@ -18,6 +18,9 @@ public class QuizGame : MonoBehaviour
 
     [SerializeField] int numberOfQuestions;
     private int correct = 0;
+
+    [SerializeField] ParticleSystem confetti_1, confetti_2;
+
     private void Awake()
     {
         submitAction = new ActionMap().Gameplay.SubmitQuestion;
@@ -121,6 +124,16 @@ public class QuizGame : MonoBehaviour
 
     public void GameFinished()
     {
+        StartCoroutine(PlayConfetti());
+    }
+
+    private IEnumerator PlayConfetti()
+    {
+        yield return new WaitForEndOfFrame();
+        Timer.instance.DisableTimer();
+        confetti_1.Play();
+        confetti_2.Play();
+        yield return new WaitForSeconds(2.5f);
         MiniGameManager.instance.NextLevel();
     }
 
