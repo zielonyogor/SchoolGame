@@ -27,6 +27,8 @@ public class StackingGame : MonoBehaviour, IMiniGame
     private float bookSpeed = 30f;
     private int numberOfBooks = 4;
 
+    [SerializeField] ParticleSystem confetti_1, confetti_2;
+
     private void Awake()
     {
         dropAction = new ActionMap().Gameplay.DropBook;
@@ -117,6 +119,16 @@ public class StackingGame : MonoBehaviour, IMiniGame
 
     public void GameFinished()
     {
+        StartCoroutine(PlayConfetti());
+    }
+
+    private IEnumerator PlayConfetti()
+    {
+        yield return new WaitForEndOfFrame();
+        Timer.instance.DisableTimer();
+        confetti_1.Play();
+        confetti_2.Play();
+        yield return new WaitForSeconds(2.5f);
         MiniGameManager.instance.NextLevel();
     }
 }

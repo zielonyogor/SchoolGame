@@ -5,7 +5,7 @@ using UnityEngine.InputSystem;
 using UnityEngine.SceneManagement;
 using UnityEngine.UIElements;
 
-public class SlidingGame : MonoBehaviour 
+public class SlidingGame : MonoBehaviour, IMiniGame
 {
     private bool isMoving = false;
     private WaitForFixedUpdate waitForFixedUpdate;
@@ -20,13 +20,16 @@ public class SlidingGame : MonoBehaviour
     SpriteRenderer sRenderer;
     float spriteWidth;
 
-    [SerializeField] SlidingGameManager slidingGameManager;
+    [SerializeField] ParticleSystem confetti_1, confetti_2;
 
     private void Start()
     {
         waitForFixedUpdate = new WaitForFixedUpdate();
         sRenderer = GetComponent<SpriteRenderer>();
         spriteWidth = sRenderer.sprite.bounds.size.x * transform.lossyScale.x / 2;
+
+        Timer.instance.OnTimeUp += GameEnd;
+        StartCoroutine(Timer.instance.DecreaseTimer(MiniGameManager.instance.time));
     }
 
     private void Awake()
@@ -41,6 +44,14 @@ public class SlidingGame : MonoBehaviour
         turnVertical.Enable();
         turnHorizontal.performed += SlideHorizontal; 
         turnVertical.performed += SlideVertical;
+    }
+
+    private void OnDisable()
+    {
+        turnHorizontal.performed -= SlideHorizontal;
+        turnVertical.performed -= SlideVertical;
+        turnHorizontal.Disable();
+        turnVertical.Disable();
     }
 
     void SlideHorizontal(InputAction.CallbackContext context)
@@ -83,11 +94,38 @@ public class SlidingGame : MonoBehaviour
             if (Mathf.Abs(newPosition.x) > 110 || Mathf.Abs(newPosition.y) > 70)
             {
                 Debug.Log("przegrana");
-                slidingGameManager.GameEnd();
+                GameEnd();
             }
             yield return waitForFixedUpdate;
 
-        } while (true);
+        } while (isMoving);
         isMoving = false;
+    }
+
+    public void GameEnd()
+    {
+        StopAllCoroutines();
+        Timer.instance.DisableTimer();
+        Timer.instance.OnTimeUp -= GameEnd;
+        MiniGameManager.instance.HandleGameLoss();
+    }
+
+    public void GameFinished()
+    {
+        StopAllCoroutines();
+        StartCoroutine(PlayConfetti());
+    }
+
+    private IEnumerator PlayConfetti()
+    {
+        isMoving = false;
+        turnHorizontal.performed -= SlideHorizontal;
+        turnVertical.performed -= SlideVertical;
+        yield return new WaitForEndOfFrame();
+        Timer.instance.DisableTimer();
+        confetti_1.Play();
+        confetti_2.Play();
+        yield return new WaitForSeconds(2.5f);
+        MiniGameManager.instance.NextLevel();
     }
 }

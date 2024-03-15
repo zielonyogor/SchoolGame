@@ -3,13 +3,16 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
-public class SlidingGameManager : MonoBehaviour, IMiniGame
+public class SlidingGameManager : MonoBehaviour
 {
     [SerializeField] List<Transform> blocks;
     [SerializeField] Transform player;
 
     //later delete [SerializeField]
     [SerializeField] SlidingMapLayout slidingMapLayout;
+
+
+    [SerializeField] SlidingGame slidingGame;
 
     private void Start()
     {
@@ -21,28 +24,15 @@ public class SlidingGameManager : MonoBehaviour, IMiniGame
             blocks[i].position = slidingMapLayout.blockPosition[i];
         }
 
-        Timer.instance.OnTimeUp += GameEnd;
-        StartCoroutine(Timer.instance.DecreaseTimer(MiniGameManager.instance.time));
     }
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
         if (collision.CompareTag("Player"))
         {
-            Debug.Log("yippee");
-            MiniGameManager.instance.NextLevel();
+            slidingGame.GameFinished();
         }
     }
 
-    public void GameEnd()
-    {
-        Timer.instance.DisableTimer();
-        Timer.instance.OnTimeUp -= GameEnd;
-        MiniGameManager.instance.HandleGameLoss();
-    }
-
-    public void GameFinished()
-    {
-        MiniGameManager.instance.NextLevel();
-    }
+    
 }

@@ -13,6 +13,8 @@ public class GameManager : MonoBehaviour, IMiniGame
 
     private WaitForFixedUpdate waitForFixedUpdate;
 
+    [SerializeField] ParticleSystem confetti_1, confetti_2;
+
     private void Awake()
     {
         actionMap = new ActionMap();
@@ -79,7 +81,17 @@ public class GameManager : MonoBehaviour, IMiniGame
 
     public void GameFinished()
     {
-        Timer.instance.OnTimeUp -= GameFinished;
+        rb.bodyType = RigidbodyType2D.Static;
+        StartCoroutine(PlayConfetti());
+    }
+
+    private IEnumerator PlayConfetti()
+    {
+        yield return new WaitForEndOfFrame();
+        Timer.instance.DisableTimer();
+        confetti_1.Play();
+        confetti_2.Play();
+        yield return new WaitForSeconds(2.5f);
         MiniGameManager.instance.NextLevel();
     }
 }

@@ -15,6 +15,8 @@ public class Puzzle : MonoBehaviour, IMiniGame
 
     private int numberOfPuzzles;
 
+    [SerializeField] ParticleSystem confetti_1, confetti_2;
+
     private void Awake()
     {
         mainCamera = Camera.main;
@@ -88,6 +90,16 @@ public class Puzzle : MonoBehaviour, IMiniGame
 
     public void GameFinished()
     {
+        StartCoroutine(PlayConfetti());
+    }
+
+    private IEnumerator PlayConfetti()
+    {
+        yield return new WaitForEndOfFrame();
+        Timer.instance.DisableTimer();
+        confetti_1.Play();
+        confetti_2.Play();
+        yield return new WaitForSeconds(2.5f);
         MiniGameManager.instance.NextLevel();
     }
 }

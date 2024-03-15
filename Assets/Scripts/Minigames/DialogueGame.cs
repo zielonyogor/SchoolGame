@@ -11,6 +11,8 @@ public class DialogueGame : MonoBehaviour, IMiniGame
     private int expectedID;
     private int numberOfButtons;
 
+    [SerializeField] ParticleSystem confetti_1, confetti_2;
+
     void Start()
     {
         dialogueParts = MiniGameManager.instance.dialogueText.Split('_');
@@ -56,6 +58,16 @@ public class DialogueGame : MonoBehaviour, IMiniGame
 
     public void GameFinished()
     {
+        StartCoroutine(PlayConfetti());
+    }
+
+    private IEnumerator PlayConfetti()
+    {
+        yield return new WaitForEndOfFrame();
+        Timer.instance.DisableTimer();
+        confetti_1.Play();
+        confetti_2.Play();
+        yield return new WaitForSeconds(2.5f);
         MiniGameManager.instance.NextLevel();
     }
 }
