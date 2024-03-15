@@ -537,7 +537,7 @@ BoxCollider2D:
   m_CallbackLayers:
     serializedVersion: 2
     m_Bits: 4294967295
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_UsedByEffector: 0
   m_UsedByComposite: 0
   m_Offset: {x: 0, y: 0}
@@ -551,7 +551,7 @@ BoxCollider2D:
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 16, y: 16}
+  m_Size: {x: 4, y: 4}
   m_EdgeRadius: 0
 --- !u!114 &320451367
 MonoBehaviour:
@@ -852,8 +852,8 @@ SpriteRenderer:
   m_AutoUVMaxDistance: 0.5
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
-  m_SortingLayerID: 0
-  m_SortingLayer: 0
+  m_SortingLayerID: 1219366865
+  m_SortingLayer: 2
   m_SortingOrder: 0
   m_Sprite: {fileID: -1512112308, guid: 26ed79a67b5f2fa43a10ebe5b9cbb249, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}

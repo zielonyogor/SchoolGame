@@ -118,10 +118,10 @@ public class SlidingGame : MonoBehaviour, IMiniGame
 
     private IEnumerator PlayConfetti()
     {
-        isMoving = false;
         turnHorizontal.performed -= SlideHorizontal;
         turnVertical.performed -= SlideVertical;
         yield return new WaitForEndOfFrame();
+        isMoving = false;
         Timer.instance.DisableTimer();
         confetti_1.Play();
         confetti_2.Play();
