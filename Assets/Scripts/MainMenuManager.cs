@@ -5,9 +5,11 @@ using UnityEngine;
 public class MainMenuManager : MonoBehaviour
 {
     [SerializeField] GameObject mainMenu, calendar, howToPlay, credits;
+
+    [SerializeField] Animator notebookAnimator;
     public void OpenLevelSelector()
     {
-        LeanTween.moveLocalX(mainMenu, -1800.0f, 3f);
+        notebookAnimator.SetTrigger("showLevelSelector");
     }
 
     public void OpenHowToPlay()
