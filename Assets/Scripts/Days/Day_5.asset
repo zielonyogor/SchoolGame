@@ -12,8 +12,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 525052c2b290fc147a52f6164ada9043, type: 3}
   m_Name: Day_5
   m_EditorClassIdentifier: 
-  miniGames: []
+  miniGames:
+  - StackingGame
   time: 15
   numberOfBooks: 3
   bookSpeed: 30
-  tableSize: 100
+  tableSize: 120
