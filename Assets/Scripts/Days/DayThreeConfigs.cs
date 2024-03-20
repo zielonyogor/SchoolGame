@@ -6,6 +6,7 @@ public class DayThreeConfig : Levelnfo
     public int numberOfPuzzles;
     public int numberOfBooks;
     public int bookSpeed;
+    public int tableSize;
     public SlidingMapLayout slidingMapLayout;
 
     public override void LoadData()
@@ -15,6 +16,6 @@ public class DayThreeConfig : Levelnfo
         MiniGameManager.instance.bookSpeed = bookSpeed;
         MiniGameManager.instance.numberOfBooks = numberOfBooks;
         MiniGameManager.instance.slidingMapLayout = slidingMapLayout;
-        Debug.Log("udalo sie");
+        MiniGameManager.instance.tableSize = tableSize;
     }
 }

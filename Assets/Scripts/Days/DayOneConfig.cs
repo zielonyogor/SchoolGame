@@ -14,16 +14,3 @@ public class DayOneConfig : Levelnfo
         Debug.Log("udalo sie");
     }
 }
-
-
-//[CreateAssetMenu(fileName = "DaySix", menuName = "DayConfigs/Day Six")]
-//public class DaySixConfig : Levelnfo
-//{
-//    public int numberOfPuzzles;
-
-//    public override void LoadData()
-//    {
-//        base.LoadData();
-//        Debug.Log("udalo sie");
-//    }
-//}

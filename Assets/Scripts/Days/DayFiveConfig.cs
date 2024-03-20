@@ -3,14 +3,18 @@ using System.Collections.Generic;
 using UnityEngine;
 
 
-[CreateAssetMenu(fileName = "DayFive", menuName = "DayConfigs/Day Five")]
+[CreateAssetMenu(fileName = "Day_5", menuName = "DayConfigs/Day Five")]
 public class DayFiveConfig : Levelnfo
 {
-    public int numberOfPuzzles;
+    public int numberOfBooks;
+    public int bookSpeed;
+    public int tableSize;
 
     public override void LoadData()
     {
         base.LoadData();
-        Debug.Log("udalo sie");
+        MiniGameManager.instance.bookSpeed = bookSpeed;
+        MiniGameManager.instance.numberOfBooks = numberOfBooks;
+        MiniGameManager.instance.tableSize = tableSize;
     }
 }

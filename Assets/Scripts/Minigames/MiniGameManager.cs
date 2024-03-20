@@ -22,6 +22,7 @@ public class MiniGameManager : MonoBehaviour
     public int numberOfQuestions;
     public int numberOfBooks;
     public int bookSpeed;
+    public int tableSize;
     public SlidingMapLayout slidingMapLayout;
 
     private void Awake()
