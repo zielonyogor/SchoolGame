@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class TextChange : MonoBehaviour
 {
@@ -13,7 +14,6 @@ public class TextChange : MonoBehaviour
     void Start()
     {
         dialogueParts = MiniGameManager.instance.cutsceneText.Split('_');
-        //dialogueParts = "everything is simply a shape, a form, an identifier to let other recognize me as me.. but then what am i...? is this me? my true self, my fake self? what is it that i am?! NOBODY UNDERSTANDS ME. !!_MEOW MEOW MEOW".Split('_');
         StartCoroutine(playDialogue());
     }
 
@@ -26,5 +26,7 @@ public class TextChange : MonoBehaviour
             }
             yield return new WaitForSeconds(1.5f);
         }
+        SceneManager.LoadScene("LevelMenu"); 
+        //should add method for MiniGameManager to Load LevelSelector
     } 
 }

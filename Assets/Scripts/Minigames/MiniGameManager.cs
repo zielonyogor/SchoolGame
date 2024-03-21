@@ -27,6 +27,8 @@ public class MiniGameManager : MonoBehaviour
     public int tableSize;
     public SlidingMapLayout slidingMapLayout;
 
+    public bool isPlaying = false;
+
     private void Awake()
     {
         if (instance != null && instance != this)
@@ -36,6 +38,7 @@ public class MiniGameManager : MonoBehaviour
         else
         {
             instance = this;
+            DontDestroyOnLoad(this);
         }
     }
 
@@ -57,6 +60,7 @@ public class MiniGameManager : MonoBehaviour
         currentGameIndex++;
         if (currentGameIndex >= miniGames.Count)
         {
+            isPlaying = true;
             currentGameIndex = 0;
             SceneManager.LoadScene("LevelMenu");
         }

@@ -7,6 +7,11 @@ public class MainMenuManager : MonoBehaviour
     [SerializeField] GameObject mainMenu, calendar, howToPlay, credits;
 
     [SerializeField] Animator notebookAnimator;
+
+    private void Start()
+    {
+        notebookAnimator.SetBool("isPlaying", MiniGameManager.instance.isPlaying);
+    }
     public void OpenLevelSelector()
     {
         notebookAnimator.SetTrigger("showLevelSelector");
