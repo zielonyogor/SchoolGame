@@ -11,6 +11,5 @@ public class DayOneConfig : Levelnfo
         base.LoadData();
         MiniGameManager.instance.slidingMapLayout = slidingMapLayout;
         MiniGameManager.instance.dialogueText = dialogueText;
-        Debug.Log("udalo sie");
     }
 }

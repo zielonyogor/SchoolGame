@@ -93,7 +93,6 @@ public class SlidingGame : MonoBehaviour, IMiniGame
             player.MovePosition(newPosition);
             if (Mathf.Abs(newPosition.x) > 110 || Mathf.Abs(newPosition.y) > 70)
             {
-                Debug.Log("przegrana");
                 GameEnd();
             }
             yield return waitForFixedUpdate;

@@ -12,8 +12,6 @@ public class Timer : MonoBehaviour
 
     private bool m_TimeUp= false;
 
-    [SerializeField] private GameObject timingObject;
-
     private void Awake()
     {
         if (instance == null)
@@ -82,16 +80,6 @@ public class Timer : MonoBehaviour
         }
         TimeUp = true;
         DisableTimer();
-    }
-
-    //probably move to minigameManager
-    private IEnumerator SpawnTimingGame(float time)
-    {
-        Debug.Log("meow");
-        yield return new WaitForSeconds(time);
-        Debug.Log("meowmeow");
-        Instantiate(timingObject, new Vector3(0,0,0), Quaternion.identity);
-        yield return null;
     }
 
     public void DisableTimer()

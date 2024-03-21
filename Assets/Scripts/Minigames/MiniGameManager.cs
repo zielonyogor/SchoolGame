@@ -15,6 +15,8 @@ public class MiniGameManager : MonoBehaviour
     public List<string> miniGames;
     public float time = 0;
 
+    [SerializeField] private GameObject timingObject;
+
     [Header("MiniGame variables")]
     public int numberOfPuzzles;
     public int numberOfMeds;
@@ -40,7 +42,6 @@ public class MiniGameManager : MonoBehaviour
     public void LoadDay(Levelnfo newDay)
     {
         newDay.LoadData();
-        Debug.Log(miniGames.Count);
         SceneManager.LoadScene(miniGames[currentGameIndex]);
         //Should add (maybe here) handling Anxiety Game
     }
@@ -77,5 +78,13 @@ public class MiniGameManager : MonoBehaviour
         {
             SceneManager.LoadScene(miniGames[currentGameIndex]);
         }
+    }
+
+    //probably move to minigameManager
+    private IEnumerator SpawnTimingGame(float time)
+    {
+        yield return new WaitForSeconds(time);
+        Instantiate(timingObject, new Vector3(0, 0, 0), Quaternion.identity);
+        yield return null;
     }
 }

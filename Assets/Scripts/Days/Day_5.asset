@@ -14,7 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   miniGames:
   - StackingGame
-  time: 15
+  time: 5
   numberOfBooks: 3
-  bookSpeed: 30
+  bookSpeed: 60
   tableSize: 120

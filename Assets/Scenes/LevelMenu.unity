@@ -2459,6 +2459,7 @@ MonoBehaviour:
   cutsceneText: 
   miniGames: []
   time: 0
+  timingObject: {fileID: 6455216028456204200, guid: a10e31a7bda3b664d9fdd7c42ddc8fa0, type: 3}
   numberOfPuzzles: 0
   numberOfMeds: 0
   dialogueText: 
