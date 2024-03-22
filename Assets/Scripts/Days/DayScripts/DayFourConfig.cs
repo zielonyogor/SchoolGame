@@ -1,6 +1,6 @@
 using UnityEngine;
 
-[CreateAssetMenu(fileName = "DayFour", menuName = "DayConfigs/Day Four")]
+[CreateAssetMenu(fileName = "Day_4", menuName = "DayConfigs/Day_4")]
 public class DayFourConfig : Levelnfo
 {
     public int numberOfQuestions;

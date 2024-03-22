@@ -1,7 +1,7 @@
 using UnityEngine;
 
-[CreateAssetMenu(fileName ="DayOne", menuName= "DayConfigs/Day One")]
-public class DayOneConfig : Levelnfo
+[CreateAssetMenu(fileName = "Day_10", menuName = "DayConfigs/Day_10")]
+public class DayTenConfig : Levelnfo
 {
     public SlidingMapLayout slidingMapLayout;
     public string dialogueText;
