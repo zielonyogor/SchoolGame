@@ -12,19 +12,7 @@ public class MainMenuManager : MonoBehaviour
     {
         notebookAnimator.SetBool("isPlaying", MiniGameManager.instance.isPlaying);
     }
-    public void OpenLevelSelector()
-    {
-        notebookAnimator.SetTrigger("showLevelSelector");
-    }
-
-    public void OpenHowToPlay()
-    {
-    }
-
-    public void OpenCredits()
-    {
-    }
-
+    
     public void ExitGame()
     {
         Application.Quit();
