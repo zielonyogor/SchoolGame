@@ -29,7 +29,7 @@ public class MiniGameManager : MonoBehaviour
 
     [Header("Days variables")]
     public bool isPlaying = false;
-    public int day = 1;
+    public GameData gameData = new GameData();
 
     private void Awake()
     {
@@ -42,6 +42,7 @@ public class MiniGameManager : MonoBehaviour
             instance = this;
             DontDestroyOnLoad(this);
         }
+        gameData = SaveSystem.LoadGameData();
     }
 
     public void LoadDay(Levelnfo newDay)
@@ -64,7 +65,7 @@ public class MiniGameManager : MonoBehaviour
         {
             isPlaying = true;
             currentGameIndex = 0;
-            day += 1;
+            gameData.day += 1;
             SceneManager.LoadScene("LevelMenu");
         }
         else

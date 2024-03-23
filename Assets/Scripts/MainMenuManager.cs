@@ -10,11 +10,15 @@ public class MainMenuManager : MonoBehaviour
 
     private void Start()
     {
-        notebookAnimator.SetBool("isPlaying", MiniGameManager.instance.isPlaying);
+        if (MiniGameManager.instance.isPlaying)
+        {
+            notebookAnimator.SetTrigger("isPlaying");
+        }
     }
-    
+
     public void ExitGame()
     {
+        SaveSystem.SaveGame();
         Application.Quit();
     }
 }
