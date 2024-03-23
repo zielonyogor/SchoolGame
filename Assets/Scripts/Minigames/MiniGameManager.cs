@@ -27,7 +27,9 @@ public class MiniGameManager : MonoBehaviour
     public int tableSize;
     public SlidingMapLayout slidingMapLayout;
 
+    [Header("Days variables")]
     public bool isPlaying = false;
+    public int day = 1;
 
     private void Awake()
     {
@@ -62,6 +64,7 @@ public class MiniGameManager : MonoBehaviour
         {
             isPlaying = true;
             currentGameIndex = 0;
+            day += 1;
             SceneManager.LoadScene("LevelMenu");
         }
         else

@@ -345,7 +345,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6577026992256135067, guid: 8889913bf1291e541815239d206193f5, type: 3}
       propertyPath: m_IsActive
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -424,7 +424,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1127329256}
   - component: {fileID: 1127329255}
-  - component: {fileID: 1127329254}
+  - component: {fileID: 1127329257}
   m_Layer: 0
   m_Name: EventSystem
   m_TagString: Untagged
@@ -432,26 +432,6 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!114 &1127329254
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1127329253}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 4f231c4fb786f3946a6b90b886c48677, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  m_SendPointerHoverToParent: 1
-  m_HorizontalAxis: Horizontal
-  m_VerticalAxis: Vertical
-  m_SubmitButton: Submit
-  m_CancelButton: Cancel
-  m_InputActionsPerSecond: 10
-  m_RepeatDelay: 0.5
-  m_ForceModuleActive: 0
 --- !u!114 &1127329255
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -482,6 +462,36 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1127329257
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1127329253}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 01614664b831546d2ae94a42149d80ac, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_SendPointerHoverToParent: 1
+  m_MoveRepeatDelay: 0.5
+  m_MoveRepeatRate: 0.1
+  m_XRTrackingOrigin: {fileID: 0}
+  m_ActionsAsset: {fileID: -944628639613478452, guid: 3735ac04967fe5142825b9510144e6cc, type: 3}
+  m_PointAction: {fileID: -5666903275033739659, guid: 3735ac04967fe5142825b9510144e6cc, type: 3}
+  m_MoveAction: {fileID: 3856777954191842036, guid: 3735ac04967fe5142825b9510144e6cc, type: 3}
+  m_SubmitAction: {fileID: -2746291629091457257, guid: 3735ac04967fe5142825b9510144e6cc, type: 3}
+  m_CancelAction: {fileID: 6660014040043350975, guid: 3735ac04967fe5142825b9510144e6cc, type: 3}
+  m_LeftClickAction: {fileID: 5547283800766112958, guid: 3735ac04967fe5142825b9510144e6cc, type: 3}
+  m_MiddleClickAction: {fileID: -8708638383398947788, guid: 3735ac04967fe5142825b9510144e6cc, type: 3}
+  m_RightClickAction: {fileID: -5714426351356365991, guid: 3735ac04967fe5142825b9510144e6cc, type: 3}
+  m_ScrollWheelAction: {fileID: -6646574410631632905, guid: 3735ac04967fe5142825b9510144e6cc, type: 3}
+  m_TrackedDevicePositionAction: {fileID: -58037663856813230, guid: 3735ac04967fe5142825b9510144e6cc, type: 3}
+  m_TrackedDeviceOrientationAction: {fileID: -6461042021429984800, guid: 3735ac04967fe5142825b9510144e6cc, type: 3}
+  m_DeselectOnBackgroundClick: 1
+  m_PointerBehavior: 0
+  m_CursorLockBehavior: 0
 --- !u!1 &1378946882
 GameObject:
   m_ObjectHideFlags: 0
@@ -748,7 +758,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6577026992256135067, guid: 8889913bf1291e541815239d206193f5, type: 3}
       propertyPath: m_IsActive
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -865,7 +875,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6577026992256135067, guid: 8889913bf1291e541815239d206193f5, type: 3}
       propertyPath: m_IsActive
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -1142,7 +1152,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6577026992256135067, guid: 8889913bf1291e541815239d206193f5, type: 3}
       propertyPath: m_IsActive
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -1263,7 +1273,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6577026992256135067, guid: 8889913bf1291e541815239d206193f5, type: 3}
       propertyPath: m_IsActive
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []

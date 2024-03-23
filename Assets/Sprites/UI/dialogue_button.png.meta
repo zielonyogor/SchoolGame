@@ -136,148 +136,43 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: uii_0
+      name: dialogue_button_0
       rect:
         serializedVersion: 2
-        x: 16
-        y: 308
+        x: 0
+        y: 0
         width: 32
         height: 32
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 3, y: 3, z: 3, w: 3}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 5b4d7d3a89734724c98878512166ae9a
-      internalID: 428056039
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: uii_1
-      rect:
-        serializedVersion: 2
-        x: 121
-        y: 192
-        width: 95
-        height: 63
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: bca0942872b48934db26c456c9ae61ae
-      internalID: -1130598419
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: uii_2
-      rect:
-        serializedVersion: 2
-        x: 260
-        y: 250
-        width: 80
-        height: 49
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: c12bb200c6de9f24aa46f1622c8016a1
-      internalID: 270859104
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: uii_3
-      rect:
-        serializedVersion: 2
-        x: 71
-        y: 80
-        width: 95
-        height: 62
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 87dd55b89c0f8b74c91d46f56d037410
-      internalID: -495056165
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: uii_4
-      rect:
-        serializedVersion: 2
-        x: 260
-        y: 118
-        width: 80
-        height: 51
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 754ce8a1f95ff3b459359e3967454c43
-      internalID: 209208395
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: uii_5
-      rect:
-        serializedVersion: 2
-        x: 216
-        y: 52
-        width: 80
-        height: 44
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 19, y: 5, z: 15, w: 20}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 0e2bc90aedb2f5b4db137e102fce60dd
-      internalID: -817488339
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: uii_6
-      rect:
-        serializedVersion: 2
-        x: 48
-        y: 308
-        width: 32
-        height: 32
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 6, y: 6, z: 6, w: 6}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 5eeac856c709d6345b25991960cc9a8e
-      internalID: 822159386
+      spriteID: 9f7578bc972373a4ab2f7fe08ede709f
+      internalID: -1606781706
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: dialogue_button_1
+      rect:
+        serializedVersion: 2
+        x: 32
+        y: 0
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 6, y: 6, z: 6, w: 6}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 6c42eaed91746e04283c1881bf0e4fe9
+      internalID: 1420410734
       vertices: []
       indices: 
       edges: []
@@ -293,13 +188,8 @@ TextureImporter:
     weights: []
     secondaryTextures: []
     nameFileIdTable:
-      uii_0: 428056039
-      uii_1: -1130598419
-      uii_2: 270859104
-      uii_3: -495056165
-      uii_4: 209208395
-      uii_5: -817488339
-      uii_6: 822159386
+      dialogue_button_0: -1606781706
+      dialogue_button_1: 1420410734
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 
