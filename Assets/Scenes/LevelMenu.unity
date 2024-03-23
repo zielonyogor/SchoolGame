@@ -2641,6 +2641,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2ee8f29482befa6418512897b8c1fd47, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  dayPointer: {fileID: 4375818606948405364, guid: c84e8525204ce8d43affa9692a9063b9, type: 3}
 --- !u!1 &707275000
 GameObject:
   m_ObjectHideFlags: 0
@@ -4165,6 +4166,7 @@ MonoBehaviour:
   howToPlay: {fileID: 28859628}
   credits: {fileID: 414249361}
   notebookAnimator: {fileID: 811619202}
+  startText: {fileID: 1193595397}
 --- !u!4 &898222786
 Transform:
   m_ObjectHideFlags: 0
@@ -8487,7 +8489,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: 11
+  m_text: 1
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: b17f4f1186d16a94e96419461059f991, type: 2}
   m_sharedMaterial: {fileID: 7559009698402535229, guid: b17f4f1186d16a94e96419461059f991, type: 2}

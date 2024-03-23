@@ -5,6 +5,7 @@ using UnityEngine.UI;
 
 public class DayButtonManager : MonoBehaviour
 {
+    [SerializeField] private GameObject dayPointer;
     private void Start()
     {
         EnableDay(MiniGameManager.instance.gameData.day - 1);
@@ -14,5 +15,6 @@ public class DayButtonManager : MonoBehaviour
     {
         Button button = transform.GetChild(day).GetComponent<Button>();
         button.interactable = true;
+        Instantiate(dayPointer, button.transform);
     }
 }
