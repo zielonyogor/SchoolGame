@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 59fb72c982550bf4b9e1cfb0e3a740e9, type: 3}
   m_Name: Day_6
   m_EditorClassIdentifier: 
-  miniGames: []
-  time: 0
-  slidingMapLayout: {fileID: 0}
-  dialogueText: 
+  miniGames:
+  - PuzzleGame
+  time: 15
+  numberOfPuzzles: 3
