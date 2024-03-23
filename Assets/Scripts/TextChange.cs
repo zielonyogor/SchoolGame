@@ -26,7 +26,6 @@ public class TextChange : MonoBehaviour
             }
             yield return new WaitForSeconds(1.5f);
         }
-        SceneManager.LoadScene("LevelMenu"); 
-        //should add method for MiniGameManager to Load LevelSelector
+        MiniGameManager.instance.ExitCutscene();
     } 
 }

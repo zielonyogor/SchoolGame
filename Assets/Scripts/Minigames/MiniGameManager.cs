@@ -88,6 +88,12 @@ public class MiniGameManager : MonoBehaviour
         }
     }
 
+    public void ExitCutscene()
+    {
+        gameData.day += 1;
+        SceneManager.LoadScene("LevelMenu"); 
+    }
+
     //probably move to minigameManager
     private IEnumerator SpawnTimingGame(float time)
     {
