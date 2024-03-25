@@ -55,12 +55,25 @@ public class MiniGameManager : MonoBehaviour
     public void LoadCutscene(string text)
     {
         cutsceneText = text;
+        if (gameData.day == 7) //everything with number 7 will have to be changed to 28 (end of game) 
+        {
+            if (gameData.errors == 0)
+            {
+                cutsceneText = "WOW I can't believe it!_People here like me._" +
+                    "I've made some really cool friends._There's really no cons._" +
+                    "I'LL STAY";
+            }
+            else cutsceneText = "Eh..._I guess it's not that bad._Some people don't like me that much." +
+                    "_Some think I'm cringe._But I don't really want to change school again..." +
+                    "_I decided._I'LL STAY.";
+        }
         SceneManager.LoadScene("Cutscene");
     }
 
     public void NextLevel()
     {
         currentGameIndex++;
+        gameData.consecutiveErrors = 0;
         if (currentGameIndex >= miniGames.Count)
         {
             isPlaying = true;
@@ -76,15 +89,24 @@ public class MiniGameManager : MonoBehaviour
 
     public void HandleGameLoss()
     {
-        //currentGameIndex++;
-        if (currentGameIndex >= miniGames.Count)
+        currentGameIndex++;
+        gameData.errors += 1;
+        gameData.consecutiveErrors += 1;
+        if (gameData.consecutiveErrors == 2)
         {
-            currentGameIndex = 0;
-            SceneManager.LoadScene("LevelMenu");
+            LoadCutscene("AAAAAAAAAA_I lost :((((");
         }
         else
         {
-            SceneManager.LoadScene(miniGames[currentGameIndex]);
+            if (currentGameIndex >= miniGames.Count)
+            {
+                currentGameIndex = 0;
+                SceneManager.LoadScene("LevelMenu");
+            }
+            else
+            {
+                SceneManager.LoadScene(miniGames[currentGameIndex]);
+            }
         }
     }
 

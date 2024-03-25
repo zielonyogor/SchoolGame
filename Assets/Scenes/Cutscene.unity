@@ -545,6 +545,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   text: {fileID: 849528918}
+  endings:
+  - {fileID: 21300000, guid: 48298cdc2283d0845ad096b82312f79d, type: 3}
+  - {fileID: 21300000, guid: 5eb0c87eb3e26414384d8a9a60a1d6e7, type: 3}
+  background: {fileID: 701711827}
 --- !u!1001 &1811510660
 PrefabInstance:
   m_ObjectHideFlags: 0

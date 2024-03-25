@@ -1,8 +1,8 @@
 using System.Collections;
 using System.Collections.Generic;
-using System.Linq;
 using UnityEngine;
 using TMPro;
+using UnityEngine.UI;
 
 public class DialogueGame : MonoBehaviour, IMiniGame
 {
@@ -34,9 +34,14 @@ public class DialogueGame : MonoBehaviour, IMiniGame
 
     public void OnButtonClicked(int id)
     {
+        DialogueButtons[id].GetComponent<Button>().interactable = false;
         if (expectedID == id) expectedID += 1;
         else
         {
+            foreach (Transform t in DialogueButtons)
+            {
+                t.GetComponent<Button>().interactable = false;
+            }
             GameEnd();
         }
         if (DialogueButtons.Count == expectedID)

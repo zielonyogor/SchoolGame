@@ -13,6 +13,6 @@ MonoBehaviour:
   m_Name: Day_6
   m_EditorClassIdentifier: 
   miniGames:
-  - PuzzleGame
+  - DragDropGame
   time: 15
-  numberOfPuzzles: 3
+  numberOfMeds: 3
