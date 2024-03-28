@@ -282,7 +282,7 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 0
---- !u!1001 &526250332
+--- !u!1001 &457369110
 PrefabInstance:
   m_ObjectHideFlags: 0
   serializedVersion: 2
@@ -316,7 +316,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 62705654334270757, guid: f702df073eaaa23488c4dca42a5a6563, type: 3}
       propertyPath: m_SizeDelta.x
-      value: 720
+      value: 744
       objectReference: {fileID: 0}
     - target: {fileID: 62705654334270757, guid: f702df073eaaa23488c4dca42a5a6563, type: 3}
       propertyPath: m_SizeDelta.y
@@ -356,7 +356,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 62705654334270757, guid: f702df073eaaa23488c4dca42a5a6563, type: 3}
       propertyPath: m_AnchoredPosition.y
-      value: 40
+      value: 64
       objectReference: {fileID: 0}
     - target: {fileID: 62705654334270757, guid: f702df073eaaa23488c4dca42a5a6563, type: 3}
       propertyPath: m_LocalEulerAnglesHint.x
@@ -379,6 +379,11 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: f702df073eaaa23488c4dca42a5a6563, type: 3}
+--- !u!224 &457369111 stripped
+RectTransform:
+  m_CorrespondingSourceObject: {fileID: 62705654334270757, guid: f702df073eaaa23488c4dca42a5a6563, type: 3}
+  m_PrefabInstance: {fileID: 457369110}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &659746475
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -915,11 +920,6 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!224 &1054170332 stripped
-RectTransform:
-  m_CorrespondingSourceObject: {fileID: 62705654334270757, guid: f702df073eaaa23488c4dca42a5a6563, type: 3}
-  m_PrefabInstance: {fileID: 526250332}
-  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &1108322485
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -1555,7 +1555,7 @@ RectTransform:
   m_LocalScale: {x: 0, y: 0, z: 0}
   m_ConstrainProportionsScale: 0
   m_Children:
-  - {fileID: 1054170332}
+  - {fileID: 457369111}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}

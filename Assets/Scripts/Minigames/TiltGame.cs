@@ -81,6 +81,7 @@ public class GameManager : MonoBehaviour, IMiniGame
 
     public void GameFinished()
     {
+        actionMap.Gameplay.Tilt.performed -= OnTilt;
         rb.bodyType = RigidbodyType2D.Static;
         StartCoroutine(PlayConfetti());
     }

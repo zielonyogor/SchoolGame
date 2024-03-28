@@ -123,17 +123,7 @@ NavMeshSettings:
     debug:
       m_Flags: 0
   m_NavMeshData: {fileID: 0}
---- !u!224 &263335829 stripped
-RectTransform:
-  m_CorrespondingSourceObject: {fileID: 62705654334270757, guid: f702df073eaaa23488c4dca42a5a6563, type: 3}
-  m_PrefabInstance: {fileID: 489095878}
-  m_PrefabAsset: {fileID: 0}
---- !u!224 &286468423 stripped
-RectTransform:
-  m_CorrespondingSourceObject: {fileID: 110314817219726557, guid: 8889913bf1291e541815239d206193f5, type: 3}
-  m_PrefabInstance: {fileID: 1741461429}
-  m_PrefabAsset: {fileID: 0}
---- !u!1001 &489095878
+--- !u!1001 &83569353
 PrefabInstance:
   m_ObjectHideFlags: 0
   serializedVersion: 2
@@ -151,7 +141,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 62705654334270757, guid: f702df073eaaa23488c4dca42a5a6563, type: 3}
       propertyPath: m_AnchorMax.x
-      value: 1
+      value: 0.5
       objectReference: {fileID: 0}
     - target: {fileID: 62705654334270757, guid: f702df073eaaa23488c4dca42a5a6563, type: 3}
       propertyPath: m_AnchorMax.y
@@ -159,7 +149,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 62705654334270757, guid: f702df073eaaa23488c4dca42a5a6563, type: 3}
       propertyPath: m_AnchorMin.x
-      value: 0
+      value: 0.5
       objectReference: {fileID: 0}
     - target: {fileID: 62705654334270757, guid: f702df073eaaa23488c4dca42a5a6563, type: 3}
       propertyPath: m_AnchorMin.y
@@ -167,7 +157,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 62705654334270757, guid: f702df073eaaa23488c4dca42a5a6563, type: 3}
       propertyPath: m_SizeDelta.x
-      value: -600
+      value: 744
       objectReference: {fileID: 0}
     - target: {fileID: 62705654334270757, guid: f702df073eaaa23488c4dca42a5a6563, type: 3}
       propertyPath: m_SizeDelta.y
@@ -207,7 +197,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 62705654334270757, guid: f702df073eaaa23488c4dca42a5a6563, type: 3}
       propertyPath: m_AnchoredPosition.y
-      value: 40
+      value: 64
       objectReference: {fileID: 0}
     - target: {fileID: 62705654334270757, guid: f702df073eaaa23488c4dca42a5a6563, type: 3}
       propertyPath: m_LocalEulerAnglesHint.x
@@ -230,6 +220,16 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: f702df073eaaa23488c4dca42a5a6563, type: 3}
+--- !u!224 &83569354 stripped
+RectTransform:
+  m_CorrespondingSourceObject: {fileID: 62705654334270757, guid: f702df073eaaa23488c4dca42a5a6563, type: 3}
+  m_PrefabInstance: {fileID: 83569353}
+  m_PrefabAsset: {fileID: 0}
+--- !u!224 &286468423 stripped
+RectTransform:
+  m_CorrespondingSourceObject: {fileID: 110314817219726557, guid: 8889913bf1291e541815239d206193f5, type: 3}
+  m_PrefabInstance: {fileID: 1741461429}
+  m_PrefabAsset: {fileID: 0}
 --- !u!224 &600421049 stripped
 RectTransform:
   m_CorrespondingSourceObject: {fileID: 110314817219726557, guid: 8889913bf1291e541815239d206193f5, type: 3}
@@ -1034,7 +1034,7 @@ RectTransform:
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 1061799656}
-  - {fileID: 263335829}
+  - {fileID: 83569354}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
