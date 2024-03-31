@@ -6,7 +6,7 @@ using UnityEngine.UI;
 
 public class DialogueGame : MonoBehaviour, IMiniGame
 {
-    private List<Transform> DialogueButtons = new();
+    private List<Transform> dialogueButtons = new();
     private string[] dialogueParts;
     private int expectedID;
     private int numberOfButtons;
@@ -24,27 +24,54 @@ public class DialogueGame : MonoBehaviour, IMiniGame
 
         for (int i = 0; i < numberOfButtons; i++)
         {
-            DialogueButtons.Add(transform.GetChild(i));
-            DialogueButtons[i].gameObject.SetActive(true);
-            DialogueButtons[i].GetChild(0).GetComponent<TextMeshProUGUI>().text = dialogueParts[i];
+            dialogueButtons.Add(transform.GetChild(i));
+            dialogueButtons[i].gameObject.SetActive(true);
+            dialogueButtons[i].GetChild(0).GetComponent<TextMeshProUGUI>().text = dialogueParts[i];
+            ChangePosition(i);
         }
         StartCoroutine(Timer.instance.DecreaseTimer(MiniGameManager.instance.time));
+    }
+
+    void ChangePosition(int index)
+    {
+        int randomX = Random.Range(-440, 320);
+        int randomY = Random.Range(-330, 420);
+        int i = 0;
+        while (true)
+        {
+            dialogueButtons[index].gameObject.GetComponent<RectTransform>().anchoredPosition = new Vector2(randomX, randomY);
+            if (!isColliding(index)) break;
+            randomX = Random.Range(-440, 320);
+            randomY = Random.Range(-330, 420);
+            i++;
+            if (i >= 100) break;
+        }
+    }
+
+    private bool isColliding(int index)
+    {
+        for (int i = 0; i < index; i++)
+        {
+            float distance = Vector2.Distance(dialogueButtons[index].gameObject.GetComponent<RectTransform>().anchoredPosition, dialogueButtons[i].gameObject.GetComponent<RectTransform>().anchoredPosition);
+            if (distance < 300f) return true;
+        }
+        return false;
     }
 
 
     public void OnButtonClicked(int id)
     {
-        DialogueButtons[id].GetComponent<Button>().interactable = false;
+        dialogueButtons[id].GetComponent<Button>().interactable = false;
         if (expectedID == id) expectedID += 1;
         else
         {
-            foreach (Transform t in DialogueButtons)
+            foreach (Transform t in dialogueButtons)
             {
                 t.GetComponent<Button>().interactable = false;
             }
             GameEnd();
         }
-        if (DialogueButtons.Count == expectedID)
+        if (dialogueButtons.Count == expectedID)
         {
             GameFinished();
         }
@@ -52,7 +79,7 @@ public class DialogueGame : MonoBehaviour, IMiniGame
 
     public void GameEnd()
     {
-        foreach (Transform child in DialogueButtons)
+        foreach (Transform child in dialogueButtons)
         {
             child.gameObject.SetActive(false);
         }

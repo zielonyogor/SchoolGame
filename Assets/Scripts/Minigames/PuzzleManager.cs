@@ -30,15 +30,11 @@ public class PuzzleManager : MonoBehaviour
         while (true)
         {
             objects[index].position = new Vector2(randomX, randomY);
-            if (!(Mathf.Abs(randomX) <= 46 && randomY <= 5) && !isColliding(index))
-            {
-                break;
-            }
+            if (!(Mathf.Abs(randomX) <= 46 && randomY <= 5) && !isColliding(index)) break;
             randomX = Random.Range(-80, 80);
             randomY = Random.Range(-32, 48);
             i++;
-            if (i >= 100)
-                break;
+            if (i >= 100) break;
         }
     }
 
