@@ -14,15 +14,16 @@ public class GameManager : MonoBehaviour, IMiniGame
     private WaitForFixedUpdate waitForFixedUpdate;
 
     [SerializeField] ParticleSystem confetti_1, confetti_2;
+    [SerializeField] Timer timer; 
 
     private void Awake()
     {
         actionMap = new ActionMap();
         waitForFixedUpdate = new WaitForFixedUpdate();
+        timer.isDecreasing = false;
     }
     private void Start()
     {
-        Timer.instance.isDecreasing = false;
         StartCoroutine(StartGame());
     }
 
@@ -30,7 +31,7 @@ public class GameManager : MonoBehaviour, IMiniGame
     {
         actionMap.Enable();
         actionMap.Gameplay.Tilt.performed += OnTilt;
-        Timer.instance.OnTimeUp += GameFinished;
+        timer.OnTimeUp += GameFinished;
     }
     private void OnDisable()
     {
@@ -48,7 +49,7 @@ public class GameManager : MonoBehaviour, IMiniGame
         StartCoroutine(CheckRotation());
         //in tilt game it should be a little different,
         //the harder it gets the more time you have to spend balansing
-        StartCoroutine(Timer.instance.DecreaseTimer(MiniGameManager.instance.time));
+        StartCoroutine(timer.DecreaseTimer(MiniGameManager.instance.time));
     }
 
     private IEnumerator CheckRotation()
@@ -74,7 +75,8 @@ public class GameManager : MonoBehaviour, IMiniGame
     public void GameEnd()
     {
         StopAllCoroutines();
-        Timer.instance.DisableTimer();
+        actionMap.Gameplay.Tilt.performed -= OnTilt;
+        timer.DisableTimer();
         rb.bodyType = RigidbodyType2D.Static;
         MiniGameManager.instance.HandleGameLoss();
     }
@@ -82,6 +84,7 @@ public class GameManager : MonoBehaviour, IMiniGame
     public void GameFinished()
     {
         actionMap.Gameplay.Tilt.performed -= OnTilt;
+        timer.DisableTimer();
         rb.bodyType = RigidbodyType2D.Static;
         StartCoroutine(PlayConfetti());
     }
@@ -89,7 +92,7 @@ public class GameManager : MonoBehaviour, IMiniGame
     private IEnumerator PlayConfetti()
     {
         yield return new WaitForEndOfFrame();
-        Timer.instance.DisableTimer();
+        timer.DisableTimer();
         confetti_1.Play();
         confetti_2.Play();
         yield return new WaitForSeconds(2.5f);

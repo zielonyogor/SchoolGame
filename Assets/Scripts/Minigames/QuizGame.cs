@@ -20,6 +20,7 @@ public class QuizGame : MonoBehaviour
     private int correct = 0;
 
     [SerializeField] ParticleSystem confetti_1, confetti_2;
+    [SerializeField] Timer timer;
 
     private void Awake()
     {
@@ -30,7 +31,7 @@ public class QuizGame : MonoBehaviour
     {
         submitAction.Enable();
         submitAction.performed += SubmitQuestion;
-        Timer.instance.OnTimeUp += GameEnd;
+        timer.OnTimeUp += GameEnd;
     }
 
     private void OnDisable()
@@ -55,7 +56,7 @@ public class QuizGame : MonoBehaviour
         questionObjects[0].GetChild(3).GetComponent<TMP_InputField>().Select();
 
 
-        StartCoroutine(Timer.instance.DecreaseTimer(MiniGameManager.instance.time));
+        StartCoroutine(timer.DecreaseTimer(MiniGameManager.instance.time));
     }
 
     void ChangeEquation(int i)
@@ -117,20 +118,21 @@ public class QuizGame : MonoBehaviour
 
     public void GameEnd()
     {
-        Timer.instance.DisableTimer();
-        Timer.instance.OnTimeUp -= GameEnd;
+        timer.DisableTimer();
+        timer.OnTimeUp -= GameEnd;
         MiniGameManager.instance.HandleGameLoss();
     }
 
     public void GameFinished()
     {
+        timer.OnTimeUp -= GameEnd;
         StartCoroutine(PlayConfetti());
     }
 
     private IEnumerator PlayConfetti()
     {
         yield return new WaitForEndOfFrame();
-        Timer.instance.DisableTimer();
+        timer.DisableTimer();
         confetti_1.Play();
         confetti_2.Play();
         yield return new WaitForSeconds(2.5f);

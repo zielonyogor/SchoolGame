@@ -400,6 +400,17 @@ RectTransform:
   m_CorrespondingSourceObject: {fileID: 62705654334270757, guid: f702df073eaaa23488c4dca42a5a6563, type: 3}
   m_PrefabInstance: {fileID: 428661171}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &428661173 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 738938551443651078, guid: f702df073eaaa23488c4dca42a5a6563, type: 3}
+  m_PrefabInstance: {fileID: 428661171}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3f23a7b16d2e6eb40a4f67df12a29e98, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1331362987
 GameObject:
   m_ObjectHideFlags: 0
@@ -607,6 +618,7 @@ MonoBehaviour:
   - {fileID: 1264062412, guid: 0158ef9e7addaa94d94a5e1ad29d0d49, type: 3}
   confetti_1: {fileID: 1353094180}
   confetti_2: {fileID: 1353094179}
+  timer: {fileID: 428661173}
 --- !u!61 &1427629975
 BoxCollider2D:
   m_ObjectHideFlags: 0

@@ -21,6 +21,7 @@ public class SlidingGame : MonoBehaviour, IMiniGame
     float spriteWidth;
 
     [SerializeField] ParticleSystem confetti_1, confetti_2;
+    [SerializeField] Timer timer;
 
     private void Start()
     {
@@ -28,8 +29,8 @@ public class SlidingGame : MonoBehaviour, IMiniGame
         sRenderer = GetComponent<SpriteRenderer>();
         spriteWidth = sRenderer.sprite.bounds.size.x * transform.lossyScale.x / 2;
 
-        Timer.instance.OnTimeUp += GameEnd;
-        StartCoroutine(Timer.instance.DecreaseTimer(MiniGameManager.instance.time));
+        timer.OnTimeUp += GameEnd;
+        StartCoroutine(timer.DecreaseTimer(MiniGameManager.instance.time));
     }
 
     private void Awake()
@@ -104,8 +105,8 @@ public class SlidingGame : MonoBehaviour, IMiniGame
     public void GameEnd()
     {
         StopAllCoroutines();
-        Timer.instance.DisableTimer();
-        Timer.instance.OnTimeUp -= GameEnd;
+        timer.DisableTimer();
+        timer.OnTimeUp -= GameEnd;
         MiniGameManager.instance.HandleGameLoss();
     }
 
@@ -121,7 +122,7 @@ public class SlidingGame : MonoBehaviour, IMiniGame
         turnVertical.performed -= SlideVertical;
         yield return new WaitForEndOfFrame();
         isMoving = false;
-        Timer.instance.DisableTimer();
+        timer.DisableTimer();
         confetti_1.Play();
         confetti_2.Play();
         yield return new WaitForSeconds(2.5f);

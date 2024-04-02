@@ -13,6 +13,8 @@ public class DialogueGame : MonoBehaviour, IMiniGame
 
     [SerializeField] ParticleSystem confetti_1, confetti_2;
 
+    [SerializeField] Timer timer;
+
     void Start()
     {
         dialogueParts = MiniGameManager.instance.dialogueText.Split('_');
@@ -20,7 +22,7 @@ public class DialogueGame : MonoBehaviour, IMiniGame
         expectedID = 0;
         numberOfButtons = dialogueParts.Length;
 
-        Timer.instance.OnTimeUp += GameEnd;
+        timer.OnTimeUp += GameEnd;
 
         for (int i = 0; i < numberOfButtons; i++)
         {
@@ -29,7 +31,7 @@ public class DialogueGame : MonoBehaviour, IMiniGame
             dialogueButtons[i].GetChild(0).GetComponent<TextMeshProUGUI>().text = dialogueParts[i];
             ChangePosition(i);
         }
-        StartCoroutine(Timer.instance.DecreaseTimer(MiniGameManager.instance.time));
+        StartCoroutine(timer.DecreaseTimer(MiniGameManager.instance.time));
     }
 
     void ChangePosition(int index)
@@ -83,8 +85,8 @@ public class DialogueGame : MonoBehaviour, IMiniGame
         {
             child.gameObject.SetActive(false);
         }
-        Timer.instance.DisableTimer();
-        Timer.instance.OnTimeUp -= GameEnd;
+        timer.DisableTimer();
+        timer.OnTimeUp -= GameEnd;
         MiniGameManager.instance.HandleGameLoss();
     }
 
@@ -96,7 +98,7 @@ public class DialogueGame : MonoBehaviour, IMiniGame
     private IEnumerator PlayConfetti()
     {
         yield return new WaitForEndOfFrame();
-        Timer.instance.DisableTimer();
+        timer.DisableTimer();
         confetti_1.Play();
         confetti_2.Play();
         yield return new WaitForSeconds(2.5f);

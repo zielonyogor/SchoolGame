@@ -28,6 +28,7 @@ public class StackingGame : MonoBehaviour, IMiniGame
     private int numberOfBooks = 4;
 
     [SerializeField] ParticleSystem confetti_1, confetti_2;
+    [SerializeField] Timer timer;
 
     private void Awake()
     {
@@ -37,7 +38,7 @@ public class StackingGame : MonoBehaviour, IMiniGame
     {
         dropAction.Enable();
         dropAction.performed += DropBook;
-        Timer.instance.OnTimeUp += GameFinished;
+        timer.OnTimeUp += GameFinished;
     }
     private void OnDisable()
     {
@@ -47,7 +48,7 @@ public class StackingGame : MonoBehaviour, IMiniGame
 
     void Start()
     {
-        Timer.instance.isDecreasing = false;
+        timer.isDecreasing = false;
 
         numberOfBooks = MiniGameManager.instance.numberOfBooks;
         bookSpeed = MiniGameManager.instance.bookSpeed;
@@ -94,7 +95,7 @@ public class StackingGame : MonoBehaviour, IMiniGame
         dropAction.performed -= DropBook;
         if (numberOfBooks == 0)
         {
-            StartCoroutine(Timer.instance.DecreaseTimer(MiniGameManager.instance.time));
+            StartCoroutine(timer.DecreaseTimer(MiniGameManager.instance.time));
         }
         else
         {
@@ -112,20 +113,21 @@ public class StackingGame : MonoBehaviour, IMiniGame
 
     public void GameEnd()
     {
-        Timer.instance.DisableTimer();
-        Timer.instance.OnTimeUp -= GameFinished;
+        timer.DisableTimer();
+        timer.OnTimeUp -= GameFinished;
         MiniGameManager.instance.HandleGameLoss();
     }
 
     public void GameFinished()
     {
+        timer.OnTimeUp -= GameFinished;
         StartCoroutine(PlayConfetti());
     }
 
     private IEnumerator PlayConfetti()
     {
         yield return new WaitForEndOfFrame();
-        Timer.instance.DisableTimer();
+        timer.DisableTimer();
         confetti_1.Play();
         confetti_2.Play();
         yield return new WaitForSeconds(2.5f);

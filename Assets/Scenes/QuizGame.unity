@@ -225,6 +225,17 @@ RectTransform:
   m_CorrespondingSourceObject: {fileID: 62705654334270757, guid: f702df073eaaa23488c4dca42a5a6563, type: 3}
   m_PrefabInstance: {fileID: 83569353}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &83569355 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 738938551443651078, guid: f702df073eaaa23488c4dca42a5a6563, type: 3}
+  m_PrefabInstance: {fileID: 83569353}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3f23a7b16d2e6eb40a4f67df12a29e98, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!224 &286468423 stripped
 RectTransform:
   m_CorrespondingSourceObject: {fileID: 110314817219726557, guid: 8889913bf1291e541815239d206193f5, type: 3}
@@ -414,6 +425,7 @@ MonoBehaviour:
   numberOfQuestions: 5
   confetti_1: {fileID: 1398906506}
   confetti_2: {fileID: 1398906505}
+  timer: {fileID: 83569355}
 --- !u!1 &1127329253
 GameObject:
   m_ObjectHideFlags: 0

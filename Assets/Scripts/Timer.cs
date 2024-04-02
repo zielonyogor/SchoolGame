@@ -5,24 +5,13 @@ using UnityEngine.UI;
 
 public class Timer : MonoBehaviour
 {
-    public static Timer instance {get; private set; }
+    //probably it's not essential to make this a singleton
+    //if so, this needs a solid rework
     public bool isDecreasing = true;
     private Image time_bar;
     private Image bar;
 
     private bool m_TimeUp= false;
-
-    private void Awake()
-    {
-        if (instance == null)
-        {
-            instance = this;
-        }
-        else
-        {
-            Destroy(gameObject);
-        }
-    }
 
     public bool TimeUp
     {

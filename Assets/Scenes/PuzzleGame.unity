@@ -384,6 +384,17 @@ RectTransform:
   m_CorrespondingSourceObject: {fileID: 62705654334270757, guid: f702df073eaaa23488c4dca42a5a6563, type: 3}
   m_PrefabInstance: {fileID: 457369110}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &457369112 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 738938551443651078, guid: f702df073eaaa23488c4dca42a5a6563, type: 3}
+  m_PrefabInstance: {fileID: 457369110}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3f23a7b16d2e6eb40a4f67df12a29e98, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1001 &659746475
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -1933,6 +1944,7 @@ MonoBehaviour:
   mouseDragTime: 0.1
   confetti_1: {fileID: 1108322487}
   confetti_2: {fileID: 1108322486}
+  timer: {fileID: 457369112}
 --- !u!114 &1842370884
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1952,7 +1964,7 @@ SceneRoots:
   m_Roots:
   - {fileID: 659746475}
   - {fileID: 1043927330}
-  - {fileID: 1842370879}
   - {fileID: 1680331530}
+  - {fileID: 1842370879}
   - {fileID: 727001022}
   - {fileID: 1108322485}

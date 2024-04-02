@@ -17,6 +17,8 @@ public class Puzzle : MonoBehaviour, IMiniGame
 
     [SerializeField] ParticleSystem confetti_1, confetti_2;
 
+    [SerializeField] Timer timer;
+
     private void Awake()
     {
         mainCamera = Camera.main;
@@ -27,14 +29,14 @@ public class Puzzle : MonoBehaviour, IMiniGame
     private void Start()
     {
         numberOfPuzzles = MiniGameManager.instance.numberOfPuzzles;
-        StartCoroutine(Timer.instance.DecreaseTimer(MiniGameManager.instance.time));
+        StartCoroutine(timer.DecreaseTimer(MiniGameManager.instance.time));
     }
 
     private void OnEnable()
     {
         mouseClick.Enable();
         mouseClick.performed += OnDragDrop;
-        Timer.instance.OnTimeUp += GameEnd;
+        timer.OnTimeUp += GameEnd;
     }
     private void OnDisable()
     {
@@ -83,8 +85,8 @@ public class Puzzle : MonoBehaviour, IMiniGame
 
     public void GameEnd()
     {
-        Timer.instance.DisableTimer();
-        Timer.instance.OnTimeUp -= GameEnd;
+        timer.DisableTimer();
+        timer.OnTimeUp -= GameEnd;
         MiniGameManager.instance.HandleGameLoss();
     }
 
@@ -96,7 +98,7 @@ public class Puzzle : MonoBehaviour, IMiniGame
     private IEnumerator PlayConfetti()
     {
         yield return new WaitForEndOfFrame();
-        Timer.instance.DisableTimer();
+        timer.DisableTimer();
         confetti_1.Play();
         confetti_2.Play();
         yield return new WaitForSeconds(2.5f);
