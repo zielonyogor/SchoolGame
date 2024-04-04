@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: 97913c9679bc38849b967a6a747b594f
+guid: 13741c0c26ff1c5468bc13e2a9041007
 TextureImporter:
   internalIDToNameTable: []
   externalObjects: {}
@@ -43,7 +43,7 @@ TextureImporter:
   nPOTScale: 0
   lightmap: 0
   compressionQuality: 50
-  spriteMode: 2
+  spriteMode: 1
   spriteExtrude: 1
   spriteMeshType: 1
   alignment: 0
@@ -134,133 +134,7 @@ TextureImporter:
     forceMaximumCompressionQuality_BC6H_BC7: 0
   spriteSheet:
     serializedVersion: 2
-    sprites:
-    - serializedVersion: 2
-      name: day_current_1
-      rect:
-        serializedVersion: 2
-        x: 71
-        y: 0
-        width: 71
-        height: 76
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: d6d97322cc919824e8522326b72823a2
-      internalID: -648173000
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: day_current_2
-      rect:
-        serializedVersion: 2
-        x: 142
-        y: 0
-        width: 71
-        height: 76
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 1fd98346be0fe644fb6db4251f5e7d87
-      internalID: 717615132
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: day_current_3
-      rect:
-        serializedVersion: 2
-        x: 213
-        y: 0
-        width: 71
-        height: 76
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 4cb9844529c20bc4ba67658fa359485d
-      internalID: 26751355
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: day_current_4
-      rect:
-        serializedVersion: 2
-        x: 284
-        y: 0
-        width: 71
-        height: 76
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 9948b3cb719393b4c908f5a607c07caf
-      internalID: 1441917262
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: day_current_5
-      rect:
-        serializedVersion: 2
-        x: 355
-        y: 0
-        width: 71
-        height: 76
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 671c8a2ff8d0e22408bc1df547c15b47
-      internalID: 1975969645
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: day_current_0
-      rect:
-        serializedVersion: 2
-        x: 0
-        y: 0
-        width: 71
-        height: 76
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 692b5ce5aaad7ef4383694c364e6dac3
-      internalID: -1719282371
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
+    sprites: []
     outline: []
     physicsShape: []
     bones: []
@@ -271,13 +145,7 @@ TextureImporter:
     edges: []
     weights: []
     secondaryTextures: []
-    nameFileIdTable:
-      day_current_0: -1719282371
-      day_current_1: -648173000
-      day_current_2: 717615132
-      day_current_3: 26751355
-      day_current_4: 1441917262
-      day_current_5: 1975969645
+    nameFileIdTable: {}
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 
