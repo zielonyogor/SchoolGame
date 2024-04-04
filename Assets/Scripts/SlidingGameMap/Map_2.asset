@@ -9,10 +9,11 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: ac0e8d0c2f1f9a84580cac8a47c896c1, type: 3}
-  m_Name: Day_8
+  m_Script: {fileID: 11500000, guid: ac0f1fff43bbcc646a40be675af30ade, type: 3}
+  m_Name: Map_2
   m_EditorClassIdentifier: 
-  miniGames: []
-  time: 0
-  slidingMapLayout: {fileID: 11400000, guid: b116c8e8781c37e44b7afea161487bf3, type: 2}
-  dialogueText: 
+  playerPosition: {x: -48, y: -32}
+  finishPosition: {x: -16, y: 16}
+  blockPosition:
+  - {x: 48, y: -32}
+  - {x: 32, y: 32}

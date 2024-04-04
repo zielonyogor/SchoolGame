@@ -61,6 +61,9 @@ public class StackingGame : MonoBehaviour, IMiniGame
         currentBlock = Instantiate(blockPrefab, blockHolder);
         currentBlock.GetComponent<SpriteRenderer>().sprite = spriteList[(int)Random.Range(0, spriteList.Count)];
         currentBlock.position = blockStartPosition;
+        SpriteRenderer currentBlockSprite = currentBlock.GetComponent<SpriteRenderer>();
+        currentBlockSprite.size = new Vector2(Random.Range(25, 50), Random.Range(5, 10));
+        currentBlock.GetComponent<BoxCollider2D>().size = currentBlockSprite.bounds.size;
         currentRigidbody = currentBlock.GetComponent<Rigidbody2D>();
     }
 
@@ -74,7 +77,6 @@ public class StackingGame : MonoBehaviour, IMiniGame
 
     void FixedUpdate()
     {
-        // If we have a waiting block, move it about.
         if (currentBlock)
         {
             float moveAmount = Time.deltaTime * bookSpeed * bookDirection;
@@ -95,7 +97,9 @@ public class StackingGame : MonoBehaviour, IMiniGame
         dropAction.performed -= DropBook;
         if (numberOfBooks == 0)
         {
-            StartCoroutine(timer.DecreaseTimer(MiniGameManager.instance.time));
+            //here is a little goofy algorithm for time in increasing type
+            //(maybe ill just add another day variable for that)
+            StartCoroutine(timer.DecreaseTimer(60 / MiniGameManager.instance.time + 1));
         }
         else
         {

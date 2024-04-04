@@ -47,9 +47,9 @@ public class GameManager : MonoBehaviour, IMiniGame
         rb.AddTorque(startTilt * tiltForce);
 
         StartCoroutine(CheckRotation());
-        //in tilt game it should be a little different,
-        //the harder it gets the more time you have to spend balansing
-        StartCoroutine(timer.DecreaseTimer(MiniGameManager.instance.time));
+        //here is a little goofy algorithm for time in increasing type
+        //(maybe ill just add another day variable for that)
+        StartCoroutine(timer.DecreaseTimer(60/MiniGameManager.instance.time + 1));
     }
 
     private IEnumerator CheckRotation()

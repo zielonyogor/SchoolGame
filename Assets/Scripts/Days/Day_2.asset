@@ -15,5 +15,5 @@ MonoBehaviour:
   miniGames:
   - QuizGame
   - TiltGame
-  time: 10
+  time: 20
   numberOfQuestions: 2

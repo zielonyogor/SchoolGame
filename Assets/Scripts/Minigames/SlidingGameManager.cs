@@ -8,14 +8,14 @@ public class SlidingGameManager : MonoBehaviour
     [SerializeField] List<Transform> blocks;
     [SerializeField] Transform player;
 
-    //later delete [SerializeField]
-    [SerializeField] SlidingMapLayout slidingMapLayout;
+    private SlidingMapLayout slidingMapLayout;
 
 
     [SerializeField] SlidingGame slidingGame;
 
     private void Start()
     {
+        slidingMapLayout = MiniGameManager.instance.slidingMapLayout;
         player.position = slidingMapLayout.playerPosition;
         transform.position = slidingMapLayout.finishPosition;
         for (int i = 0; i < slidingMapLayout.blockPosition.Count; i++)

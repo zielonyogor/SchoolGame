@@ -57,7 +57,7 @@ public class MiniGameManager : MonoBehaviour
         cutsceneText = text;
         if (gameData.day == 7) //everything with number 7 will have to be changed to 28 (end of game) 
         {
-            SaveSystem.DeleteSaveFile();
+            
             if (gameData.errors == 0)
             {
                 cutsceneText = "WOW I can't believe it!_People here like me._" +
@@ -101,6 +101,8 @@ public class MiniGameManager : MonoBehaviour
         {
             if (currentGameIndex >= miniGames.Count)
             {
+                gameData.day += 1;
+                isPlaying = true;
                 currentGameIndex = 0;
                 SceneManager.LoadScene("LevelMenu");
             }
@@ -113,7 +115,13 @@ public class MiniGameManager : MonoBehaviour
 
     public void ExitCutscene()
     {
-        if(gameData.day != 1) gameData.day += 1;
+        if (gameData.day >= 7)
+        {
+            SaveSystem.DeleteSaveFile();
+            isPlaying = false;
+        }
+        else if (gameData.day != 1)
+            gameData.day += 1;
         SceneManager.LoadScene("LevelMenu"); 
     }
 

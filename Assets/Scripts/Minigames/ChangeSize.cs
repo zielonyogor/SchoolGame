@@ -14,7 +14,7 @@ public class ChangeSize : MonoBehaviour
         spriteRenderer = GetComponent<SpriteRenderer>();
         boxCollider = GetComponent<BoxCollider2D>();
 
-        spriteRenderer.size = new Vector2(tableSize,15f);
+        spriteRenderer.size = new Vector2(tableSize,24f);
         boxCollider.size = spriteRenderer.bounds.size;
     }
 }

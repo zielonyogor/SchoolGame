@@ -16,9 +16,9 @@ MonoBehaviour:
   - PuzzleGame
   - StackingGame
   - SlidingGame
-  time: 10
+  time: 20
   numberOfPuzzles: 3
   numberOfBooks: 3
   bookSpeed: 30
-  tableSize: 120
-  slidingMapLayout: {fileID: 11400000, guid: 44f2fb8583222aa4bbed58ae201a12f6, type: 2}
+  tableSize: 100
+  slidingMapLayout: {fileID: 11400000, guid: b116c8e8781c37e44b7afea161487bf3, type: 2}
