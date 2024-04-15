@@ -2041,10 +2041,11 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   mouseDragTime: 0.05
   handCollider: {fileID: 1842370883}
-  goodItems: 3
+  timer: {fileID: 9055329114385595165}
   confetti_1: {fileID: 463121065}
   confetti_2: {fileID: 463121064}
-  timer: {fileID: 9055329114385595165}
+  canvas: {fileID: 1680331529}
+  countdown: {fileID: 2374398887319462458, guid: 7e7263252b6a4b04db5830a9f81767a9, type: 3}
 --- !u!4 &1842370879
 Transform:
   m_ObjectHideFlags: 0

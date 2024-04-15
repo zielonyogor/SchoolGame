@@ -8,15 +8,23 @@ public class DragDrop : MonoBehaviour, IMiniGame
     private Camera mainCamera;
     private InputAction mouseClick;
 
-    private WaitForFixedUpdate waitForFixedUpdate;
     Vector2 velocity = Vector2.zero;
+    private WaitForFixedUpdate waitForFixedUpdate;
+
     [SerializeField] float mouseDragTime = 1f;
-
     [SerializeField] private BoxCollider2D handCollider;
-    [SerializeField] private int goodItems = 3;
 
-    [SerializeField] ParticleSystem confetti_1, confetti_2;
+    private int goodItems = 3;
+
+    [Header("Extras")]
     [SerializeField] Timer timer;
+    [SerializeField] ParticleSystem confetti_1, confetti_2;
+
+    [Header("Countdown")]
+    [SerializeField] Canvas canvas;
+    [SerializeField] GameObject countdown;
+
+
     private void Awake()
     {
         mainCamera = Camera.main;
@@ -26,14 +34,24 @@ public class DragDrop : MonoBehaviour, IMiniGame
 
     private void Start()
     {
+        goodItems = MiniGameManager.instance.numberOfMeds;
+        StartCoroutine(PlayCountdown());
+    }
+    public IEnumerator PlayCountdown()
+    {
+        GameObject spawnedObject = Instantiate(countdown, canvas.transform);
+        Animator animator = spawnedObject.GetComponent<Animator>();
+        while (animator && animator.GetCurrentAnimatorStateInfo(0).normalizedTime < 1f)
+            yield return null;
+
+        mouseClick.performed += OnDragDrop;
+        timer.OnTimeUp += GameEnd;
         StartCoroutine(timer.DecreaseTimer(MiniGameManager.instance.time));
     }
 
     private void OnEnable()
     {
         mouseClick.Enable();
-        mouseClick.performed += OnDragDrop;
-        timer.OnTimeUp += GameEnd;
     }
     private void OnDisable()
     {

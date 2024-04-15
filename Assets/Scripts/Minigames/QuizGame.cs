@@ -6,7 +6,7 @@ using UnityEngine.InputSystem;
 using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 
-public class QuizGame : MonoBehaviour
+public class QuizGame : MonoBehaviour, IMiniGame
 {
     List<int> correctAnswers;
     List<Transform> questionObjects = new List<Transform>();
@@ -19,8 +19,13 @@ public class QuizGame : MonoBehaviour
     [SerializeField] int numberOfQuestions;
     private int correct = 0;
 
-    [SerializeField] ParticleSystem confetti_1, confetti_2;
+    [Header("Extras")]
     [SerializeField] Timer timer;
+    [SerializeField] ParticleSystem confetti_1, confetti_2;
+
+    [Header("Countdown")]
+    [SerializeField] Canvas canvas;
+    [SerializeField] GameObject countdown;
 
     private void Awake()
     {
@@ -55,6 +60,15 @@ public class QuizGame : MonoBehaviour
         }
         questionObjects[0].GetChild(3).GetComponent<TMP_InputField>().Select();
 
+        StartCoroutine(PlayCountdown());
+    }
+
+    public IEnumerator PlayCountdown()
+    {
+        GameObject spawnedObject = Instantiate(countdown, canvas.transform);
+        Animator animator = spawnedObject.GetComponent<Animator>();
+        while (animator && animator.GetCurrentAnimatorStateInfo(0).normalizedTime < 1f)
+            yield return null;
 
         StartCoroutine(timer.DecreaseTimer(MiniGameManager.instance.time));
     }
@@ -91,6 +105,8 @@ public class QuizGame : MonoBehaviour
         questionObjects[currentQuestion].GetChild(3).GetComponent<TMP_InputField>().ActivateInputField();
     }
 
+    //maybe just make a basic input (dont force the Enter thingy) based on input
+    //from game showcase
     void SubmitQuestion(InputAction.CallbackContext context)
     {
         if (int.TryParse(questionObjects[currentQuestion].GetChild(3).GetComponent<TMP_InputField>().text, out int answer))

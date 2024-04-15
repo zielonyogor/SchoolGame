@@ -341,10 +341,10 @@ GameObject:
   m_Component:
   - component: {fileID: 334680962}
   - component: {fileID: 334680961}
-  - component: {fileID: 334680964}
   - component: {fileID: 334680960}
   - component: {fileID: 334680965}
   - component: {fileID: 334680966}
+  - component: {fileID: 334680964}
   m_Layer: 0
   m_Name: Player
   m_TagString: Untagged
@@ -460,9 +460,11 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   rb: {fileID: 334680960}
   tiltForce: 100000
+  timer: {fileID: 760277020}
   confetti_1: {fileID: 328063911}
   confetti_2: {fileID: 328063910}
-  timer: {fileID: 760277020}
+  canvas: {fileID: 1020349744}
+  countdown: {fileID: 2374398887319462458, guid: 7e7263252b6a4b04db5830a9f81767a9, type: 3}
 --- !u!61 &334680965
 BoxCollider2D:
   m_ObjectHideFlags: 0

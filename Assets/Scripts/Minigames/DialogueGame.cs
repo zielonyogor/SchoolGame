@@ -11,9 +11,13 @@ public class DialogueGame : MonoBehaviour, IMiniGame
     private int expectedID;
     private int numberOfButtons;
 
+    [Header("Extras")]
+    [SerializeField] Timer timer;
     [SerializeField] ParticleSystem confetti_1, confetti_2;
 
-    [SerializeField] Timer timer;
+    [Header("Countdown")]
+    [SerializeField] Canvas canvas;
+    [SerializeField] GameObject countdown;
 
     void Start()
     {
@@ -31,6 +35,16 @@ public class DialogueGame : MonoBehaviour, IMiniGame
             dialogueButtons[i].GetChild(0).GetComponent<TextMeshProUGUI>().text = dialogueParts[i];
             ChangePosition(i);
         }
+        StartCoroutine(PlayCountdown());
+    }
+
+    public IEnumerator PlayCountdown()
+    {
+        GameObject spawnedObject = Instantiate(countdown, canvas.transform);
+        Animator animator = spawnedObject.GetComponent<Animator>();
+        while (animator && animator.GetCurrentAnimatorStateInfo(0).normalizedTime < 1f)
+            yield return null;
+
         StartCoroutine(timer.DecreaseTimer(MiniGameManager.instance.time));
     }
 

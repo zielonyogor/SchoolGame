@@ -616,9 +616,11 @@ MonoBehaviour:
   - {fileID: -1678385536, guid: 0158ef9e7addaa94d94a5e1ad29d0d49, type: 3}
   - {fileID: 1097793884, guid: 0158ef9e7addaa94d94a5e1ad29d0d49, type: 3}
   - {fileID: 1264062412, guid: 0158ef9e7addaa94d94a5e1ad29d0d49, type: 3}
+  timer: {fileID: 428661173}
   confetti_1: {fileID: 1353094180}
   confetti_2: {fileID: 1353094179}
-  timer: {fileID: 428661173}
+  canvas: {fileID: 1486242318}
+  countdown: {fileID: 2374398887319462458, guid: 7e7263252b6a4b04db5830a9f81767a9, type: 3}
 --- !u!61 &1427629975
 BoxCollider2D:
   m_ObjectHideFlags: 0

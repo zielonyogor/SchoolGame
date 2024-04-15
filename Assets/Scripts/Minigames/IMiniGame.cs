@@ -6,4 +6,5 @@ public interface IMiniGame
 {
     void GameEnd();
     void GameFinished();
+    IEnumerator PlayCountdown();
 }

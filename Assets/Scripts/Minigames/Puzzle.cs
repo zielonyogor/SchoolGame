@@ -15,9 +15,13 @@ public class Puzzle : MonoBehaviour, IMiniGame
 
     private int numberOfPuzzles;
 
+    [Header("Extras")]
+    [SerializeField] Timer timer;
     [SerializeField] ParticleSystem confetti_1, confetti_2;
 
-    [SerializeField] Timer timer;
+    [Header("Countdown")]
+    [SerializeField] Canvas canvas;
+    [SerializeField] GameObject countdown;
 
     private void Awake()
     {
@@ -29,14 +33,23 @@ public class Puzzle : MonoBehaviour, IMiniGame
     private void Start()
     {
         numberOfPuzzles = MiniGameManager.instance.numberOfPuzzles;
+        StartCoroutine(PlayCountdown());
+    }
+    public IEnumerator PlayCountdown()
+    {
+        GameObject spawnedObject = Instantiate(countdown, canvas.transform);
+        Animator animator = spawnedObject.GetComponent<Animator>();
+        while (animator && animator.GetCurrentAnimatorStateInfo(0).normalizedTime < 1f)
+            yield return null;
+
+        mouseClick.performed += OnDragDrop;
+        timer.OnTimeUp += GameEnd;
         StartCoroutine(timer.DecreaseTimer(MiniGameManager.instance.time));
     }
 
     private void OnEnable()
     {
         mouseClick.Enable();
-        mouseClick.performed += OnDragDrop;
-        timer.OnTimeUp += GameEnd;
     }
     private void OnDisable()
     {

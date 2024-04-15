@@ -1942,9 +1942,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   mouseDragTime: 0.1
+  timer: {fileID: 457369112}
   confetti_1: {fileID: 1108322487}
   confetti_2: {fileID: 1108322486}
-  timer: {fileID: 457369112}
+  canvas: {fileID: 1680331529}
+  countdown: {fileID: 2374398887319462458, guid: 7e7263252b6a4b04db5830a9f81767a9, type: 3}
 --- !u!114 &1842370884
 MonoBehaviour:
   m_ObjectHideFlags: 0

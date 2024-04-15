@@ -13,8 +13,13 @@ public class GameManager : MonoBehaviour, IMiniGame
 
     private WaitForFixedUpdate waitForFixedUpdate;
 
+    [Header("Extras")]
+    [SerializeField] Timer timer;
     [SerializeField] ParticleSystem confetti_1, confetti_2;
-    [SerializeField] Timer timer; 
+
+    [Header("Countdown")]
+    [SerializeField] Canvas canvas;
+    [SerializeField] GameObject countdown;
 
     private void Awake()
     {
@@ -24,7 +29,23 @@ public class GameManager : MonoBehaviour, IMiniGame
     }
     private void Start()
     {
-        StartCoroutine(StartGame());
+        StartCoroutine(PlayCountdown());
+    }
+    public IEnumerator PlayCountdown()
+    {
+        GameObject spawnedObject = Instantiate(countdown, canvas.transform);
+        Animator animator = spawnedObject.GetComponent<Animator>();
+        while (animator && animator.GetCurrentAnimatorStateInfo(0).normalizedTime < 1f)
+            yield return null;
+
+        StartCoroutine(timer.DecreaseTimer(MiniGameManager.instance.time));
+        float startTilt = (int)Random.Range(0, 2) == 0 ? -1 : 1;
+        rb.AddTorque(startTilt * tiltForce);
+
+        StartCoroutine(CheckRotation());
+        //here is a little goofy algorithm for time in increasing type
+        //(maybe ill just add another day variable for that)
+        StartCoroutine(timer.DecreaseTimer(60 / MiniGameManager.instance.time + 1));
     }
 
     private void OnEnable()
@@ -39,19 +60,6 @@ public class GameManager : MonoBehaviour, IMiniGame
         actionMap.Disable();
     }
 
-    private IEnumerator StartGame()
-    {
-        yield return new WaitForSecondsRealtime(0.1f);
-
-        float startTilt = (int)Random.Range(0,2) == 0 ? -1 : 1;
-        rb.AddTorque(startTilt * tiltForce);
-
-        StartCoroutine(CheckRotation());
-        //here is a little goofy algorithm for time in increasing type
-        //(maybe ill just add another day variable for that)
-        StartCoroutine(timer.DecreaseTimer(60/MiniGameManager.instance.time + 1));
-    }
-
     private IEnumerator CheckRotation()
     {
         while (Mathf.Abs(rb.rotation) < 20f)
@@ -60,7 +68,6 @@ public class GameManager : MonoBehaviour, IMiniGame
         }
         GameEnd();
     }
-
 
     private void OnTilt(InputAction.CallbackContext context)
     {

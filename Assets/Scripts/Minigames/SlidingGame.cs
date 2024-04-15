@@ -20,14 +20,31 @@ public class SlidingGame : MonoBehaviour, IMiniGame
     SpriteRenderer sRenderer;
     float spriteWidth;
 
-    [SerializeField] ParticleSystem confetti_1, confetti_2;
+    [Header("Extras")]
     [SerializeField] Timer timer;
+    [SerializeField] ParticleSystem confetti_1, confetti_2;
+
+    [Header("Countdown")]
+    [SerializeField] Canvas canvas;
+    [SerializeField] GameObject countdown;
 
     private void Start()
     {
         waitForFixedUpdate = new WaitForFixedUpdate();
         sRenderer = GetComponent<SpriteRenderer>();
         spriteWidth = sRenderer.sprite.bounds.size.x * transform.lossyScale.x / 2;
+
+        StartCoroutine(PlayCountdown());
+    }
+    public IEnumerator PlayCountdown()
+    {
+        GameObject spawnedObject = Instantiate(countdown, canvas.transform);
+        Animator animator = spawnedObject.GetComponent<Animator>();
+        while (animator && animator.GetCurrentAnimatorStateInfo(0).normalizedTime < 1f) 
+            yield return null;
+
+        turnHorizontal.performed += SlideHorizontal;
+        turnVertical.performed += SlideVertical;
 
         timer.OnTimeUp += GameEnd;
         StartCoroutine(timer.DecreaseTimer(MiniGameManager.instance.time));
@@ -43,8 +60,6 @@ public class SlidingGame : MonoBehaviour, IMiniGame
     {
         turnHorizontal.Enable();
         turnVertical.Enable();
-        turnHorizontal.performed += SlideHorizontal; 
-        turnVertical.performed += SlideVertical;
     }
 
     private void OnDisable()

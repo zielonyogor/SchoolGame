@@ -423,9 +423,11 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   questionPrefab: {fileID: 110314817219726557, guid: 8889913bf1291e541815239d206193f5, type: 3}
   numberOfQuestions: 5
+  timer: {fileID: 83569355}
   confetti_1: {fileID: 1398906506}
   confetti_2: {fileID: 1398906505}
-  timer: {fileID: 83569355}
+  canvas: {fileID: 1912583565}
+  countdown: {fileID: 2374398887319462458, guid: 7e7263252b6a4b04db5830a9f81767a9, type: 3}
 --- !u!1 &1127329253
 GameObject:
   m_ObjectHideFlags: 0

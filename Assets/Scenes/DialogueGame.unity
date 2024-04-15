@@ -1136,9 +1136,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9b0ab9d484decf542ba4bb1d32d94c46, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  timer: {fileID: 411187808}
   confetti_1: {fileID: 818898037}
   confetti_2: {fileID: 818898036}
-  timer: {fileID: 411187808}
+  canvas: {fileID: 453084110}
+  countdown: {fileID: 2374398887319462458, guid: 7e7263252b6a4b04db5830a9f81767a9, type: 3}
 --- !u!1 &696868960
 GameObject:
   m_ObjectHideFlags: 0
@@ -1700,6 +1702,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 179485169687760114, guid: e5404ba1faabcde4cb9d0dda128369e2, type: 3}
+      propertyPath: orthographic size
+      value: 28.333334
+      objectReference: {fileID: 0}
     - target: {fileID: 1727164618114907356, guid: e5404ba1faabcde4cb9d0dda128369e2, type: 3}
       propertyPath: m_Name
       value: Main Camera

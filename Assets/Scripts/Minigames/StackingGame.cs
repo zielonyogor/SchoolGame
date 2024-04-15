@@ -6,6 +6,8 @@ using UnityEngine.InputSystem;
 
 public class StackingGame : MonoBehaviour, IMiniGame
 {
+    private InputAction dropAction;
+
     [SerializeField] private Transform blockPrefab;
     [SerializeField] private Transform blockHolder;
 
@@ -16,19 +18,22 @@ public class StackingGame : MonoBehaviour, IMiniGame
 
     private int bookDirection = 1;
     private float xLimit = 70;
-
     private float timeBetweenRounds = 1f;
 
-    private InputAction dropAction;
-
+    [Header("Book Sprites")]
     [SerializeField] private List<Sprite> spriteList = new List<Sprite>();
 
     //MiniGame Manager variables
     private float bookSpeed = 30f;
     private int numberOfBooks = 4;
 
-    [SerializeField] ParticleSystem confetti_1, confetti_2;
+    [Header("Extras")]
     [SerializeField] Timer timer;
+    [SerializeField] ParticleSystem confetti_1, confetti_2;
+
+    [Header("Countdown")]
+    [SerializeField] Canvas canvas;
+    [SerializeField] GameObject countdown;
 
     private void Awake()
     {
@@ -37,8 +42,6 @@ public class StackingGame : MonoBehaviour, IMiniGame
     private void OnEnable()
     {
         dropAction.Enable();
-        dropAction.performed += DropBook;
-        timer.OnTimeUp += GameFinished;
     }
     private void OnDisable()
     {
@@ -49,10 +52,21 @@ public class StackingGame : MonoBehaviour, IMiniGame
     void Start()
     {
         timer.isDecreasing = false;
-
         numberOfBooks = MiniGameManager.instance.numberOfBooks;
         bookSpeed = MiniGameManager.instance.bookSpeed;
 
+        StartCoroutine(PlayCountdown());
+    }
+
+    public IEnumerator PlayCountdown()
+    {
+        GameObject spawnedObject = Instantiate(countdown, canvas.transform);
+        Animator animator = spawnedObject.GetComponent<Animator>();
+        while (animator && animator.GetCurrentAnimatorStateInfo(0).normalizedTime < 1f)
+            yield return null;
+
+        dropAction.performed += DropBook;
+        timer.OnTimeUp += GameFinished;
         SpawnNewBlock();
     }
 
