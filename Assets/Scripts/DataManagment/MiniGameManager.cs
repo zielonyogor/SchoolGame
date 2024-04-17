@@ -31,6 +31,12 @@ public class MiniGameManager : MonoBehaviour
     public bool isPlaying = false;
     public GameData gameData = new GameData();
 
+
+    private void Start()
+    {
+        Screen.SetResolution(1200, 720, false);
+    }
+
     private void Awake()
     {
         if (instance != null && instance != this)

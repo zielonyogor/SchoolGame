@@ -42,6 +42,9 @@ public class GameManager : MonoBehaviour, IMiniGame
         float startTilt = (int)Random.Range(0, 2) == 0 ? -1 : 1;
         rb.AddTorque(startTilt * tiltForce);
 
+        actionMap.Gameplay.Tilt.performed += OnTilt;
+        timer.OnTimeUp += GameFinished;
+
         StartCoroutine(CheckRotation());
         //here is a little goofy algorithm for time in increasing type
         //(maybe ill just add another day variable for that)
@@ -51,8 +54,6 @@ public class GameManager : MonoBehaviour, IMiniGame
     private void OnEnable()
     {
         actionMap.Enable();
-        actionMap.Gameplay.Tilt.performed += OnTilt;
-        timer.OnTimeUp += GameFinished;
     }
     private void OnDisable()
     {
