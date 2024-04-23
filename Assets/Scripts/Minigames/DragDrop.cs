@@ -5,6 +5,8 @@ using static UnityEngine.Rendering.DebugUI;
 
 public class DragDrop : MonoBehaviour, IMiniGame
 {
+    public bool HasTimingGame{ get; set;}
+
     private Camera mainCamera;
     private InputAction mouseClick;
 

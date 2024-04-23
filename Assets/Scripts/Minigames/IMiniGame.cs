@@ -4,6 +4,7 @@ using UnityEngine;
 
 public interface IMiniGame
 {
+    public bool HasTimingGame { get; set; }
     void GameEnd();
     void GameFinished();
     IEnumerator PlayCountdown();

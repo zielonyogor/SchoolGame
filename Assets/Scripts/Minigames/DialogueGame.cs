@@ -6,6 +6,8 @@ using UnityEngine.UI;
 
 public class DialogueGame : MonoBehaviour, IMiniGame
 {
+    public bool HasTimingGame {get; set;}
+
     private List<Transform> dialogueButtons = new();
     private string[] dialogueParts;
     private int expectedID;

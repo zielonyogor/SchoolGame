@@ -6,6 +6,8 @@ using UnityEngine.InputSystem;
 
 public class StackingGame : MonoBehaviour, IMiniGame
 {
+    public bool HasTimingGame{get; set;}
+
     private InputAction dropAction;
 
     [SerializeField] private Transform blockPrefab;
@@ -30,6 +32,7 @@ public class StackingGame : MonoBehaviour, IMiniGame
     [Header("Extras")]
     [SerializeField] Timer timer;
     [SerializeField] ParticleSystem confetti_1, confetti_2;
+    [SerializeField] GameObject buttonGuide;
 
     [Header("Countdown")]
     [SerializeField] Canvas canvas;
@@ -111,6 +114,7 @@ public class StackingGame : MonoBehaviour, IMiniGame
         dropAction.performed -= DropBook;
         if (numberOfBooks == 0)
         {
+            Destroy(buttonGuide);
             //here is a little goofy algorithm for time in increasing type
             //(maybe ill just add another day variable for that)
             StartCoroutine(timer.DecreaseTimer(60 / MiniGameManager.instance.time + 1));

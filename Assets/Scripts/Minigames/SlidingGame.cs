@@ -7,6 +7,8 @@ using UnityEngine.UIElements;
 
 public class SlidingGame : MonoBehaviour, IMiniGame
 {
+    public bool HasTimingGame{ get; set;}
+
     private bool isMoving = false;
     private WaitForFixedUpdate waitForFixedUpdate;
 
@@ -135,9 +137,9 @@ public class SlidingGame : MonoBehaviour, IMiniGame
     {
         turnHorizontal.performed -= SlideHorizontal;
         turnVertical.performed -= SlideVertical;
-        yield return new WaitForEndOfFrame();
         isMoving = false;
         timer.DisableTimer();
+        yield return new WaitUntil(() => HasTimingGame == false);
         confetti_1.Play();
         confetti_2.Play();
         yield return new WaitForSeconds(2.5f);

@@ -101,7 +101,10 @@ public class MiniGameManager : MonoBehaviour
         gameData.consecutiveErrors += 1;
         if (gameData.consecutiveErrors == 2)
         {
-            LoadCutscene("AAAAAAAAAA_I lost :((((");
+            SaveSystem.DeleteSaveFile();
+            isPlaying = false;
+            LoadCutscene("AAAAAAAAAA_I hate it here!_I've made a fool out of myselft_" +
+                "I can't be here any longer!_I want to change school again!");
         }
         else
         {

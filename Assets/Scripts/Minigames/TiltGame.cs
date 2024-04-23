@@ -4,8 +4,9 @@ using UnityEngine;
 using UnityEngine.InputSystem;
 using UnityEngine.UIElements;
 
-public class GameManager : MonoBehaviour, IMiniGame
+public class TiltGame : MonoBehaviour, IMiniGame
 {
+    public bool HasTimingGame{ get; set; }
 
     private ActionMap actionMap;
     [SerializeField] private Rigidbody2D rb;
@@ -29,6 +30,7 @@ public class GameManager : MonoBehaviour, IMiniGame
     }
     private void Start()
     {
+        
         StartCoroutine(PlayCountdown());
     }
     public IEnumerator PlayCountdown()
@@ -99,8 +101,9 @@ public class GameManager : MonoBehaviour, IMiniGame
 
     private IEnumerator PlayConfetti()
     {
-        yield return new WaitForEndOfFrame();
         timer.DisableTimer();
+        yield return new WaitUntil(() => HasTimingGame == false);
+        yield return new WaitForEndOfFrame();
         confetti_1.Play();
         confetti_2.Play();
         yield return new WaitForSeconds(2.5f);

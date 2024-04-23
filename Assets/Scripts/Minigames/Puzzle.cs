@@ -6,6 +6,8 @@ using UnityEngine.InputSystem;
 
 public class Puzzle : MonoBehaviour, IMiniGame
 {
+    public bool HasTimingGame{get; set;}
+
     private Camera mainCamera;
     private InputAction mouseClick;
 

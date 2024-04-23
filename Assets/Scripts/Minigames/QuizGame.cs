@@ -8,6 +8,8 @@ using UnityEngine.UI;
 
 public class QuizGame : MonoBehaviour, IMiniGame
 {
+    public bool HasTimingGame {get; set;}
+
     List<int> correctAnswers;
     List<Transform> questionObjects = new List<Transform>();
 
