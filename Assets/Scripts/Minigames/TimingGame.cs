@@ -63,19 +63,25 @@ public class TimingGame : MonoBehaviour
         if (rectOverlaps(rectBar,rectGoal))
         {
             Debug.Log("yay");
-            StartCoroutine(DelayEnd());
+            StartCoroutine(DelayWin());
         }
         else
         {
             Debug.Log("does not");
-            StartCoroutine(DelayEnd());
+            StartCoroutine(DelayLoss());
         }
     }
 
-    private IEnumerator DelayEnd()
+    private IEnumerator DelayWin()
     {
         yield return new WaitForSeconds(0.1f);
         Destroy(gameObject);
+    }
+
+    private IEnumerator DelayLoss()
+    {
+        yield return new WaitForSeconds(0.1f);
+        MiniGameManager.instance.HandleGameLoss();
     }
     bool rectOverlaps(RectTransform rectTrans1, RectTransform rectTrans2)
     {

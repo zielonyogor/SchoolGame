@@ -15,6 +15,9 @@ public class TimingGameManager : MonoBehaviour
         if (MiniGameManager.instance.gameData.day > 0) //later add some day later (maybe 2nd week)
         {
             game = miniGame as IMiniGame;
+            //need to change this a little beacause of: 
+            //Tilting Game (less time than time in instance)
+            //Stacking Game (infinite time for stacking books, not related to instance.time)
             timeStamp = Random.Range(1f, MiniGameManager.instance.time - 1f); //some offset
             Debug.Log("offset : " +  timeStamp);
             StartCoroutine(SpawnTimingGame(timeStamp));
