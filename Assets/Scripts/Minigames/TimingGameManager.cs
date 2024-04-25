@@ -24,7 +24,7 @@ public class TimingGameManager : MonoBehaviour
     {
         yield return new WaitForSeconds(time);
         game.HasTimingGame = true;
-        GameObject timingGameObject = Instantiate(timingGame, new Vector3(0, 0, 0), Quaternion.identity);
+        GameObject timingGameObject = Instantiate(timingGame, transform.position, Quaternion.identity, transform);
         yield return new WaitUntil(() => timingGameObject == null);
         Debug.Log("Object destroyed");
         game.HasTimingGame = false;
