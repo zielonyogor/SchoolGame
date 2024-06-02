@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using Unity.VisualScripting;
 using UnityEngine;
 
 public class TimingGameManager : MonoBehaviour
@@ -12,15 +13,20 @@ public class TimingGameManager : MonoBehaviour
     private IMiniGame game;
     void Start()
     {
-        if (MiniGameManager.instance.gameData.day > 0) //later add some day later (maybe 2nd week)
+        int day = MiniGameManager.instance.gameData.day;
+        if (day > 7)
         {
-            game = miniGame as IMiniGame;
-            //need to change this a little beacause of: 
-            //Tilting Game (less time than time in instance)
-            //Stacking Game (infinite time for stacking books, not related to instance.time)
-            timeStamp = Random.Range(1f, MiniGameManager.instance.time - 1f); //some offset
-            Debug.Log("offset : " +  timeStamp);
-            StartCoroutine(SpawnTimingGame(timeStamp));
+            int probability = day > 21 ? 90 : day > 14 ? 80 : 60;
+            if (Random.Range(0, 100) < probability)
+            {
+                game = miniGame as IMiniGame;
+                //need to change this a little beacause of: 
+                //Tilting Game (less time than time in instance)
+                //Stacking Game (infinite time for stacking books, not related to instance.time)
+                timeStamp = Random.Range(1f, MiniGameManager.instance.time - 1f); //some offset
+                Debug.Log("offset : " +  timeStamp);
+                StartCoroutine(SpawnTimingGame(timeStamp));
+            }
         }
     }
     private IEnumerator SpawnTimingGame(float time)

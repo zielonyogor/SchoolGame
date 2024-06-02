@@ -3,13 +3,15 @@ using UnityEngine;
 [CreateAssetMenu(fileName = "Day_8", menuName = "DayConfigs/Day_8")]
 public class DayEightConfig : Levelnfo
 {
-    public SlidingMapLayout slidingMapLayout;
-    public string dialogueText;
+    public int numberOfBooks;
+    public int bookSpeed;
+    public int numberOfPuzzles;
 
     public override void LoadData()
     {
         base.LoadData();
-        MiniGameManager.instance.slidingMapLayout = slidingMapLayout;
-        MiniGameManager.instance.dialogueText = dialogueText;
+        MiniGameManager.instance.numberOfBooks = numberOfBooks;
+        MiniGameManager.instance.bookSpeed = bookSpeed;
+        MiniGameManager.instance.numberOfPuzzles = numberOfPuzzles;
     }
 }

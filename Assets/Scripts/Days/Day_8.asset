@@ -13,6 +13,7 @@ MonoBehaviour:
   m_Name: Day_8
   m_EditorClassIdentifier: 
   miniGames: []
-  time: 0
-  slidingMapLayout: {fileID: 11400000, guid: b116c8e8781c37e44b7afea161487bf3, type: 2}
-  dialogueText: 
+  time: 12
+  numberOfBooks: 5
+  bookSpeed: 50
+  numberOfPuzzles: 70

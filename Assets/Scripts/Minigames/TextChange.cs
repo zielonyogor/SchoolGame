@@ -33,20 +33,20 @@ public class TextChange : MonoBehaviour
             yield return new WaitForSeconds(1.5f);
         }
 
-        //if (MiniGameManager.instance.gameData.day == 7)
-        //{
-        //    yield return new WaitForSeconds(.5f);
-        //    text.enabled = false;
-        //    if (MiniGameManager.instance.gameData.errors == 0)
-        //    {
-        //        background.sprite = endings[1];
-        //    }
-        //    else
-        //    {
-        //        background.sprite = endings[0];
-        //    }
-        //    yield return new WaitForSeconds(4.0f);
-        //}
+        if (MiniGameManager.instance.gameData.day == 14)
+        {
+            yield return new WaitForSeconds(.5f);
+            text.enabled = false;
+            if (MiniGameManager.instance.gameData.errors == 0)
+            {
+                background.sprite = endings[1];
+            }
+            else
+            {
+                background.sprite = endings[0];
+            }
+            yield return new WaitForSeconds(4.0f);
+        }
         MiniGameManager.instance.ExitCutscene();
     } 
 }
