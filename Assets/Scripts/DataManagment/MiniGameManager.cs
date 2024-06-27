@@ -1,6 +1,5 @@
 using System.Collections;
 using System.Collections.Generic;
-using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
@@ -61,7 +60,7 @@ public class MiniGameManager : MonoBehaviour
     public void LoadCutscene(string text)
     {
         cutsceneText = text;
-        if (gameData.day == 7) //everything with number 7 will have to be changed to 28 (end of game) 
+        if (gameData.day == Constants.lastDay)
         {
             
             if (gameData.errors == 0)
@@ -103,7 +102,7 @@ public class MiniGameManager : MonoBehaviour
         {
             SaveSystem.DeleteSaveFile();
             isPlaying = false;
-            LoadCutscene("AAAAAAAAAA_I hate it here!_I've made a fool out of myselft_" +
+            LoadCutscene("AAAAAAAAAA_I hate it here!_I've made a fool out of myself_" +
                 "I can't be here any longer!_I want to change school again!");
         }
         else
@@ -124,7 +123,7 @@ public class MiniGameManager : MonoBehaviour
 
     public void ExitCutscene()
     {
-        if (gameData.day >= 7)
+        if (gameData.day >= Constants.lastDay || gameData.consecutiveErrors >= Constants.maxConsecutiveErrors)
         {
             SaveSystem.DeleteSaveFile();
             isPlaying = false;
@@ -134,11 +133,25 @@ public class MiniGameManager : MonoBehaviour
         SceneManager.LoadScene("LevelMenu"); 
     }
 
-    //probably move to minigameManager
+
     private IEnumerator SpawnTimingGame(float time)
     {
         yield return new WaitForSeconds(time);
         Instantiate(timingObject, new Vector3(0, 0, 0), Quaternion.identity);
         yield return null;
+    }
+
+    public void AddError()
+    {
+        gameData.consecutiveErrors++;
+        gameData.errors++;
+        if (gameData.consecutiveErrors == 2)
+        {
+            SaveSystem.DeleteSaveFile();
+            isPlaying = false;
+            LoadCutscene("AAAAAAAAAA_I hate it here!_I've made a fool out of myself_" +
+                "I can't be here any longer!_I want to change school again!");
+        }
+
     }
 }

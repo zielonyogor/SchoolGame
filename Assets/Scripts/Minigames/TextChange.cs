@@ -11,7 +11,6 @@ public class TextChange : MonoBehaviour
     [SerializeField] SpriteRenderer background;
 
     private string[] dialogueParts;
-    float letterDelay = 0.05f;
 
     void Start()
     {
@@ -19,7 +18,7 @@ public class TextChange : MonoBehaviour
         {
             Debug.Log("przegrana");
         }
-        dialogueParts = MiniGameManager.instance.cutsceneText.Split('_');
+        dialogueParts = MiniGameManager.instance.cutsceneText.Split('_'); //gotta change to just '\n'
         StartCoroutine(playDialogue());
     }
 
@@ -28,12 +27,12 @@ public class TextChange : MonoBehaviour
             for (int i = 0; i <= part.Length; i++)
             {
                 text.text = part.Substring(0, i);
-                yield return new WaitForSeconds(letterDelay);
+                yield return new WaitForSeconds(Constants.letterDelay);
             }
             yield return new WaitForSeconds(1.5f);
         }
 
-        if (MiniGameManager.instance.gameData.day == 14)
+        if (MiniGameManager.instance.gameData.day == Constants.lastDay)
         {
             yield return new WaitForSeconds(.5f);
             text.enabled = false;

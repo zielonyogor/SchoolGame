@@ -81,7 +81,8 @@ public class TimingGame : MonoBehaviour
     private IEnumerator DelayLoss()
     {
         yield return new WaitForSeconds(0.1f);
-        MiniGameManager.instance.HandleGameLoss();
+        MiniGameManager.instance.AddError();
+        StartCoroutine(MoveBar());
     }
     bool rectOverlaps(RectTransform rectTrans1, RectTransform rectTrans2)
     {

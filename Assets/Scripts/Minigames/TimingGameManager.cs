@@ -14,10 +14,10 @@ public class TimingGameManager : MonoBehaviour
     void Start()
     {
         int day = MiniGameManager.instance.gameData.day;
-        if (day > 7)
+        if (day > 7 || true)
         {
             int probability = day > 21 ? 90 : day > 14 ? 80 : 60;
-            if (Random.Range(0, 100) < probability)
+            if (Random.Range(0, 100) < probability || true)
             {
                 game = miniGame as IMiniGame;
                 //need to change this a little beacause of: 

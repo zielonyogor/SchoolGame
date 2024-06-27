@@ -1,0 +1,47 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5f063c3a3e3fa3b44b144b58dfa56652, type: 3}
+  m_Name: Scenario_Boba
+  m_EditorClassIdentifier: 
+  scenarioText: haii its kate. would you like to go for a boba or sth?? you seem
+    cool and i loove your fits :3
+  personName: Unknown
+  optionCorrect: yea sure when are you free??
+  optionIncorrect: sorry i dont feel like it,,
+  resultCorrect: 'I went out for boba with Kate (she has sooo pretty visual kei outfits).
+
+    It
+    was nice talking to her. We both like crocheting!!!'
+  resultCorrectRare: 'I went out for boba with Kate (she has sooo pretty visual kei
+    outfits).
+
+    It was nice talking to her.
+
+    Unfortunately I spilled my boba
+    all over myself >.<
+
+    Embarassing... BUT she was so nice to me and helped
+    me with cleaning.'
+  resultIncorrect: "Kate asked me to go out for boba. I refused.\nI think I got too
+    nervous. I don't want her to think that I'm weird. \nI would have propably embarass
+    myself, I think????\nGod, I'm starting to regret it....."
+  resultIncorrectRare: 'Kate asked me to go out for boba. I refused.
+
+    I think
+    I got too nervous.
+
+    But she was soooo kind to me after that.
+
+    She still
+    sent me funny tiktok :D
+
+    Maybe I still have a chance,,,,'
