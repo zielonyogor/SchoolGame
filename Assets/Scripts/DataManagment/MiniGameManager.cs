@@ -129,7 +129,10 @@ public class MiniGameManager : MonoBehaviour
             isPlaying = false;
         }
         else if (gameData.day != 1)
+        {
             gameData.day += 1;
+            gameData.consecutiveErrors = 0;
+        }
         SceneManager.LoadScene("LevelMenu"); 
     }
 

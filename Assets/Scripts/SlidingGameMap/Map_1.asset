@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ac0f1fff43bbcc646a40be675af30ade, type: 3}
   m_Name: Map_1
   m_EditorClassIdentifier: 
-  playerPosition: {x: -32, y: -32}
-  finishPosition: {x: 0, y: 32}
+  playerPosition: {x: -48, y: -48}
+  finishPosition: {x: 0, y: 24}
   blockPosition:
-  - {x: 16, y: -32}
+  - {x: 24, y: -48}

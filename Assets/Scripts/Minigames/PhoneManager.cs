@@ -115,12 +115,14 @@ public class PhoneManager : MonoBehaviour
         {
             case ResultState.Correct:
                 resultText = scenarios[scenarioIndex].resultCorrect;
+                MiniGameManager.instance.gameData.errors--;
                 break;
             case ResultState.CorrectRare:
                 resultText = scenarios[scenarioIndex].resultCorrectRare;
                 break;
             case ResultState.Incorrect:
                 resultText = scenarios[scenarioIndex].resultIncorrect;
+                MiniGameManager.instance.gameData.errors++;
                 break;
             case ResultState.IncorrectRare:
                 resultText = scenarios[scenarioIndex].resultIncorrectRare;

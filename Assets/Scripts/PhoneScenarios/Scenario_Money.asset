@@ -1,0 +1,46 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5f063c3a3e3fa3b44b144b58dfa56652, type: 3}
+  m_Name: Scenario_Money
+  m_EditorClassIdentifier: 
+  scenarioText: Hey, remember me? The cool guy from soccer. Do you have 20 dollars
+    to spare? Need vape
+  personName: Unknown
+  optionCorrect: sorry i dont have any >.<
+  optionIncorrect: okay np ;)
+  resultCorrect: 'Jake (I think it was him) asked me for 20$ to buy vape. Of course
+    I didn''t give him any.
+
+    Besides the name, I don''t know him at all LOL.
+
+    Who
+    knows when he would return my money???'
+  resultCorrectRare: 'Jake (I think it was him) asked me for 20$ to buy vape. Of
+    course I didn''t give him any.
+
+    He got a little mad, but I don''t care that
+    much.
+
+    He''s not to be worried about.'
+  resultIncorrect: 'Jake (I think it was him) asked me for 20$ to buy vape. I sent
+    him money.
+
+    He blocked me,,,'
+  resultIncorrectRare: 'Jake (I think it was him) asked me for 20$ to buy vape. I
+    sent him money.
+
+    He blocked me,,,
+
+    Fortunately his friend Tom DMed me
+    to apologise for Jake. Also he returned me money.
+
+    Embarassing situation,,,'

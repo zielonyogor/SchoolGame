@@ -10,16 +10,12 @@ public class QuizGame : MonoBehaviour, IMiniGame
 {
     public bool HasTimingGame {get; set;}
 
-    List<int> correctAnswers;
-    List<Transform> questionObjects = new List<Transform>();
+    private List<int> correctAnswers;
+    private List<Transform> questionObjects = new List<Transform>();
+    private List<bool> answers = new List<bool>();
 
-    [SerializeField] Transform questionPrefab;
-
-    private InputAction submitAction;
-    private int currentQuestion=0;
-
+    [Header("MiniGame variable")]
     [SerializeField] int numberOfQuestions;
-    private int correct = 0;
 
     [Header("Extras")]
     [SerializeField] Timer timer;
@@ -29,22 +25,9 @@ public class QuizGame : MonoBehaviour, IMiniGame
     [SerializeField] Canvas canvas;
     [SerializeField] GameObject countdown;
 
-    private void Awake()
-    {
-        submitAction = new ActionMap().Gameplay.SubmitQuestion;
-    }
-
     private void OnEnable()
     {
-        submitAction.Enable();
-        submitAction.performed += SubmitQuestion;
         timer.OnTimeUp += GameEnd;
-    }
-
-    private void OnDisable()
-    {
-        submitAction.performed -= SubmitQuestion;
-        submitAction.Disable();
     }
 
     void Start()
@@ -53,14 +36,15 @@ public class QuizGame : MonoBehaviour, IMiniGame
         correctAnswers = new List<int>(numberOfQuestions);
         for (int i = 0; i < numberOfQuestions; i++)
         {
-            correctAnswers.Add(0);    
+            correctAnswers.Add(0);
+            answers.Add(false);
         }
         for (int i = 0; i < numberOfQuestions; i++){
             questionObjects.Add(transform.GetChild(i));
             ChangeEquation(i);
             questionObjects[i].gameObject.SetActive(true);
         }
-        questionObjects[0].GetChild(3).GetComponent<TMP_InputField>().Select();
+        questionObjects[0].GetChild(4).GetComponent<TMP_InputField>().Select();
 
         StartCoroutine(PlayCountdown());
     }
@@ -101,37 +85,45 @@ public class QuizGame : MonoBehaviour, IMiniGame
 
     }
 
-    public void HandleClick()
+    public void HandleClick(int index)
     {
-        questionObjects[currentQuestion].GetChild(3).GetComponent<TMP_InputField>().Select();
-        questionObjects[currentQuestion].GetChild(3).GetComponent<TMP_InputField>().ActivateInputField();
+        Debug.Log("Index: " + index);
+        if (int.TryParse(questionObjects[index].GetChild(4).GetComponent<TMP_InputField>().text, out int answer))
+        {
+            if (answer == correctAnswers[index])
+            {
+                answers[index] = true;
+            }
+            else
+            {
+                answers[index] = false;
+            }
+        }
     }
 
-    //maybe just make a basic input (dont force the Enter thingy) based on input
-    //from game showcase
-    void SubmitQuestion(InputAction.CallbackContext context)
+    public void SubmitQuestions()
     {
-        if (int.TryParse(questionObjects[currentQuestion].GetChild(3).GetComponent<TMP_InputField>().text, out int answer))
+        for (int i = 0; i < numberOfQuestions; i++)
         {
-            if (answer == correctAnswers[currentQuestion])
+            questionObjects[i].GetChild(4).GetComponent<TMP_InputField>().DeactivateInputField();
+            questionObjects[i].GetChild(4).GetComponent<TMP_InputField>().interactable = false;
+        }
+        int correct = 0;
+        for (int i = 0; i < numberOfQuestions; i++)
+        {
+            if (answers[i])
+            {
                 correct++;
-
-            currentQuestion++;
+            }
+        }
+        if (correct == numberOfQuestions)
+        {
+            GameFinished();
         }
         else
         {
-            questionObjects[currentQuestion].GetChild(3).GetComponent<TMP_InputField>().text = null;
-            questionObjects[currentQuestion].GetChild(3).GetComponent<TMP_InputField>().ActivateInputField();
-
-        }
-        if (currentQuestion == numberOfQuestions)
-            currentQuestion--;
-        questionObjects[currentQuestion].GetChild(3).GetComponent<TMP_InputField>().Select();
-
-        if (correct == numberOfQuestions)
-            GameFinished();
-        else if (currentQuestion == numberOfQuestions)
             GameEnd();
+        }
     }
 
     public void GameEnd()
