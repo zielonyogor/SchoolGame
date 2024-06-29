@@ -19,6 +19,7 @@ public class PhoneManager : MonoBehaviour
     [SerializeField] TextMeshProUGUI messageTextField;
     [SerializeField] TextMeshProUGUI personTextField;
     [SerializeField] Button button1, button2;
+    [SerializeField] GameObject clockText;
     [Header("Result UI")]
     [SerializeField] TextMeshProUGUI resultTextField;
     [Header("Background")]
@@ -79,9 +80,6 @@ public class PhoneManager : MonoBehaviour
     {
         button1.gameObject.SetActive(false);
         button2.gameObject.SetActive(false);
-        messageTextField.gameObject.SetActive(false);
-        personTextField.gameObject.SetActive(false);
-        resultTextField.gameObject.SetActive(true);
 
         if (isCorrect)
         {
@@ -111,6 +109,12 @@ public class PhoneManager : MonoBehaviour
 
     private IEnumerator displayResult(ResultState result)
     {
+
+        messageTextField.gameObject.SetActive(false);
+        personTextField.gameObject.SetActive(false);
+        clockText.SetActive(false);
+        resultTextField.gameObject.SetActive(true);
+
         switch (result)
         {
             case ResultState.Correct:
