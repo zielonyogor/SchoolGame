@@ -14,7 +14,7 @@ public class TimingGameManager : MonoBehaviour
     void Start()
     {
         int day = MiniGameManager.instance.gameData.day;
-        if (day > 7 || true)
+        if (day > 7)
         {
             int probability = day > 21 ? 90 : day > 14 ? 80 : 60;
             if (Random.Range(0, 100) < probability || true)
@@ -24,9 +24,13 @@ public class TimingGameManager : MonoBehaviour
                 //Tilting Game (less time than time in instance)
                 //Stacking Game (infinite time for stacking books, not related to instance.time)
                 timeStamp = Random.Range(1f, MiniGameManager.instance.time - 1f); //some offset
-                Debug.Log("offset : " +  timeStamp);
+                Debug.Log("offset : " + timeStamp);
                 StartCoroutine(SpawnTimingGame(timeStamp));
             }
+        }
+        else
+        {
+            Destroy(this);
         }
     }
     private IEnumerator SpawnTimingGame(float time)

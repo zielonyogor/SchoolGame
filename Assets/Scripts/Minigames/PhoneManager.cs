@@ -20,31 +20,39 @@ public class PhoneManager : MonoBehaviour
     [SerializeField] TextMeshProUGUI personTextField;
     [SerializeField] Button button1, button2;
     [SerializeField] GameObject clockText;
+
     [Header("Result UI")]
     [SerializeField] TextMeshProUGUI resultTextField;
+
     [Header("Background")]
     [SerializeField] SpriteRenderer backgroundImage;
     [SerializeField] Sprite diarySprite;
+
+
     [Header("List of scenarios")]
     [SerializeField] List<Scenario_SO> scenarios; //random scenarios or based on day????
 
-    private int scenarioIndex;
+    private Scenario_SO currentScenario;
     private string scenarioText;
     private string resultText;
+    private bool isMultiScenario = false;
 
     void Start()
     {
-        button1.interactable = false;
-        button2.interactable = false;
-        scenarioIndex = Random.Range(0, scenarios.Count);
-        scenarioText = scenarios[scenarioIndex].scenarioText;
+        int scenarioIndex = Random.Range(0, scenarios.Count);
+        currentScenario = scenarios[scenarioIndex];
+        scenarioText = currentScenario.scenarioText;
+        if (currentScenario.secondScenario != null)
+        {
+            isMultiScenario = true;
+        }
 
         StartCoroutine(displayText());
     }
 
     private IEnumerator displayText()
     {
-        personTextField.text = scenarios[scenarioIndex].personName;
+        personTextField.text = currentScenario.personName;
         messageTextField.text = "";
         for (int i = 0; i < scenarioText.Length; i++)
         {
@@ -57,25 +65,44 @@ public class PhoneManager : MonoBehaviour
         }
         yield return new WaitForSeconds(.5f);
 
-        int randomOrder = Random.Range(0, 2);
-        if (randomOrder == 0)
+        button1.gameObject.SetActive(true);
+
+        if (isMultiScenario)
         {
-            button1.GetComponentInChildren<TextMeshProUGUI>().text = scenarios[scenarioIndex].optionCorrect;
-            button1.onClick.AddListener(() => onClickButton(true));
-            button2.GetComponentInChildren<TextMeshProUGUI>().text = scenarios[scenarioIndex].optionIncorrect;
-            button2.onClick.AddListener(() => onClickButton(false));
+            button1.GetComponentInChildren<TextMeshProUGUI>().text = currentScenario.optionCorrect;
+            button1.onClick.AddListener(onClickContinue);
         }
         else
         {
-            button1.GetComponentInChildren<TextMeshProUGUI>().text = scenarios[scenarioIndex].optionIncorrect;
-            button1.onClick.AddListener(() => onClickButton(false));
-            button2.GetComponentInChildren<TextMeshProUGUI>().text = scenarios[scenarioIndex].optionCorrect;
-            button2.onClick.AddListener(() => onClickButton(true));
+            button2.gameObject.SetActive(true);
+            int randomOrder = Random.Range(0, 2);
+            if (randomOrder == 0)
+            {
+                button1.GetComponentInChildren<TextMeshProUGUI>().text = currentScenario.optionCorrect;
+                button1.onClick.AddListener(() => onClickButton(true));
+                button2.GetComponentInChildren<TextMeshProUGUI>().text = currentScenario.optionIncorrect;
+                button2.onClick.AddListener(() => onClickButton(false));
+            }
+            else
+            {
+                button1.GetComponentInChildren<TextMeshProUGUI>().text = currentScenario.optionIncorrect;
+                button1.onClick.AddListener(() => onClickButton(false));
+                button2.GetComponentInChildren<TextMeshProUGUI>().text = currentScenario.optionCorrect;
+                button2.onClick.AddListener(() => onClickButton(true));
+            }
         }
-
-        button1.interactable = true;
-        button2.interactable = true;
     }
+
+    public void onClickContinue()
+    {
+        currentScenario = currentScenario.secondScenario;
+        isMultiScenario = false;
+        button1.onClick.RemoveListener(onClickContinue);
+        scenarioText = currentScenario.scenarioText;
+        button1.gameObject.SetActive(false);
+        StartCoroutine(displayText());
+    }
+
     public void onClickButton(bool isCorrect)
     {
         button1.gameObject.SetActive(false);
@@ -83,8 +110,7 @@ public class PhoneManager : MonoBehaviour
 
         if (isCorrect)
         {
-            Debug.Log("Correct answer!");
-            if (Random.Range(0f, 100f) <= 99)
+            if (Random.Range(0f, 100f) <= 90)
             {
                 StartCoroutine(displayResult(ResultState.Correct));
             }
@@ -95,8 +121,7 @@ public class PhoneManager : MonoBehaviour
         }
         else
         {
-            Debug.Log("Incorrect answer.");
-            if (Random.Range(0f, 100f) <= 99)
+            if (Random.Range(0f, 100f) <= 90)
             {
                 StartCoroutine(displayResult(ResultState.Incorrect));
             }
@@ -118,18 +143,18 @@ public class PhoneManager : MonoBehaviour
         switch (result)
         {
             case ResultState.Correct:
-                resultText = scenarios[scenarioIndex].resultCorrect;
+                resultText = currentScenario.resultCorrect;
                 MiniGameManager.instance.gameData.errors--;
                 break;
             case ResultState.CorrectRare:
-                resultText = scenarios[scenarioIndex].resultCorrectRare;
+                resultText = currentScenario.resultCorrectRare;
                 break;
             case ResultState.Incorrect:
-                resultText = scenarios[scenarioIndex].resultIncorrect;
+                resultText = currentScenario.resultIncorrect;
                 MiniGameManager.instance.gameData.errors++;
                 break;
             case ResultState.IncorrectRare:
-                resultText = scenarios[scenarioIndex].resultIncorrectRare;
+                resultText = currentScenario.resultIncorrectRare;
                 break;
         }
         resultTextField.text = "";
@@ -144,6 +169,6 @@ public class PhoneManager : MonoBehaviour
         }
         yield return new WaitForSeconds(2.0f);
 
-        MiniGameManager.instance.ExitCutscene();
+        MiniGameManager.instance.ExitCutscene(); //probably enough for now
     }
 }

@@ -15,6 +15,7 @@ MonoBehaviour:
   scenarioText: Hey, remember me? The cool guy from soccer. Do you have 20 dollars
     to spare? Need vape
   personName: Unknown
+  secondScenario: {fileID: 0}
   optionCorrect: sorry i dont have any >.<
   optionIncorrect: okay np ;)
   resultCorrect: 'Jake (I think it was him) asked me for 20$ to buy vape. Of course

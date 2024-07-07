@@ -1,4 +1,3 @@
-
 static class Constants
 {
     public const int lastDay = 14;
