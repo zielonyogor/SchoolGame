@@ -12,7 +12,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e91c684612212484a8618ff2d99222bc, type: 3}
   m_Name: Day_10
   m_EditorClassIdentifier: 
-  miniGames: []
-  time: 0
-  slidingMapLayout: {fileID: 0}
-  dialogueText: 
+  miniGames:
+  - SlidingGame
+  - StackingGame
+  - QuizGame
+  time: 11
+  slidingMapLayout: {fileID: 11400000, guid: b116c8e8781c37e44b7afea161487bf3, type: 2}
+  numberOfBooks: 5
+  bookSpeed: 40
+  tableSize: 100
+  numberOfQuestions: 3

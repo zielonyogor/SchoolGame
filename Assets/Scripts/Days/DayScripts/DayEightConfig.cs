@@ -5,6 +5,7 @@ public class DayEightConfig : Levelnfo
 {
     public int numberOfBooks;
     public int bookSpeed;
+    public int tableSize;
     public int numberOfPuzzles;
 
     public override void LoadData()
@@ -12,6 +13,7 @@ public class DayEightConfig : Levelnfo
         base.LoadData();
         MiniGameManager.instance.numberOfBooks = numberOfBooks;
         MiniGameManager.instance.bookSpeed = bookSpeed;
+        MiniGameManager.instance.tableSize = tableSize;
         MiniGameManager.instance.numberOfPuzzles = numberOfPuzzles;
     }
 }

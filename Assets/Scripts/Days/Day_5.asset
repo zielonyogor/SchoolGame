@@ -13,8 +13,6 @@ MonoBehaviour:
   m_Name: Day_5
   m_EditorClassIdentifier: 
   miniGames:
-  - StackingGame
+  - DragDropGame
   time: 15
-  numberOfBooks: 4
-  bookSpeed: 40
-  tableSize: 70
+  numberOfMeds: 3

@@ -12,7 +12,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f53f699a4fa012445982d63570c8eac7, type: 3}
   m_Name: Day_9
   m_EditorClassIdentifier: 
-  miniGames: []
-  time: 0
-  slidingMapLayout: {fileID: 0}
-  dialogueText: 
+  miniGames:
+  - TiltGame
+  - DialogueGame
+  - SlidingGame
+  time: 12
+  slidingMapLayout: {fileID: 11400000, guid: b116c8e8781c37e44b7afea161487bf3, type: 2}
+  dialogueText: What_do you_mean? I'm_a girl.

@@ -4,12 +4,18 @@ using UnityEngine;
 public class DayTenConfig : Levelnfo
 {
     public SlidingMapLayout slidingMapLayout;
-    public string dialogueText;
+    public int numberOfBooks;
+    public int bookSpeed;
+    public int tableSize;
+    public int numberOfQuestions;
 
     public override void LoadData()
     {
         base.LoadData();
         MiniGameManager.instance.slidingMapLayout = slidingMapLayout;
-        MiniGameManager.instance.dialogueText = dialogueText;
+        MiniGameManager.instance.numberOfBooks = numberOfBooks;
+        MiniGameManager.instance.bookSpeed = bookSpeed;
+        MiniGameManager.instance.tableSize = tableSize;
+        MiniGameManager.instance.numberOfQuestions = numberOfQuestions;
     }
 }
