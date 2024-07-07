@@ -32,4 +32,7 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/Cutscene.unity
     guid: f56e8059fbf48e245a53154c26ee4c27
+  - enabled: 1
+    path: Assets/Scenes/PhoneScene.unity
+    guid: 73afe6b82e419ef438b2ac4aca309f15
   m_configObjects: {}
