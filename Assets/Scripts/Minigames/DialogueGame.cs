@@ -58,15 +58,15 @@ public class DialogueGame : MonoBehaviour, IMiniGame
         while (true)
         {
             dialogueButtons[index].gameObject.GetComponent<RectTransform>().anchoredPosition = new Vector2(randomX, randomY);
-            if (!isColliding(index)) break;
-            randomX = Random.Range(-360, 260);
-            randomY = Random.Range(-260, 360);
+            if (!IsColliding(index)) break;
+            randomX = Random.Range(-260, 180);
+            randomY = Random.Range(-220, 280);
             i++;
             if (i >= 100) break;
         }
     }
 
-    private bool isColliding(int index)
+    private bool IsColliding(int index)
     {
         for (int i = 0; i < index; i++)
         {

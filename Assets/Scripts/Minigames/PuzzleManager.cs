@@ -30,7 +30,7 @@ public class PuzzleManager : MonoBehaviour
         while (true)
         {
             objects[index].position = new Vector2(randomX, randomY);
-            if (!(Mathf.Abs(randomX) <= 46 && randomY <= 5) && !isColliding(index)) break;
+            if (!(Mathf.Abs(randomX) <= 46 && randomY <= 5) && !IsColliding(index)) break;
             randomX = Random.Range(-80, 80);
             randomY = Random.Range(-32, 48);
             i++;
@@ -38,7 +38,7 @@ public class PuzzleManager : MonoBehaviour
         }
     }
 
-    private bool isColliding(int index)
+    private bool IsColliding(int index)
     {
         for (int i = 0; i < index; i++)
         {

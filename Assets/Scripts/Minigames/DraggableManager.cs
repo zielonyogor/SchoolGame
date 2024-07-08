@@ -25,13 +25,10 @@ public class DraggableManager : MonoBehaviour
             child.gameObject.tag = "DraggableIncorrect";
         }
 
-        // Fisher-Yates shuffle
         for (int i = items.Count - 1; i > 0; i--)
         {
             int randomIndex = Random.Range(0, i + 1);
-            Transform temp = items[i];
-            items[i] = items[randomIndex];
-            items[randomIndex] = temp;
+            (items[randomIndex], items[i]) = (items[i], items[randomIndex]);
         }
 
         for (int i = 0; i < numberOfMeds; i++)

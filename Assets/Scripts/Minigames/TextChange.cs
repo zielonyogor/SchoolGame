@@ -19,10 +19,10 @@ public class TextChange : MonoBehaviour
             Debug.Log("przegrana");
         }
         dialogueParts = MiniGameManager.instance.cutsceneText.Split('_'); //gotta change to just '\n'
-        StartCoroutine(playDialogue());
+        StartCoroutine(PlayDialogue());
     }
 
-    private IEnumerator playDialogue(){
+    private IEnumerator PlayDialogue(){
         foreach(string part in dialogueParts){
             for (int i = 0; i <= part.Length; i++)
             {

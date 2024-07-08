@@ -47,10 +47,10 @@ public class PhoneManager : MonoBehaviour
             isMultiScenario = true;
         }
 
-        StartCoroutine(displayText());
+        StartCoroutine(DisplayText());
     }
 
-    private IEnumerator displayText()
+    private IEnumerator DisplayText()
     {
         personTextField.text = currentScenario.personName;
         messageTextField.text = "";
@@ -70,7 +70,7 @@ public class PhoneManager : MonoBehaviour
         if (isMultiScenario)
         {
             button1.GetComponentInChildren<TextMeshProUGUI>().text = currentScenario.optionCorrect;
-            button1.onClick.AddListener(onClickContinue);
+            button1.onClick.AddListener(OnClickContinue);
         }
         else
         {
@@ -79,31 +79,31 @@ public class PhoneManager : MonoBehaviour
             if (randomOrder == 0)
             {
                 button1.GetComponentInChildren<TextMeshProUGUI>().text = currentScenario.optionCorrect;
-                button1.onClick.AddListener(() => onClickButton(true));
+                button1.onClick.AddListener(() => OnClickButton(true));
                 button2.GetComponentInChildren<TextMeshProUGUI>().text = currentScenario.optionIncorrect;
-                button2.onClick.AddListener(() => onClickButton(false));
+                button2.onClick.AddListener(() => OnClickButton(false));
             }
             else
             {
                 button1.GetComponentInChildren<TextMeshProUGUI>().text = currentScenario.optionIncorrect;
-                button1.onClick.AddListener(() => onClickButton(false));
+                button1.onClick.AddListener(() => OnClickButton(false));
                 button2.GetComponentInChildren<TextMeshProUGUI>().text = currentScenario.optionCorrect;
-                button2.onClick.AddListener(() => onClickButton(true));
+                button2.onClick.AddListener(() => OnClickButton(true));
             }
         }
     }
 
-    public void onClickContinue()
+    public void OnClickContinue()
     {
         currentScenario = currentScenario.secondScenario;
         isMultiScenario = false;
-        button1.onClick.RemoveListener(onClickContinue);
+        button1.onClick.RemoveListener(OnClickContinue);
         scenarioText = currentScenario.scenarioText;
         button1.gameObject.SetActive(false);
-        StartCoroutine(displayText());
+        StartCoroutine(DisplayText());
     }
 
-    public void onClickButton(bool isCorrect)
+    public void OnClickButton(bool isCorrect)
     {
         button1.gameObject.SetActive(false);
         button2.gameObject.SetActive(false);
@@ -112,33 +112,33 @@ public class PhoneManager : MonoBehaviour
         {
             if (Random.Range(0f, 100f) <= 90)
             {
-                StartCoroutine(displayResult(ResultState.Correct));
+                StartCoroutine(DisplayResult(ResultState.Correct));
             }
             else
             {
-                StartCoroutine(displayResult(ResultState.CorrectRare));
+                StartCoroutine(DisplayResult(ResultState.CorrectRare));
             }
         }
         else
         {
             if (Random.Range(0f, 100f) <= 90)
             {
-                StartCoroutine(displayResult(ResultState.Incorrect));
+                StartCoroutine(DisplayResult(ResultState.Incorrect));
             }
             else
             {
-                StartCoroutine(displayResult(ResultState.IncorrectRare));
+                StartCoroutine(DisplayResult(ResultState.IncorrectRare));
             }
         }
     }
 
-    private IEnumerator displayResult(ResultState result)
+    private IEnumerator DisplayResult(ResultState result)
     {
 
         messageTextField.gameObject.SetActive(false);
         personTextField.gameObject.SetActive(false);
         clockText.SetActive(false);
-        resultTextField.gameObject.SetActive(true);
+        resultTextField.transform.parent.gameObject.SetActive(true);
 
         switch (result)
         {

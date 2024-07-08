@@ -91,7 +91,7 @@ public class DragDrop : MonoBehaviour, IMiniGame
         BoxCollider2D collider = clickedObject.GetComponent<BoxCollider2D>();
         if (Physics2D.IsTouching(collider, handCollider))
         {
-            if (clickedObject.gameObject.CompareTag("DraggableCorrect"))
+            if (clickedObject.CompareTag("DraggableCorrect"))
             {
                 goodItems--;
                 clickedObject.tag = "Untagged";

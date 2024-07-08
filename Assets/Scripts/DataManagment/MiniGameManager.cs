@@ -32,10 +32,6 @@ public class MiniGameManager : MonoBehaviour
     public GameData gameData = new GameData();
 
 
-    private void Start()
-    {
-        
-    }
 
     private void Awake()
     {
