@@ -34,7 +34,7 @@ public class MiniGameManager : MonoBehaviour
 
     private void Start()
     {
-        //Screen.SetResolution(1200, 720, false);
+        
     }
 
     private void Awake()
