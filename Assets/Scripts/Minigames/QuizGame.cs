@@ -12,7 +12,9 @@ public class QuizGame : MonoBehaviour, IMiniGame
 
     private List<int> correctAnswers;
     private List<Transform> questionObjects = new List<Transform>();
-    private List<bool> answers = new List<bool>();
+    private List<bool> playerAnswers = new List<bool>();
+
+    public int currentSelectedField = 0;
 
     [Header("MiniGame variable")]
     [SerializeField] int numberOfQuestions;
@@ -32,20 +34,19 @@ public class QuizGame : MonoBehaviour, IMiniGame
 
     void Start()
     {
-        numberOfQuestions = MiniGameManager.instance.numberOfQuestions;
+        numberOfQuestions = 3;// MiniGameManager.instance.numberOfQuestions;
         correctAnswers = new List<int>(numberOfQuestions);
         for (int i = 0; i < numberOfQuestions; i++)
         {
             correctAnswers.Add(0);
-            answers.Add(false);
+            playerAnswers.Add(false);
         }
         for (int i = 0; i < numberOfQuestions; i++){
             questionObjects.Add(transform.GetChild(i));
             ChangeEquation(i);
             questionObjects[i].gameObject.SetActive(true);
+            questionObjects[i].GetComponentInChildren<TMP_InputField>().interactable = false;
         }
-        questionObjects[0].GetChild(4).GetComponent<TMP_InputField>().Select();
-
         StartCoroutine(PlayCountdown());
     }
 
@@ -56,6 +57,11 @@ public class QuizGame : MonoBehaviour, IMiniGame
         while (animator && animator.GetCurrentAnimatorStateInfo(0).normalizedTime < 1f)
             yield return null;
 
+        for (int i = 0; i < numberOfQuestions; i++)
+        {
+            questionObjects[i].GetComponentInChildren<TMP_InputField>().interactable = true;
+        }
+        questionObjects[currentSelectedField].GetComponentInChildren<TMP_InputField>().Select();
         StartCoroutine(timer.DecreaseTimer(MiniGameManager.instance.time));
     }
 
@@ -85,57 +91,67 @@ public class QuizGame : MonoBehaviour, IMiniGame
 
     }
 
-    public void HandleClick(int index)
+    public void HandleSubmit()
     {
-        Debug.Log("Index: " + index);
-        if (int.TryParse(questionObjects[index].GetChild(4).GetComponent<TMP_InputField>().text, out int answer))
+        Debug.Log("handle submit");
+        Debug.Log("Index: " + currentSelectedField);
+        if (int.TryParse(questionObjects[currentSelectedField].GetChild(4).GetComponent<TMP_InputField>().text, out int answer))
         {
-            if (answer == correctAnswers[index])
+            if (answer == correctAnswers[currentSelectedField])
             {
-                answers[index] = true;
+                Debug.Log(answer + " = " + correctAnswers[currentSelectedField]);
+                playerAnswers[currentSelectedField] = true;
+                bool hasPassed = true;
+                for (int i = 0; i < numberOfQuestions; i++)
+                {
+                    if (!playerAnswers[i])
+                    {
+                        hasPassed = false;
+                    }
+                }
+                if (hasPassed)
+                {
+                    GameFinished();
+                    return;
+                }
             }
             else
             {
-                answers[index] = false;
+                playerAnswers[currentSelectedField] = false;
             }
         }
+        currentSelectedField = (currentSelectedField + 1) % numberOfQuestions;
+        questionObjects[currentSelectedField].GetChild(4).GetComponent<TMP_InputField>().Select();
     }
 
-    public void SubmitQuestions()
+    public void HandleSelect(int index)
     {
-        for (int i = 0; i < numberOfQuestions; i++)
-        {
-            questionObjects[i].GetChild(4).GetComponent<TMP_InputField>().DeactivateInputField();
-            questionObjects[i].GetChild(4).GetComponent<TMP_InputField>().interactable = false;
-        }
-        int correct = 0;
-        for (int i = 0; i < numberOfQuestions; i++)
-        {
-            if (answers[i])
-            {
-                correct++;
-            }
-        }
-        if (correct == numberOfQuestions)
-        {
-            GameFinished();
-        }
-        else
-        {
-            GameEnd();
-        }
+        Debug.Log("handle select");
+        currentSelectedField = index;
     }
 
     public void GameEnd()
     {
         timer.DisableTimer();
         timer.OnTimeUp -= GameEnd;
+
+        for (int i = 0; i < numberOfQuestions; i++)
+        {
+            questionObjects[i].GetComponentInChildren<TMP_InputField>().interactable = false;
+        }
+
         MiniGameManager.instance.HandleGameLoss();
     }
 
     public void GameFinished()
     {
         timer.OnTimeUp -= GameEnd;
+
+        for (int i = 0; i < numberOfQuestions; i++)
+        {
+            questionObjects[i].GetComponentInChildren<TMP_InputField>().interactable = false;
+        }
+
         StartCoroutine(PlayConfetti());
     }
 

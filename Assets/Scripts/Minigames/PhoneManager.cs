@@ -65,7 +65,7 @@ public class PhoneManager : MonoBehaviour
         }
         yield return new WaitForSeconds(.5f);
 
-        button1.gameObject.SetActive(true);
+        button1.transform.parent.gameObject.SetActive(true);
 
         if (isMultiScenario)
         {
@@ -74,7 +74,7 @@ public class PhoneManager : MonoBehaviour
         }
         else
         {
-            button2.gameObject.SetActive(true);
+            button2.transform.parent.gameObject.SetActive(true);
             int randomOrder = Random.Range(0, 2);
             if (randomOrder == 0)
             {
@@ -99,14 +99,14 @@ public class PhoneManager : MonoBehaviour
         isMultiScenario = false;
         button1.onClick.RemoveListener(OnClickContinue);
         scenarioText = currentScenario.scenarioText;
-        button1.gameObject.SetActive(false);
+        button1.transform.parent.gameObject.SetActive(false);
         StartCoroutine(DisplayText());
     }
 
     public void OnClickButton(bool isCorrect)
     {
-        button1.gameObject.SetActive(false);
-        button2.gameObject.SetActive(false);
+        button1.transform.parent.gameObject.SetActive(false);
+        button2.transform.parent.gameObject.SetActive(false);
 
         if (isCorrect)
         {
@@ -135,7 +135,7 @@ public class PhoneManager : MonoBehaviour
     private IEnumerator DisplayResult(ResultState result)
     {
 
-        messageTextField.gameObject.SetActive(false);
+        messageTextField.transform.parent.gameObject.SetActive(false);
         personTextField.gameObject.SetActive(false);
         clockText.SetActive(false);
         resultTextField.transform.parent.gameObject.SetActive(true);
