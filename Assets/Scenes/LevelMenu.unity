@@ -4561,10 +4561,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2d6658a837674e94daedccdd23843510, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  mainMenu: {fileID: 1600742121}
-  calendar: {fileID: 34891143}
-  howToPlay: {fileID: 28859628}
-  credits: {fileID: 414249361}
   notebookAnimator: {fileID: 811619202}
   startText: {fileID: 1193595397}
 --- !u!4 &898222786

@@ -2,8 +2,6 @@ using UnityEngine;
 
 public class MainMenuManager : MonoBehaviour
 {
-    [SerializeField] private GameObject mainMenu, calendar, howToPlay, credits;
-
     [SerializeField] private Animator notebookAnimator;
 
     [SerializeField] private TMPro.TextMeshProUGUI startText;

@@ -51,7 +51,6 @@ public class MiniGameManager : MonoBehaviour
     {
         newDay.LoadData();
         SceneManager.LoadScene(miniGames[currentGameIndex]);
-        //Should add (maybe here) handling Anxiety Game
     }
 
     public void LoadCutscene(string text)
@@ -99,7 +98,6 @@ public class MiniGameManager : MonoBehaviour
 
     public void HandleGameLoss()
     {
-        //currentGameIndex++;
         gameData.errors += 1;
         gameData.consecutiveErrors += 1;
         if (gameData.consecutiveErrors == Constants.maxConsecutiveErrors)
