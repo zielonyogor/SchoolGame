@@ -24,10 +24,8 @@ public class PhoneManager : MonoBehaviour
     [Header("Result UI")]
     [SerializeField] TextMeshProUGUI resultTextField;
 
-    [Header("Background")]
-    [SerializeField] SpriteRenderer backgroundImage;
-    [SerializeField] Sprite diarySprite;
-
+    [Header("Transition")]
+    [SerializeField] GameObject transition;
 
     [Header("List of scenarios")]
     [SerializeField] List<Scenario_SO> scenarios; //random scenarios or based on day????
@@ -138,7 +136,7 @@ public class PhoneManager : MonoBehaviour
         messageTextField.transform.parent.gameObject.SetActive(false);
         personTextField.gameObject.SetActive(false);
         clockText.SetActive(false);
-        resultTextField.transform.parent.gameObject.SetActive(true);
+        transition.SetActive(true);
 
         switch (result)
         {
@@ -157,6 +155,24 @@ public class PhoneManager : MonoBehaviour
                 resultText = currentScenario.resultIncorrectRare;
                 break;
         }
+
+        Animator animator = transition.GetComponent<Animator>();
+        while (animator && animator.GetCurrentAnimatorStateInfo(0).normalizedTime < 0.5f)
+        {
+            Debug.Log(animator.GetCurrentAnimatorStateInfo(0).normalizedTime);
+            yield return null;
+        }
+
+        resultTextField.transform.parent.gameObject.SetActive(true);
+
+        while (animator && animator.GetCurrentAnimatorStateInfo(0).normalizedTime < 1f)
+        {
+            Debug.Log(animator.GetCurrentAnimatorStateInfo(0).normalizedTime);
+            yield return null;
+        }
+        //small delay after transition
+        yield return new WaitForSeconds(Constants.letterDelay);
+
         resultTextField.text = "";
         for (int i = 0; i < resultText.Length; i++)
         {
