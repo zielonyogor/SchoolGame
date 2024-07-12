@@ -52,8 +52,8 @@ public class DialogueGame : MonoBehaviour, IMiniGame
 
     void ChangePosition(int index)
     {
-        int randomX = Random.Range(-360, 260);
-        int randomY = Random.Range(-260, 360);
+        int randomX = Random.Range(-260, 180);
+        int randomY = Random.Range(-220, 280);
         int i = 0;
         while (true)
         {

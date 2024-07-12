@@ -422,6 +422,14 @@ PrefabInstance:
       propertyPath: m_Name
       value: TimingGameManager
       objectReference: {fileID: 0}
+    - target: {fileID: 5447307017467524384, guid: b7a902d0b6c25c74a8677058a580139a, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6201351611606165326, guid: b7a902d0b6c25c74a8677058a580139a, type: 3}
+      propertyPath: miniGame
+      value: 
+      objectReference: {fileID: 1427629974}
     - target: {fileID: 8137675637633799959, guid: b7a902d0b6c25c74a8677058a580139a, type: 3}
       propertyPath: m_Pivot.x
       value: 0.5

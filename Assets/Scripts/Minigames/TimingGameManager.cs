@@ -23,7 +23,14 @@ public class TimingGameManager : MonoBehaviour
                 //need to change this a little beacause of: 
                 //Tilting Game (less time than time in instance)
                 //Stacking Game (infinite time for stacking books, not related to instance.time)
-                timeStamp = Random.Range(1f, MiniGameManager.instance.time - 1f); //some offset
+                if (MiniGameManager.instance.miniGames[MiniGameManager.instance.currentGameIndex] == "TiltingGame")
+                {
+                    timeStamp = Random.Range(1f, 60 / MiniGameManager.instance.time);
+                }
+                else
+                {
+                    timeStamp = Random.Range(1f, MiniGameManager.instance.time - 1f); //some offset
+                }
                 Debug.Log("offset : " + timeStamp);
                 StartCoroutine(SpawnTimingGame(timeStamp));
             }
@@ -37,7 +44,7 @@ public class TimingGameManager : MonoBehaviour
     {
         yield return new WaitForSeconds(time);
         game.HasTimingGame = true;
-        GameObject timingGameObject = Instantiate(timingGame, transform.position, Quaternion.identity, transform);
+        GameObject timingGameObject = Instantiate(timingGame, transform.position, Quaternion.identity, transform.parent);
         yield return new WaitUntil(() => timingGameObject == null);
         Debug.Log("Object destroyed");
         game.HasTimingGame = false;

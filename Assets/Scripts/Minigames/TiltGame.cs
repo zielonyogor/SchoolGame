@@ -40,7 +40,6 @@ public class TiltGame : MonoBehaviour, IMiniGame
         while (animator && animator.GetCurrentAnimatorStateInfo(0).normalizedTime < 1f)
             yield return null;
 
-        StartCoroutine(timer.DecreaseTimer(MiniGameManager.instance.time));
         float startTilt = (int)Random.Range(0, 2) == 0 ? -1 : 1;
         rb.AddTorque(startTilt * tiltForce);
 

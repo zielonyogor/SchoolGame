@@ -7,7 +7,7 @@ public class MiniGameManager : MonoBehaviour
 {
     public static MiniGameManager instance { get; private set; }
 
-    private int currentGameIndex = 0;
+    public int currentGameIndex = 0;
 
     public string cutsceneText;
 
