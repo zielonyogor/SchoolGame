@@ -50,6 +50,7 @@ public class TiltGame : MonoBehaviour, IMiniGame
         //here is a little goofy algorithm for time in increasing type
         //(maybe ill just add another day variable for that)
         StartCoroutine(timer.DecreaseTimer(60 / MiniGameManager.instance.time + 1));
+        Debug.Log(60 / MiniGameManager.instance.time + 1);
     }
 
     private void OnEnable()
