@@ -12,6 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 525052c2b290fc147a52f6164ada9043, type: 3}
   m_Name: Day_12
   m_EditorClassIdentifier: 
-  miniGames: []
+  miniGames:
+  - DragDropGame
   time: 12
   numberOfMeds: 4
