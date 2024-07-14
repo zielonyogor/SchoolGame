@@ -15,6 +15,7 @@ MonoBehaviour:
   miniGames:
   - PuzzleGame
   - DialogueGame
-  time: 0
-  slidingMapLayout: {fileID: 0}
-  dialogueText: 
+  - PuzzleGame
+  time: 10
+  numberOfPuzzles: 4
+  dialogueText: aaa_bbb_ccc

@@ -16,8 +16,8 @@ MonoBehaviour:
   - SlidingGame
   - StackingGame
   - QuizGame
-  time: 11
-  slidingMapLayout: {fileID: 11400000, guid: b116c8e8781c37e44b7afea161487bf3, type: 2}
+  time: 12
+  slidingMapLayout: {fileID: 11400000, guid: 6d0bc1983e32e1b418fa25fa758e019d, type: 2}
   numberOfBooks: 5
   bookSpeed: 40
   tableSize: 100
