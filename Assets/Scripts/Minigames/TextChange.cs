@@ -2,13 +2,13 @@ using System.Collections;
 using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
-using UnityEngine.SceneManagement;
+using UnityEngine.UI;
 
 public class TextChange : MonoBehaviour
 {
     [SerializeField] TextMeshProUGUI text_1, text_2;
     [SerializeField] List<Sprite> endings = new List<Sprite>();
-    [SerializeField] SpriteRenderer background;
+    [SerializeField] Image background;
 
     private string cutsceneText;
 
@@ -23,7 +23,7 @@ public class TextChange : MonoBehaviour
     }
 
     private IEnumerator PlayDialogue(){
-        for (int i = 0; i <= cutsceneText.Length; i++)
+        for (int i = 0; i < cutsceneText.Length; i++)
         {
             text_1.text += cutsceneText[i];
             text_2.text += cutsceneText[i];

@@ -132,10 +132,6 @@ public class PhoneManager : MonoBehaviour
 
     private IEnumerator DisplayResult(ResultState result)
     {
-
-        messageTextField.transform.parent.gameObject.SetActive(false);
-        personTextField.gameObject.SetActive(false);
-        clockText.SetActive(false);
         transition.SetActive(true);
 
         switch (result)
@@ -163,11 +159,13 @@ public class PhoneManager : MonoBehaviour
             yield return null;
         }
 
+        messageTextField.transform.parent.gameObject.SetActive(false);
+        personTextField.gameObject.SetActive(false);
+        clockText.SetActive(false);
         resultTextField.transform.parent.gameObject.SetActive(true);
 
         while (animator && animator.GetCurrentAnimatorStateInfo(0).normalizedTime < 1f)
         {
-            Debug.Log(animator.GetCurrentAnimatorStateInfo(0).normalizedTime);
             yield return null;
         }
         //small delay after transition

@@ -17,7 +17,7 @@ public class SlidingGame : MonoBehaviour, IMiniGame
     private InputAction turnHorizontal, turnVertical;
     [SerializeField] LayerMask blockMask;
 
-    [SerializeField] float moveSpeed = 10f;
+    [SerializeField] float moveSpeed = 20f;
 
     SpriteRenderer sRenderer;
     float spriteWidth;
@@ -139,7 +139,6 @@ public class SlidingGame : MonoBehaviour, IMiniGame
         turnVertical.performed -= SlideVertical;
         isMoving = false;
         timer.DisableTimer();
-        //need to implement this into other IMiniGames
         yield return new WaitUntil(() => HasTimingGame == false);
         confetti_1.Play();
         confetti_2.Play();

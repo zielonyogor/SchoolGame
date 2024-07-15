@@ -13,16 +13,10 @@ public class DraggableManager : MonoBehaviour
     {
         numberOfMeds = MiniGameManager.instance.numberOfMeds;
 
-        for (int i = numberOfMeds; i < 4; i++)
-        {
-            images[i].enabled = false;
-        }
-
         List<Transform> items = new List<Transform>();
         foreach (Transform child in transform)
         {
             items.Add(child);
-            child.gameObject.tag = "DraggableIncorrect";
         }
 
         for (int i = items.Count - 1; i > 0; i--)
@@ -37,9 +31,8 @@ public class DraggableManager : MonoBehaviour
             items[i].gameObject.tag = "DraggableCorrect";
             items[i].transform.position = new Vector2(Random.Range(-40, 30), Random.Range(-48, 16));
 
+            images[i].gameObject.SetActive(true);
             images[i].sprite = items[i].GetComponent<SpriteRenderer>().sprite;
         }
-
     }
-
 }
