@@ -23,7 +23,7 @@ public class DialogueGame : MonoBehaviour, IMiniGame
 
     void Start()
     {
-        dialogueParts = "I_like_beer_and you?".Split('_');// MiniGameManager.instance.dialogueText.Split('_');
+        dialogueParts = MiniGameManager.instance.dialogueText.Split('_');
 
         expectedID = 0;
         numberOfButtons = dialogueParts.Length;
