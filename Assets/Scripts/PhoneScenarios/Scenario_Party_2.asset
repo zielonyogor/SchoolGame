@@ -20,7 +20,32 @@ MonoBehaviour:
   secondScenario: {fileID: 0}
   optionCorrect: dont worry ill be fine
   optionIncorrect: ugh okay
-  resultCorrect: aaa
-  resultCorrectRare: aaaaaa
-  resultIncorrect: bbb
-  resultIncorrectRare: bbbbbb
+  resultCorrect: 'I was at the party yesterday.
+
+    Of course my mother had to interrupt
+    it. She said I have to come home. It was only 11pm...
+
+    I stayed there LOL'
+  resultCorrectRare: 'I was at the party yesterday.
+
+    Of course my mother had
+    to interrupt it. She said I have to come home. It was only 11pm...
+
+    I stayed
+    there LOL'
+  resultIncorrect: "I was at the party yesterday.\nOf course my mother had to interrupt
+    it. She said I have to come home. It was only 11pm...\nI didn't want her to be
+    mad so I came home.\nShe got mad anyways.\nWell... \nI guess nothing is predictable
+    with her..."
+  resultIncorrectRare: 'I was at the party yesterday.
+
+    Of course my mother had
+    to interrupt it. She said I have to come home. It was only 11pm...
+
+    I didn''t
+    want her to be mad so I came home.
+
+    When I came she was asleep. I dodged
+    having a convo with her
+
+    YAY'

@@ -6,11 +6,11 @@ using UnityEngine.SceneManagement;
 
 public class TextChange : MonoBehaviour
 {
-    [SerializeField] TextMeshProUGUI text;
+    [SerializeField] TextMeshProUGUI text_1, text_2;
     [SerializeField] List<Sprite> endings = new List<Sprite>();
     [SerializeField] SpriteRenderer background;
 
-    private string[] dialogueParts;
+    private string cutsceneText;
 
     void Start()
     {
@@ -18,21 +18,24 @@ public class TextChange : MonoBehaviour
         {
             Debug.Log("przegrana");
         }
-        dialogueParts = MiniGameManager.instance.cutsceneText.Split('_'); //gotta change to just '\n'
+        cutsceneText = MiniGameManager.instance.cutsceneText;
         StartCoroutine(PlayDialogue());
     }
 
     private IEnumerator PlayDialogue(){
-        foreach(string part in dialogueParts){
-            for (int i = 0; i <= part.Length; i++)
+        for (int i = 0; i <= cutsceneText.Length; i++)
+        {
+            text_1.text += cutsceneText[i];
+            text_2.text += cutsceneText[i];
+            if (cutsceneText[i] == '\n')
             {
-                text.text = part.Substring(0, i);
-                yield return new WaitForSeconds(Constants.letterDelay);
+                yield return new WaitForSeconds(1f);
             }
-            yield return new WaitForSeconds(1.5f);
+            yield return new WaitForSeconds(Constants.letterDelay);
         }
-
-        if (MiniGameManager.instance.gameData.day == Constants.lastDay)
+        yield return new WaitForSeconds(3f);
+        //for when I'm done with ending sprites (maybe later game version)
+        /*if (MiniGameManager.instance.gameData.day == Constants.lastDay)
         {
             yield return new WaitForSeconds(.5f);
             text.enabled = false;
@@ -45,7 +48,7 @@ public class TextChange : MonoBehaviour
                 background.sprite = endings[0];
             }
             yield return new WaitForSeconds(4.0f);
-        }
+        }*/
         MiniGameManager.instance.ExitCutscene();
     } 
 }

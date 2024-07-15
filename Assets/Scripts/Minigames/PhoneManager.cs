@@ -28,7 +28,7 @@ public class PhoneManager : MonoBehaviour
     [SerializeField] GameObject transition;
 
     [Header("List of scenarios")]
-    [SerializeField] List<Scenario_SO> scenarios; //random scenarios or based on day????
+    [SerializeField] List<Scenario_SO> scenarios;
 
     private Scenario_SO currentScenario;
     private string scenarioText;
@@ -37,7 +37,7 @@ public class PhoneManager : MonoBehaviour
 
     void Start()
     {
-        int scenarioIndex = Random.Range(0, scenarios.Count);
+        int scenarioIndex = Random.Range(0, scenarios.Count); //maybe move this to MiniGameManager to draw a random index based on previous indexes
         currentScenario = scenarios[scenarioIndex];
         scenarioText = currentScenario.scenarioText;
         if (currentScenario.secondScenario != null)
