@@ -23,7 +23,7 @@ public class DialogueGame : MonoBehaviour, IMiniGame
 
     void Start()
     {
-        dialogueParts = MiniGameManager.instance.dialogueText.Split('_');
+        dialogueParts = "I_like_beer_and you?".Split('_');// MiniGameManager.instance.dialogueText.Split('_');
 
         expectedID = 0;
         numberOfButtons = dialogueParts.Length;
@@ -47,7 +47,7 @@ public class DialogueGame : MonoBehaviour, IMiniGame
         while (animator && animator.GetCurrentAnimatorStateInfo(0).normalizedTime < 1f)
             yield return null;
 
-        StartCoroutine(timer.DecreaseTimer(MiniGameManager.instance.time));
+        //StartCoroutine(timer.DecreaseTimer(MiniGameManager.instance.time));
     }
 
     void ChangePosition(int index)
@@ -62,16 +62,31 @@ public class DialogueGame : MonoBehaviour, IMiniGame
             randomX = Random.Range(-260, 180);
             randomY = Random.Range(-220, 280);
             i++;
-            if (i >= 100) break;
+            //so that it wont fall into inf loop
+            if (i >= 100)
+            {
+                break;
+            }
         }
     }
 
     private bool IsColliding(int index)
     {
+        Vector3[] corners1 = new Vector3[4];
+        dialogueButtons[index].GetComponent<RectTransform>().GetWorldCorners(corners1);
+        Rect rect1 = new Rect(corners1[0], corners1[2] - corners1[0]);
+
         for (int i = 0; i < index; i++)
         {
-            float distance = Vector2.Distance(dialogueButtons[index].gameObject.GetComponent<RectTransform>().anchoredPosition, dialogueButtons[i].gameObject.GetComponent<RectTransform>().anchoredPosition);
-            if (distance < 300f) return true;
+
+            Vector3[] corners2 = new Vector3[4];
+            dialogueButtons[i].GetComponent<RectTransform>().GetWorldCorners(corners2);
+            Rect rect2 = new Rect(corners2[0], corners2[2] - corners2[0]);
+
+            if (rect1.Overlaps(rect2))
+            {
+                return true;
+            }
         }
         return false;
     }
