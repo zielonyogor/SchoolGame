@@ -1,4 +1,5 @@
 using System;
+using System.Collections.Generic;
 
 [Serializable]
 public class GameData
@@ -6,7 +7,8 @@ public class GameData
     public int day;
     public int errors;
     public int consecutiveErrors;
-    public int outfit;
+    public List<int> scenarioIDs;
+    public int outfit; //not used currently
 
     public GameData()
     {
@@ -14,5 +16,6 @@ public class GameData
         errors = 0;
         consecutiveErrors = 0;
         outfit = -1;
+        scenarioIDs = new List<int>();
     }
 }

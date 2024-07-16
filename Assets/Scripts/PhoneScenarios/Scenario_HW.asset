@@ -1,0 +1,28 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5f063c3a3e3fa3b44b144b58dfa56652, type: 3}
+  m_Name: Scenario_HW
+  m_EditorClassIdentifier: 
+  scenarioText: 'hi!!
+
+    could please please please send me math homework???
+
+    im
+    giving up aaaa'
+  personName: kai
+  secondScenario: {fileID: 0}
+  optionCorrect: np, here you go!
+  optionIncorrect: '*leave on read*'
+  resultCorrect: 
+  resultCorrectRare: 
+  resultIncorrect: 
+  resultIncorrectRare: 

@@ -14,11 +14,8 @@ public class TextChange : MonoBehaviour
 
     void Start()
     {
-        if (MiniGameManager.instance.gameData.consecutiveErrors == 2)
-        {
-            Debug.Log("przegrana");
-        }
         cutsceneText = MiniGameManager.instance.cutsceneText;
+        cutsceneText = cutsceneText.Replace('_', '\n');
         StartCoroutine(PlayDialogue());
     }
 

@@ -72,7 +72,6 @@ public class MiniGameManager : MonoBehaviour
         SceneManager.LoadScene("Cutscene");
     }
 
-    //probably will imiplement some sort of remembering what scenarios were done
     public void LoadPhoneEvent()
     {
         SceneManager.LoadScene("PhoneScene");

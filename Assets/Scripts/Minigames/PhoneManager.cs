@@ -37,8 +37,7 @@ public class PhoneManager : MonoBehaviour
 
     void Start()
     {
-        int scenarioIndex = Random.Range(0, scenarios.Count); //maybe move this to MiniGameManager to draw a random index based on previous indexes
-        currentScenario = scenarios[scenarioIndex];
+        currentScenario = scenarios[DrawRandomScenario()];
         scenarioText = currentScenario.scenarioText;
         if (currentScenario.secondScenario != null)
         {
@@ -46,6 +45,18 @@ public class PhoneManager : MonoBehaviour
         }
 
         StartCoroutine(DisplayText());
+    }
+
+    //remembering what scenarios were played
+    private int DrawRandomScenario()
+    {
+        int randomIndex = Random.Range(0, scenarios.Count);
+        while(MiniGameManager.instance.gameData.scenarioIDs.Contains(randomIndex))
+        {
+            randomIndex = Random.Range(0, scenarios.Count);
+        }
+        MiniGameManager.instance.gameData.scenarioIDs.Add(randomIndex);
+        return randomIndex;
     }
 
     private IEnumerator DisplayText()

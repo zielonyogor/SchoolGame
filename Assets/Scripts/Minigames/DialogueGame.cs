@@ -47,7 +47,7 @@ public class DialogueGame : MonoBehaviour, IMiniGame
         while (animator && animator.GetCurrentAnimatorStateInfo(0).normalizedTime < 1f)
             yield return null;
 
-        //StartCoroutine(timer.DecreaseTimer(MiniGameManager.instance.time));
+        StartCoroutine(timer.DecreaseTimer(MiniGameManager.instance.time));
     }
 
     void ChangePosition(int index)
