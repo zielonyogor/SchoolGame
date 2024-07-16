@@ -16,7 +16,7 @@ public class StackingGame : MonoBehaviour, IMiniGame
     private Transform currentBlock = null;
     private Rigidbody2D currentRigidbody;
 
-    private Vector2 blockStartPosition = new Vector2(0f, 0f);
+    private Vector2 blockStartPosition = new Vector2(0f, 20f);
 
     private int bookDirection = 1;
     private float xLimit = 70;
@@ -87,7 +87,7 @@ public class StackingGame : MonoBehaviour, IMiniGame
     private IEnumerator DelayedSpawn()
     {
         yield return new WaitForSeconds(timeBetweenRounds);
-        blockStartPosition = new Vector2(Random.Range(-xLimit, xLimit), 0);
+        blockStartPosition = new Vector2(Random.Range(-xLimit, xLimit), 20f);
         SpawnNewBlock();
         dropAction.performed += DropBook;
     }
@@ -115,8 +115,6 @@ public class StackingGame : MonoBehaviour, IMiniGame
         if (numberOfBooks == 0)
         {
             Destroy(buttonGuide);
-            //here is a little goofy algorithm for time in increasing type
-            //(maybe ill just add another day variable for that)
             StartCoroutine(timer.DecreaseTimer(60 / MiniGameManager.instance.time + 1));
         }
         else

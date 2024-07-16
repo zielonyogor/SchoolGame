@@ -29,7 +29,7 @@ public class DraggableManager : MonoBehaviour
         {
             pickedChildren.Add(items[i]);
             items[i].gameObject.tag = "DraggableCorrect";
-            items[i].transform.position = new Vector2(Random.Range(-40, 30), Random.Range(-48, 16));
+            items[i].transform.position = new Vector2(Random.Range(-60, 40), Random.Range(-60, 40));
 
             images[i].gameObject.SetActive(true);
             images[i].sprite = items[i].GetComponent<SpriteRenderer>().sprite;
