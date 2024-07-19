@@ -22,6 +22,7 @@ public class QuizGame : MonoBehaviour, IMiniGame
     [Header("Extras")]
     [SerializeField] Timer timer;
     [SerializeField] ParticleSystem confetti_1, confetti_2;
+    [SerializeField] GameObject timingGame;
 
     [Header("Countdown")]
     [SerializeField] Canvas canvas;
@@ -34,7 +35,7 @@ public class QuizGame : MonoBehaviour, IMiniGame
 
     void Start()
     {
-        numberOfQuestions = 3;// MiniGameManager.instance.numberOfQuestions;
+        numberOfQuestions = MiniGameManager.instance.numberOfQuestions;
         correctAnswers = new List<int>(numberOfQuestions);
         for (int i = 0; i < numberOfQuestions; i++)
         {
@@ -93,13 +94,10 @@ public class QuizGame : MonoBehaviour, IMiniGame
 
     public void HandleSubmit()
     {
-        Debug.Log("handle submit");
-        Debug.Log("Index: " + currentSelectedField);
         if (int.TryParse(questionObjects[currentSelectedField].GetChild(4).GetComponent<TMP_InputField>().text, out int answer))
         {
             if (answer == correctAnswers[currentSelectedField])
             {
-                Debug.Log(answer + " = " + correctAnswers[currentSelectedField]);
                 playerAnswers[currentSelectedField] = true;
                 bool hasPassed = true;
                 for (int i = 0; i < numberOfQuestions; i++)
@@ -159,6 +157,8 @@ public class QuizGame : MonoBehaviour, IMiniGame
     {
         yield return new WaitForEndOfFrame();
         timer.DisableTimer();
+        yield return new WaitUntil(() => HasTimingGame == false);
+        Destroy(timingGame);
         confetti_1.Play();
         confetti_2.Play();
         yield return new WaitForSeconds(2.5f);

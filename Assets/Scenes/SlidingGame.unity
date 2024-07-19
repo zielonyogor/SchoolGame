@@ -1016,6 +1016,7 @@ MonoBehaviour:
   timer: {fileID: 2112973188}
   confetti_1: {fileID: 93822014}
   confetti_2: {fileID: 93822013}
+  timingGame: {fileID: 2057618170686532998}
   canvas: {fileID: 259827530}
   countdown: {fileID: 2374398887319462458, guid: 7e7263252b6a4b04db5830a9f81767a9, type: 3}
 --- !u!1 &425473736
@@ -1159,6 +1160,14 @@ PrefabInstance:
     - target: {fileID: 179485169687760114, guid: e5404ba1faabcde4cb9d0dda128369e2, type: 3}
       propertyPath: orthographic size
       value: 90
+      objectReference: {fileID: 0}
+    - target: {fileID: 179485169687760114, guid: e5404ba1faabcde4cb9d0dda128369e2, type: 3}
+      propertyPath: m_NormalizedViewPortRect.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 179485169687760114, guid: e5404ba1faabcde4cb9d0dda128369e2, type: 3}
+      propertyPath: m_NormalizedViewPortRect.y
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 1727164618114907356, guid: e5404ba1faabcde4cb9d0dda128369e2, type: 3}
       propertyPath: m_Name
@@ -2240,6 +2249,11 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: b7a902d0b6c25c74a8677058a580139a, type: 3}
+--- !u!1 &2057618170686532998 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 5447307017467524384, guid: b7a902d0b6c25c74a8677058a580139a, type: 3}
+  m_PrefabInstance: {fileID: 2057618170686532997}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1660057539 &9223372036854775807
 SceneRoots:
   m_ObjectHideFlags: 0

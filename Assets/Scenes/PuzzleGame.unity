@@ -407,6 +407,14 @@ PrefabInstance:
       propertyPath: orthographic size
       value: 90
       objectReference: {fileID: 0}
+    - target: {fileID: 179485169687760114, guid: e5404ba1faabcde4cb9d0dda128369e2, type: 3}
+      propertyPath: m_NormalizedViewPortRect.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 179485169687760114, guid: e5404ba1faabcde4cb9d0dda128369e2, type: 3}
+      propertyPath: m_NormalizedViewPortRect.y
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 1727164618114907356, guid: e5404ba1faabcde4cb9d0dda128369e2, type: 3}
       propertyPath: m_Name
       value: Main Camera (1)
@@ -1639,6 +1647,11 @@ RectTransform:
   m_CorrespondingSourceObject: {fileID: 8137675637633799959, guid: b7a902d0b6c25c74a8677058a580139a, type: 3}
   m_PrefabInstance: {fileID: 1642857373}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &1642857375 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 5447307017467524384, guid: b7a902d0b6c25c74a8677058a580139a, type: 3}
+  m_PrefabInstance: {fileID: 1642857373}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1680331526
 GameObject:
   m_ObjectHideFlags: 0
@@ -2113,6 +2126,7 @@ MonoBehaviour:
   timer: {fileID: 457369112}
   confetti_1: {fileID: 1108322487}
   confetti_2: {fileID: 1108322486}
+  timingGame: {fileID: 1642857375}
   canvas: {fileID: 1680331529}
   countdown: {fileID: 2374398887319462458, guid: 7e7263252b6a4b04db5830a9f81767a9, type: 3}
 --- !u!114 &1842370884

@@ -166,7 +166,6 @@ public class PhoneManager : MonoBehaviour
         Animator animator = transition.GetComponent<Animator>();
         while (animator && animator.GetCurrentAnimatorStateInfo(0).normalizedTime < 0.5f)
         {
-            Debug.Log(animator.GetCurrentAnimatorStateInfo(0).normalizedTime);
             yield return null;
         }
 

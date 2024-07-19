@@ -21,6 +21,7 @@ public class DragDrop : MonoBehaviour, IMiniGame
     [Header("Extras")]
     [SerializeField] Timer timer;
     [SerializeField] ParticleSystem confetti_1, confetti_2;
+    [SerializeField] GameObject timingGame;
 
     [Header("Countdown")]
     [SerializeField] Canvas canvas;
@@ -123,6 +124,8 @@ public class DragDrop : MonoBehaviour, IMiniGame
     {
         yield return new WaitForEndOfFrame();
         timer.DisableTimer();
+        yield return new WaitUntil(() => HasTimingGame == false);
+        Destroy(timingGame);
         confetti_1.Play();
         confetti_2.Play();
         yield return new WaitForSeconds(2.5f);

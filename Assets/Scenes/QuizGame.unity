@@ -342,6 +342,11 @@ RectTransform:
   m_CorrespondingSourceObject: {fileID: 8137675637633799959, guid: b7a902d0b6c25c74a8677058a580139a, type: 3}
   m_PrefabInstance: {fileID: 134181799}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &134181801 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 5447307017467524384, guid: b7a902d0b6c25c74a8677058a580139a, type: 3}
+  m_PrefabInstance: {fileID: 134181799}
+  m_PrefabAsset: {fileID: 0}
 --- !u!224 &286468423 stripped
 RectTransform:
   m_CorrespondingSourceObject: {fileID: 110314817219726557, guid: 8889913bf1291e541815239d206193f5, type: 3}
@@ -351,6 +356,11 @@ RectTransform:
 RectTransform:
   m_CorrespondingSourceObject: {fileID: 110314817219726557, guid: 8889913bf1291e541815239d206193f5, type: 3}
   m_PrefabInstance: {fileID: 772899915}
+  m_PrefabAsset: {fileID: 0}
+--- !u!20 &714178766 stripped
+Camera:
+  m_CorrespondingSourceObject: {fileID: 179485169687760114, guid: e5404ba1faabcde4cb9d0dda128369e2, type: 3}
+  m_PrefabInstance: {fileID: 1778088821}
   m_PrefabAsset: {fileID: 0}
 --- !u!1001 &772899915
 PrefabInstance:
@@ -572,6 +582,7 @@ MonoBehaviour:
   timer: {fileID: 83569355}
   confetti_1: {fileID: 1398906506}
   confetti_2: {fileID: 1398906505}
+  timingGame: {fileID: 134181801}
   canvas: {fileID: 1912583565}
   countdown: {fileID: 2374398887319462458, guid: 7e7263252b6a4b04db5830a9f81767a9, type: 3}
 --- !u!1 &1127329253
@@ -1142,6 +1153,18 @@ PrefabInstance:
       propertyPath: orthographic size
       value: 90
       objectReference: {fileID: 0}
+    - target: {fileID: 179485169687760114, guid: e5404ba1faabcde4cb9d0dda128369e2, type: 3}
+      propertyPath: m_NormalizedViewPortRect.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 179485169687760114, guid: e5404ba1faabcde4cb9d0dda128369e2, type: 3}
+      propertyPath: m_NormalizedViewPortRect.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 179485169687760114, guid: e5404ba1faabcde4cb9d0dda128369e2, type: 3}
+      propertyPath: m_NormalizedViewPortRect.width
+      value: 1.0003334
+      objectReference: {fileID: 0}
     - target: {fileID: 1727164618114907356, guid: e5404ba1faabcde4cb9d0dda128369e2, type: 3}
       propertyPath: m_Name
       value: Main Camera
@@ -1260,7 +1283,7 @@ Canvas:
   m_Enabled: 1
   serializedVersion: 3
   m_RenderMode: 0
-  m_Camera: {fileID: 0}
+  m_Camera: {fileID: 714178766}
   m_PlaneDistance: 100
   m_PixelPerfect: 0
   m_ReceivesEvents: 1
@@ -1270,7 +1293,7 @@ Canvas:
   m_VertexColorAlwaysGammaSpace: 0
   m_AdditionalShaderChannelsFlag: 25
   m_UpdateRectTransformForStandalone: 0
-  m_SortingLayerID: 0
+  m_SortingLayerID: 1219366865
   m_SortingOrder: 0
   m_TargetDisplay: 0
 --- !u!224 &1912583566

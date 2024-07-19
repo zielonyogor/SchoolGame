@@ -25,6 +25,7 @@ public class SlidingGame : MonoBehaviour, IMiniGame
     [Header("Extras")]
     [SerializeField] Timer timer;
     [SerializeField] ParticleSystem confetti_1, confetti_2;
+    [SerializeField] GameObject timingGame;
 
     [Header("Countdown")]
     [SerializeField] Canvas canvas;
@@ -101,9 +102,6 @@ public class SlidingGame : MonoBehaviour, IMiniGame
             Vector2 newPosition = currentPosition + moveSpeed * vec;
             hit = Physics2D.Raycast(currentPosition, vec, spriteWidth + 0.03f, blockMask);
 
-            //Debugging Raycast
-            Debug.DrawLine(currentPosition, currentPosition + ( spriteWidth + 0.03f) * vec, Color.green);
-
             if (hit.collider != null)
             {
                 break;
@@ -138,8 +136,10 @@ public class SlidingGame : MonoBehaviour, IMiniGame
         turnHorizontal.performed -= SlideHorizontal;
         turnVertical.performed -= SlideVertical;
         isMoving = false;
+
         timer.DisableTimer();
         yield return new WaitUntil(() => HasTimingGame == false);
+        Destroy(timingGame);
         confetti_1.Play();
         confetti_2.Play();
         yield return new WaitForSeconds(2.5f);

@@ -80,12 +80,12 @@ public class MiniGameManager : MonoBehaviour
     public void NextLevel()
     {
         currentGameIndex++;
-        gameData.consecutiveErrors = 0;
         if (currentGameIndex >= miniGames.Count)
         {
             isPlaying = true;
             currentGameIndex = 0;
             gameData.day += 1;
+            gameData.consecutiveErrors = 0;
             SaveSystem.SaveGame();
             SceneManager.LoadScene("LevelMenu");
         }
@@ -133,12 +133,12 @@ public class MiniGameManager : MonoBehaviour
     {
         gameData.consecutiveErrors++;
         gameData.errors++;
-        if (gameData.consecutiveErrors == Constants.maxConsecutiveErrors)
+        if (gameData.consecutiveErrors >= Constants.maxConsecutiveErrors)
         {
             SaveSystem.DeleteSaveFile();
             isPlaying = false;
             LoadCutscene("AAAAAAAAAA\nI hate it here!\nI've made a fool out of myself\n" +
-                "I can't be here any longer!\nI NEED to change school again!");
+                "I can't be here any longer!\nI just NEED to change school.\nAGAIN!!!\nI hate myself....");
         }
 
     }

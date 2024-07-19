@@ -32,7 +32,7 @@ public class StackingGame : MonoBehaviour, IMiniGame
     [Header("Extras")]
     [SerializeField] Timer timer;
     [SerializeField] ParticleSystem confetti_1, confetti_2;
-    [SerializeField] GameObject buttonGuide;
+    [SerializeField] GameObject timingGame;
 
     [Header("Countdown")]
     [SerializeField] Canvas canvas;
@@ -114,7 +114,6 @@ public class StackingGame : MonoBehaviour, IMiniGame
         dropAction.performed -= DropBook;
         if (numberOfBooks == 0)
         {
-            Destroy(buttonGuide);
             StartCoroutine(timer.DecreaseTimer(60 / MiniGameManager.instance.time + 1));
         }
         else
@@ -148,6 +147,8 @@ public class StackingGame : MonoBehaviour, IMiniGame
     {
         yield return new WaitForEndOfFrame();
         timer.DisableTimer();
+        yield return new WaitUntil(() => HasTimingGame == false);
+        Destroy(timingGame);
         confetti_1.Play();
         confetti_2.Play();
         yield return new WaitForSeconds(2.5f);

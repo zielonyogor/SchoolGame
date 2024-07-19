@@ -325,6 +325,17 @@ public partial class @ActionMap: IInputActionCollection2, IDisposable
                 },
                 {
                     ""name"": """",
+                    ""id"": ""f08bd9cd-bb80-4773-b0cc-edc897fcdba0"",
+                    ""path"": ""<Keyboard>/downArrow"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""DropBook"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
                     ""id"": ""30e57ff6-924a-4cc2-86ff-fa630098e277"",
                     ""path"": ""<Keyboard>/enter"",
                     ""interactions"": """",

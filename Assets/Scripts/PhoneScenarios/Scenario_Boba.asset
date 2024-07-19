@@ -15,6 +15,7 @@ MonoBehaviour:
   scenarioText: haii its kate. would you like to go for a boba or sth?? you seem
     cool and i loove your fits :3
   personName: Unknown
+  secondScenario: {fileID: 0}
   optionCorrect: yea sure when are you free??
   optionIncorrect: sorry i dont feel like it,,
   resultCorrect: 'I went out for boba with Kate (she has sooo pretty visual kei outfits).
@@ -39,9 +40,9 @@ MonoBehaviour:
     I think
     I got too nervous.
 
-    But she was soooo kind to me after that.
+    But she was still soooo kind to me after that.
 
-    She still
-    sent me funny tiktok :D
+    She
+    still sent me funny tiktok :D
 
     Maybe I still have a chance,,,,'

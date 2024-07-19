@@ -9,6 +9,5 @@ public class DayTwoConfig : Levelnfo
     {
         base.LoadData();
         MiniGameManager.instance.numberOfQuestions = numberOfQuestions;
-        Debug.Log("udalo sie");
     }
 }

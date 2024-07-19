@@ -520,6 +520,11 @@ RectTransform:
   m_CorrespondingSourceObject: {fileID: 8137675637633799959, guid: b7a902d0b6c25c74a8677058a580139a, type: 3}
   m_PrefabInstance: {fileID: 619450495}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &619450497 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 5447307017467524384, guid: b7a902d0b6c25c74a8677058a580139a, type: 3}
+  m_PrefabInstance: {fileID: 619450495}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1331362987
 GameObject:
   m_ObjectHideFlags: 0
@@ -728,7 +733,7 @@ MonoBehaviour:
   timer: {fileID: 428661173}
   confetti_1: {fileID: 1353094180}
   confetti_2: {fileID: 1353094179}
-  buttonGuide: {fileID: 0}
+  timingGame: {fileID: 619450497}
   canvas: {fileID: 1486242318}
   countdown: {fileID: 2374398887319462458, guid: 7e7263252b6a4b04db5830a9f81767a9, type: 3}
 --- !u!61 &1427629975
@@ -890,6 +895,14 @@ PrefabInstance:
     - target: {fileID: 179485169687760114, guid: e5404ba1faabcde4cb9d0dda128369e2, type: 3}
       propertyPath: orthographic size
       value: 90
+      objectReference: {fileID: 0}
+    - target: {fileID: 179485169687760114, guid: e5404ba1faabcde4cb9d0dda128369e2, type: 3}
+      propertyPath: m_NormalizedViewPortRect.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 179485169687760114, guid: e5404ba1faabcde4cb9d0dda128369e2, type: 3}
+      propertyPath: m_NormalizedViewPortRect.y
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 1727164618114907356, guid: e5404ba1faabcde4cb9d0dda128369e2, type: 3}
       propertyPath: m_Name

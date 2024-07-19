@@ -33,6 +33,4 @@ public class SlidingGameManager : MonoBehaviour
             slidingGame.GameFinished();
         }
     }
-
-    
 }

@@ -22,7 +22,33 @@ MonoBehaviour:
   secondScenario: {fileID: 0}
   optionCorrect: np, here you go!
   optionIncorrect: '*leave on read*'
-  resultCorrect: 
-  resultCorrectRare: 
-  resultIncorrect: 
-  resultIncorrectRare: 
+  resultCorrect: 'Kai just asked me for math homework. I know they''re bad at math,
+    cause they never know anything during classes.
+
+    I send them my homework.
+
+    They''ve
+    always been nice to me. That''s one way of repaying them with kindness.'
+  resultCorrectRare: 'Kai just asked me for math homework. I know they''re bad at
+    math, cause they never know anything during classes.
+
+    I send them my homework.
+
+    I
+    mean,,, I tried to but my Wi-Fi stopped working AGAIN.
+
+    When it finally worked,
+    they told me they got homework from someone else...'
+  resultIncorrect: 'Kai just asked me for math homework. I know they''re bad at math,
+    cause they never know anything during classes.
+
+    I left them on read.
+
+    Now
+    I feel bad. I should''ve just send it...'
+  resultIncorrectRare: 'Kai just asked me for math homework. I know they''re bad
+    at math, cause they never know anything during classes.
+
+    I decided to not
+    send them, but right after I read the message they realized what they did wrong
+    and didn''t need my help anyway.'

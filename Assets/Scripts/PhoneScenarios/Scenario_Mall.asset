@@ -14,8 +14,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   scenarioText: Heyy, wanna go to mall with me and my girlies?
   personName: Ashley
+  secondScenario: {fileID: 0}
   optionCorrect: sorry but no, gotta study for monday ;/
-  optionIncorrect: yesss id love to
+  optionIncorrect: yesss
   resultCorrect: "One of the popular mean girls asked me to come with them to the
     mall. I lied that I have to study.\nIt's probably better to keep a distance from
     them.\t"
