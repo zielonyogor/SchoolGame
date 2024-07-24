@@ -164,7 +164,7 @@ public class PhoneManager : MonoBehaviour
         }
 
         Animator animator = transition.GetComponent<Animator>();
-        while (animator && animator.GetCurrentAnimatorStateInfo(0).normalizedTime < 0.5f)
+        while (animator.GetCurrentAnimatorStateInfo(0).normalizedTime < 0.5f)
         {
             yield return null;
         }
@@ -174,7 +174,7 @@ public class PhoneManager : MonoBehaviour
         clockText.SetActive(false);
         resultTextField.transform.parent.gameObject.SetActive(true);
 
-        while (animator && animator.GetCurrentAnimatorStateInfo(0).normalizedTime < 1f)
+        while (animator.GetCurrentAnimatorStateInfo(0).normalizedTime < 1f)
         {
             yield return null;
         }

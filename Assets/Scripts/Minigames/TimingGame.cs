@@ -1,4 +1,3 @@
-using System.Buffers;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -12,6 +11,8 @@ public class TimingGame : MonoBehaviour
 
     private float phase = 0;
     private float phaseDirection = 1;
+
+    private Animator gameAnimator;
 
     [Header("UI Elements")]
     [SerializeField] Transform leftPivot;
@@ -40,11 +41,13 @@ public class TimingGame : MonoBehaviour
     void Start()
     {
         goal.position = new Vector2(Random.Range(leftPivot.position.x, rightPivot.position.x), goal.position.y);
+        gameAnimator = GetComponent<Animator>();
         StartCoroutine(MoveBar());
     }
 
     private IEnumerator MoveBar()
     {
+        Debug.Log("meow");
         while (true)
         {
             bar.transform.position = Vector2.Lerp(leftPivot.position, rightPivot.position, phase);
@@ -60,7 +63,7 @@ public class TimingGame : MonoBehaviour
         StopAllCoroutines();
         RectTransform rectBar = bar.GetComponent<RectTransform>();
         RectTransform rectGoal = goal.GetComponent<RectTransform>();
-        if (rectOverlaps(rectBar,rectGoal))
+        if (RectOverlaps(rectBar,rectGoal))
         {
             Debug.Log("yay");
             StartCoroutine(DelayWin());
@@ -74,24 +77,37 @@ public class TimingGame : MonoBehaviour
 
     private IEnumerator DelayWin()
     {
-        yield return new WaitForSeconds(0.1f);
+        yield return new WaitForSeconds(0.5f);
         Destroy(gameObject);
     }
 
     private IEnumerator DelayLoss()
     {
-        yield return new WaitForSeconds(0.1f);
-        MiniGameManager.instance.AddError(); //add here some animation??
+        //MiniGameManager.instance.AddError();
+        gameAnimator.SetTrigger("error");
+        yield return new WaitForSeconds(0.01f);
+
+        //AnimatorStateInfo stateInfo = gameAnimator.GetCurrentAnimatorStateInfo(0);
+        //int errorAnimationName = stateInfo.shortNameHash;
+
+        while (gameAnimator.GetCurrentAnimatorStateInfo(0).IsName("Anxiety_Error"))
+            yield return null;
+        Debug.Log("hello??");
         StartCoroutine(MoveBar());
     }
-    bool rectOverlaps(RectTransform rectTrans1, RectTransform rectTrans2)
+    bool RectOverlaps(RectTransform rectTrans1, RectTransform rectTrans2)
     {
-        Vector3 position1 = rectTrans1.position;
-        Vector3 position2 = rectTrans2.position;
+        Vector3[] corners1 = new Vector3[4];
+        rectTrans1.GetWorldCorners(corners1);
+        Rect rect1 = new Rect(corners1[0], corners1[2] - corners1[0]);
+        Vector3[] corners2 = new Vector3[4];
+        rectTrans2.GetWorldCorners(corners2);
+        Rect rect2 = new Rect(corners2[0], corners2[2] - corners2[0]);
 
-        Rect rect1 = new Rect(position1.x - rectTrans1.rect.width / 2, position1.y - rectTrans1.rect.height / 2, rectTrans1.rect.width, rectTrans1.rect.height);
-        Rect rect2 = new Rect(position2.x - rectTrans2.rect.width / 2, position2.y - rectTrans2.rect.height / 2, rectTrans2.rect.width, rectTrans2.rect.height);
-
-        return rect1.Overlaps(rect2);
+        if (rect1.Overlaps(rect2))
+        {
+            return true;
+        }
+        return false;
     }
 }

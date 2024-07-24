@@ -124,7 +124,6 @@ public class QuizGame : MonoBehaviour, IMiniGame
 
     public void HandleSelect(int index)
     {
-        Debug.Log("handle select");
         currentSelectedField = index;
     }
 
@@ -136,6 +135,27 @@ public class QuizGame : MonoBehaviour, IMiniGame
         for (int i = 0; i < numberOfQuestions; i++)
         {
             questionObjects[i].GetComponentInChildren<TMP_InputField>().interactable = false;
+        }
+
+        if (int.TryParse(questionObjects[currentSelectedField].GetChild(4).GetComponent<TMP_InputField>().text, out int answer))
+        {
+            if (answer == correctAnswers[currentSelectedField])
+            {
+                playerAnswers[currentSelectedField] = true;
+                bool hasPassed = true;
+                for (int i = 0; i < numberOfQuestions; i++)
+                {
+                    if (!playerAnswers[i])
+                    {
+                        hasPassed = false;
+                    }
+                }
+                if (hasPassed)
+                {
+                    GameFinished();
+                    return;
+                }
+            }
         }
 
         MiniGameManager.instance.HandleGameLoss();

@@ -677,6 +677,10 @@ PrefabInstance:
       propertyPath: m_NormalizedViewPortRect.y
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 179485169687760114, guid: e5404ba1faabcde4cb9d0dda128369e2, type: 3}
+      propertyPath: m_NormalizedViewPortRect.width
+      value: 1.0003334
+      objectReference: {fileID: 0}
     - target: {fileID: 1727164618114907356, guid: e5404ba1faabcde4cb9d0dda128369e2, type: 3}
       propertyPath: m_Name
       value: Main Camera

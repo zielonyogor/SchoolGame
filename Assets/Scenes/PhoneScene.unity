@@ -745,7 +745,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -360, y: 234}
+  m_AnchoredPosition: {x: -354, y: 240}
   m_SizeDelta: {x: 100, y: 30}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &368857218
@@ -780,7 +780,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: New Text
+  m_text: 00:00
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: d96f99e4545dab54fa3c6db61b159f93, type: 2}
   m_sharedMaterial: {fileID: 791961425251261662, guid: d96f99e4545dab54fa3c6db61b159f93, type: 2}
@@ -807,8 +807,8 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 16
-  m_fontSizeBase: 16
+  m_fontSize: 20
+  m_fontSizeBase: 20
   m_fontWeight: 400
   m_enableAutoSizing: 0
   m_fontSizeMin: 18
@@ -1541,6 +1541,22 @@ PrefabInstance:
     - target: {fileID: 179485169687760114, guid: e5404ba1faabcde4cb9d0dda128369e2, type: 3}
       propertyPath: orthographic size
       value: 90
+      objectReference: {fileID: 0}
+    - target: {fileID: 179485169687760114, guid: e5404ba1faabcde4cb9d0dda128369e2, type: 3}
+      propertyPath: m_NormalizedViewPortRect.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 179485169687760114, guid: e5404ba1faabcde4cb9d0dda128369e2, type: 3}
+      propertyPath: m_NormalizedViewPortRect.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 179485169687760114, guid: e5404ba1faabcde4cb9d0dda128369e2, type: 3}
+      propertyPath: m_NormalizedViewPortRect.width
+      value: 1.0001081
+      objectReference: {fileID: 0}
+    - target: {fileID: 179485169687760114, guid: e5404ba1faabcde4cb9d0dda128369e2, type: 3}
+      propertyPath: m_NormalizedViewPortRect.height
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 1727164618114907356, guid: e5404ba1faabcde4cb9d0dda128369e2, type: 3}
       propertyPath: m_Name

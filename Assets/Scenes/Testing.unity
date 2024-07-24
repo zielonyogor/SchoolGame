@@ -123,7 +123,12 @@ NavMeshSettings:
     debug:
       m_Flags: 0
   m_NavMeshData: {fileID: 0}
---- !u!1001 &346481446
+--- !u!224 &526276026 stripped
+RectTransform:
+  m_CorrespondingSourceObject: {fileID: 232347954670099755, guid: 7e7263252b6a4b04db5830a9f81767a9, type: 3}
+  m_PrefabInstance: {fileID: 2497200978656219784}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1001 &536649818
 PrefabInstance:
   m_ObjectHideFlags: 0
   serializedVersion: 2
@@ -131,25 +136,13 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 2007985882}
     m_Modifications:
-    - target: {fileID: 56052625970149324, guid: cc1e2cf6a0873894f955eb7fba5744c2, type: 3}
-      propertyPath: m_Color.b
-      value: 0.8000986
-      objectReference: {fileID: 0}
-    - target: {fileID: 56052625970149324, guid: cc1e2cf6a0873894f955eb7fba5744c2, type: 3}
-      propertyPath: m_Color.g
-      value: 0.751
-      objectReference: {fileID: 0}
-    - target: {fileID: 209941487790503871, guid: cc1e2cf6a0873894f955eb7fba5744c2, type: 3}
-      propertyPath: m_SizeDelta.y
-      value: 26
-      objectReference: {fileID: 0}
-    - target: {fileID: 209941487790503871, guid: cc1e2cf6a0873894f955eb7fba5744c2, type: 3}
-      propertyPath: m_AnchoredPosition.y
-      value: 1
-      objectReference: {fileID: 0}
     - target: {fileID: 7438629034090430588, guid: cc1e2cf6a0873894f955eb7fba5744c2, type: 3}
       propertyPath: m_Name
       value: TimingGame
+      objectReference: {fileID: 0}
+    - target: {fileID: 7438629034090430588, guid: cc1e2cf6a0873894f955eb7fba5744c2, type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 8932401787638582111, guid: cc1e2cf6a0873894f955eb7fba5744c2, type: 3}
       propertyPath: m_Pivot.x
@@ -236,15 +229,10 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: cc1e2cf6a0873894f955eb7fba5744c2, type: 3}
---- !u!224 &424735393 stripped
+--- !u!224 &536649819 stripped
 RectTransform:
   m_CorrespondingSourceObject: {fileID: 8932401787638582111, guid: cc1e2cf6a0873894f955eb7fba5744c2, type: 3}
-  m_PrefabInstance: {fileID: 346481446}
-  m_PrefabAsset: {fileID: 0}
---- !u!224 &526276026 stripped
-RectTransform:
-  m_CorrespondingSourceObject: {fileID: 232347954670099755, guid: 7e7263252b6a4b04db5830a9f81767a9, type: 3}
-  m_PrefabInstance: {fileID: 2497200978656219784}
+  m_PrefabInstance: {fileID: 536649818}
   m_PrefabAsset: {fileID: 0}
 --- !u!1 &1104920182
 GameObject:
@@ -499,10 +487,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0cd44c1031e13a943bb63640046fad76, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_UiScaleMode: 0
-  m_ReferencePixelsPerUnit: 100
+  m_UiScaleMode: 1
+  m_ReferencePixelsPerUnit: 2
   m_ScaleFactor: 1
-  m_ReferenceResolution: {x: 800, y: 600}
+  m_ReferenceResolution: {x: 1200, y: 700}
   m_ScreenMatchMode: 0
   m_MatchWidthOrHeight: 0
   m_PhysicalUnit: 3
@@ -545,8 +533,8 @@ RectTransform:
   m_LocalScale: {x: 0, y: 0, z: 0}
   m_ConstrainProportionsScale: 0
   m_Children:
-  - {fileID: 424735393}
   - {fileID: 526276026}
+  - {fileID: 536649819}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
