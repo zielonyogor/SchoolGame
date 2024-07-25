@@ -47,7 +47,6 @@ public class TimingGame : MonoBehaviour
 
     private IEnumerator MoveBar()
     {
-        Debug.Log("meow");
         while (true)
         {
             bar.transform.position = Vector2.Lerp(leftPivot.position, rightPivot.position, phase);
@@ -65,12 +64,10 @@ public class TimingGame : MonoBehaviour
         RectTransform rectGoal = goal.GetComponent<RectTransform>();
         if (RectOverlaps(rectBar,rectGoal))
         {
-            Debug.Log("yay");
             StartCoroutine(DelayWin());
         }
         else
         {
-            Debug.Log("does not");
             StartCoroutine(DelayLoss());
         }
     }
@@ -83,16 +80,12 @@ public class TimingGame : MonoBehaviour
 
     private IEnumerator DelayLoss()
     {
-        //MiniGameManager.instance.AddError();
+        MiniGameManager.instance.AddError();
         gameAnimator.SetTrigger("error");
         yield return new WaitForSeconds(0.01f);
 
-        //AnimatorStateInfo stateInfo = gameAnimator.GetCurrentAnimatorStateInfo(0);
-        //int errorAnimationName = stateInfo.shortNameHash;
-
         while (gameAnimator.GetCurrentAnimatorStateInfo(0).IsName("Anxiety_Error"))
             yield return null;
-        Debug.Log("hello??");
         StartCoroutine(MoveBar());
     }
     bool RectOverlaps(RectTransform rectTrans1, RectTransform rectTrans2)

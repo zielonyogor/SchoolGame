@@ -4,10 +4,8 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.InputSystem;
 
-public class StackingGame : MonoBehaviour, IMiniGame
+public class StackingGame : BaseMiniGame
 {
-    public bool HasTimingGame{get; set;}
-
     private InputAction dropAction;
 
     [SerializeField] private Transform blockPrefab;
@@ -29,15 +27,6 @@ public class StackingGame : MonoBehaviour, IMiniGame
     private float bookSpeed = 30f;
     private int numberOfBooks = 4;
 
-    [Header("Extras")]
-    [SerializeField] Timer timer;
-    [SerializeField] ParticleSystem confetti_1, confetti_2;
-    [SerializeField] GameObject timingGame;
-
-    [Header("Countdown")]
-    [SerializeField] Canvas canvas;
-    [SerializeField] GameObject countdown;
-
     private void Awake()
     {
         dropAction = new ActionMap().Gameplay.DropBook;
@@ -58,15 +47,15 @@ public class StackingGame : MonoBehaviour, IMiniGame
         numberOfBooks = MiniGameManager.instance.numberOfBooks;
         bookSpeed = MiniGameManager.instance.bookSpeed;
 
+
+        gameTime = 60 / MiniGameManager.instance.time + 1;
+
         StartCoroutine(PlayCountdown());
     }
 
-    public IEnumerator PlayCountdown()
+    public override IEnumerator PlayCountdown()
     {
-        GameObject spawnedObject = Instantiate(countdown, canvas.transform);
-        Animator animator = spawnedObject.GetComponent<Animator>();
-        while (animator && animator.GetCurrentAnimatorStateInfo(0).normalizedTime < 1f)
-            yield return null;
+        yield return StartCoroutine(base.PlayCountdown());
 
         dropAction.performed += DropBook;
         timer.OnTimeUp += GameFinished;
@@ -114,7 +103,7 @@ public class StackingGame : MonoBehaviour, IMiniGame
         dropAction.performed -= DropBook;
         if (numberOfBooks == 0)
         {
-            StartCoroutine(timer.DecreaseTimer(60 / MiniGameManager.instance.time + 1));
+            StartCoroutine(timer.DecreaseTimer(gameTime));
         }
         else
         {
@@ -130,28 +119,15 @@ public class StackingGame : MonoBehaviour, IMiniGame
         }
     }
 
-    public void GameEnd()
-    {
-        timer.DisableTimer();
-        timer.OnTimeUp -= GameFinished;
-        MiniGameManager.instance.HandleGameLoss();
-    }
-
-    public void GameFinished()
+    public override void GameEnd()
     {
         timer.OnTimeUp -= GameFinished;
-        StartCoroutine(PlayConfetti());
+        base.GameEnd();
     }
 
-    private IEnumerator PlayConfetti()
+    public override void GameFinished()
     {
-        yield return new WaitForEndOfFrame();
-        timer.DisableTimer();
-        yield return new WaitUntil(() => HasTimingGame == false);
-        Destroy(timingGame);
-        confetti_1.Play();
-        confetti_2.Play();
-        yield return new WaitForSeconds(2.5f);
-        MiniGameManager.instance.NextLevel();
+        timer.OnTimeUp -= GameFinished;
+        base.GameFinished();
     }
 }

@@ -6,27 +6,16 @@ using UnityEngine.InputSystem;
 using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 
-public class QuizGame : MonoBehaviour, IMiniGame
+public class QuizGame : BaseMiniGame
 {
-    public bool HasTimingGame {get; set;}
-
     private List<int> correctAnswers;
     private List<Transform> questionObjects = new List<Transform>();
     private List<bool> playerAnswers = new List<bool>();
 
-    public int currentSelectedField = 0;
+    private int currentSelectedField = 0;
 
     [Header("MiniGame variable")]
     [SerializeField] int numberOfQuestions;
-
-    [Header("Extras")]
-    [SerializeField] Timer timer;
-    [SerializeField] ParticleSystem confetti_1, confetti_2;
-    [SerializeField] GameObject timingGame;
-
-    [Header("Countdown")]
-    [SerializeField] Canvas canvas;
-    [SerializeField] GameObject countdown;
 
     private void OnEnable()
     {
@@ -36,6 +25,7 @@ public class QuizGame : MonoBehaviour, IMiniGame
     void Start()
     {
         numberOfQuestions = MiniGameManager.instance.numberOfQuestions;
+        gameTime = MiniGameManager.instance.time;
         correctAnswers = new List<int>(numberOfQuestions);
         for (int i = 0; i < numberOfQuestions; i++)
         {
@@ -51,19 +41,16 @@ public class QuizGame : MonoBehaviour, IMiniGame
         StartCoroutine(PlayCountdown());
     }
 
-    public IEnumerator PlayCountdown()
+    public override IEnumerator PlayCountdown()
     {
-        GameObject spawnedObject = Instantiate(countdown, canvas.transform);
-        Animator animator = spawnedObject.GetComponent<Animator>();
-        while (animator && animator.GetCurrentAnimatorStateInfo(0).normalizedTime < 1f)
-            yield return null;
+        yield return StartCoroutine(base.PlayCountdown());
 
         for (int i = 0; i < numberOfQuestions; i++)
         {
             questionObjects[i].GetComponentInChildren<TMP_InputField>().interactable = true;
         }
         questionObjects[currentSelectedField].GetComponentInChildren<TMP_InputField>().Select();
-        StartCoroutine(timer.DecreaseTimer(MiniGameManager.instance.time));
+        StartCoroutine(timer.DecreaseTimer(gameTime));
     }
 
     void ChangeEquation(int i)
@@ -127,9 +114,8 @@ public class QuizGame : MonoBehaviour, IMiniGame
         currentSelectedField = index;
     }
 
-    public void GameEnd()
+    public override void GameEnd()
     {
-        timer.DisableTimer();
         timer.OnTimeUp -= GameEnd;
 
         for (int i = 0; i < numberOfQuestions; i++)
@@ -157,11 +143,10 @@ public class QuizGame : MonoBehaviour, IMiniGame
                 }
             }
         }
-
-        MiniGameManager.instance.HandleGameLoss();
+        base.GameEnd();
     }
 
-    public void GameFinished()
+    public override void GameFinished()
     {
         timer.OnTimeUp -= GameEnd;
 
@@ -170,19 +155,6 @@ public class QuizGame : MonoBehaviour, IMiniGame
             questionObjects[i].GetComponentInChildren<TMP_InputField>().interactable = false;
         }
 
-        StartCoroutine(PlayConfetti());
+        base.GameFinished();
     }
-
-    private IEnumerator PlayConfetti()
-    {
-        yield return new WaitForEndOfFrame();
-        timer.DisableTimer();
-        yield return new WaitUntil(() => HasTimingGame == false);
-        Destroy(timingGame);
-        confetti_1.Play();
-        confetti_2.Play();
-        yield return new WaitForSeconds(2.5f);
-        MiniGameManager.instance.NextLevel();
-    }
-
 }

@@ -4,24 +4,13 @@ using UnityEngine;
 using UnityEngine.InputSystem;
 using UnityEngine.UIElements;
 
-public class TiltGame : MonoBehaviour, IMiniGame
+public class TiltGame : BaseMiniGame
 {
-    public bool HasTimingGame{ get; set; }
-
     private ActionMap actionMap;
     [SerializeField] private Rigidbody2D rb;
     [SerializeField] private float tiltForce = 5f;
 
     private WaitForFixedUpdate waitForFixedUpdate;
-
-    [Header("Extras")]
-    [SerializeField] Timer timer;
-    [SerializeField] ParticleSystem confetti_1, confetti_2;
-    [SerializeField] GameObject timingGame;
-
-    [Header("Countdown")]
-    [SerializeField] Canvas canvas;
-    [SerializeField] GameObject countdown;
 
     private void Awake()
     {
@@ -31,15 +20,12 @@ public class TiltGame : MonoBehaviour, IMiniGame
     }
     private void Start()
     {
-        
+        gameTime = 60 / MiniGameManager.instance.time + 1;
         StartCoroutine(PlayCountdown());
     }
-    public IEnumerator PlayCountdown()
+    public override IEnumerator PlayCountdown()
     {
-        GameObject spawnedObject = Instantiate(countdown, canvas.transform);
-        Animator animator = spawnedObject.GetComponent<Animator>();
-        while (animator && animator.GetCurrentAnimatorStateInfo(0).normalizedTime < 1f)
-            yield return null;
+        yield return StartCoroutine(base.PlayCountdown());
 
         float startTilt = (int)Random.Range(0, 2) == 0 ? -1 : 1;
         rb.AddTorque(startTilt * tiltForce);
@@ -48,10 +34,7 @@ public class TiltGame : MonoBehaviour, IMiniGame
         timer.OnTimeUp += GameFinished;
 
         StartCoroutine(CheckRotation());
-        //here is a little goofy algorithm for time in increasing type
-        //(maybe ill just add another day variable for that)
-        StartCoroutine(timer.DecreaseTimer(60 / MiniGameManager.instance.time + 1));
-        Debug.Log(60 / MiniGameManager.instance.time + 1);
+        StartCoroutine(timer.DecreaseTimer(gameTime));
     }
 
     private void OnEnable()
@@ -83,32 +66,18 @@ public class TiltGame : MonoBehaviour, IMiniGame
         }
     }
 
-    public void GameEnd()
+    public override void GameEnd()
     {
         StopAllCoroutines();
         actionMap.Gameplay.Tilt.performed -= OnTilt;
-        timer.DisableTimer();
         rb.bodyType = RigidbodyType2D.Static;
-        MiniGameManager.instance.HandleGameLoss();
+        base.GameEnd();
     }
 
-    public void GameFinished()
+    public override void GameFinished()
     {
         actionMap.Gameplay.Tilt.performed -= OnTilt;
-        timer.DisableTimer();
         rb.bodyType = RigidbodyType2D.Static;
-        StartCoroutine(PlayConfetti());
-    }
-
-    private IEnumerator PlayConfetti()
-    {
-        yield return new WaitForEndOfFrame();
-        timer.DisableTimer();
-        yield return new WaitUntil(() => HasTimingGame == false);
-        Destroy(timingGame);
-        confetti_1.Play();
-        confetti_2.Play();
-        yield return new WaitForSeconds(2.5f);
-        MiniGameManager.instance.NextLevel();
+        base.GameFinished();
     }
 }

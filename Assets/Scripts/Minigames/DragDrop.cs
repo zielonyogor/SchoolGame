@@ -3,10 +3,8 @@ using UnityEngine;
 using UnityEngine.InputSystem;
 using static UnityEngine.Rendering.DebugUI;
 
-public class DragDrop : MonoBehaviour, IMiniGame
+public class DragDrop : BaseMiniGame
 {
-    public bool HasTimingGame{ get; set;}
-
     private Camera mainCamera;
     private InputAction mouseClick;
 
@@ -18,16 +16,6 @@ public class DragDrop : MonoBehaviour, IMiniGame
 
     private int goodItems = 3;
 
-    [Header("Extras")]
-    [SerializeField] Timer timer;
-    [SerializeField] ParticleSystem confetti_1, confetti_2;
-    [SerializeField] GameObject timingGame;
-
-    [Header("Countdown")]
-    [SerializeField] Canvas canvas;
-    [SerializeField] GameObject countdown;
-
-
     private void Awake()
     {
         mainCamera = Camera.main;
@@ -38,18 +26,16 @@ public class DragDrop : MonoBehaviour, IMiniGame
     private void Start()
     {
         goodItems = MiniGameManager.instance.numberOfMeds;
+        gameTime = MiniGameManager.instance.time;
         StartCoroutine(PlayCountdown());
     }
-    public IEnumerator PlayCountdown()
+    public override IEnumerator PlayCountdown()
     {
-        GameObject spawnedObject = Instantiate(countdown, canvas.transform);
-        Animator animator = spawnedObject.GetComponent<Animator>();
-        while (animator && animator.GetCurrentAnimatorStateInfo(0).normalizedTime < 1f)
-            yield return null;
+        yield return StartCoroutine(base.PlayCountdown());
 
         mouseClick.performed += OnDragDrop;
         timer.OnTimeUp += GameEnd;
-        StartCoroutine(timer.DecreaseTimer(MiniGameManager.instance.time));
+        StartCoroutine(timer.DecreaseTimer(gameTime));
     }
 
     private void OnEnable()
@@ -71,7 +57,7 @@ public class DragDrop : MonoBehaviour, IMiniGame
         {
             if( hit.collider.gameObject.CompareTag("DraggableIncorrect") || hit.collider.gameObject.CompareTag("DraggableCorrect"))
             {
-            StartCoroutine(DragUpdate(hit.collider.gameObject));
+                StartCoroutine(DragUpdate(hit.collider.gameObject));
             }
         }
     }
@@ -108,27 +94,9 @@ public class DragDrop : MonoBehaviour, IMiniGame
         }
     }
 
-    public void GameEnd()
+    public override void GameEnd()
     {
-        timer.DisableTimer();
         timer.OnTimeUp -= GameEnd;
-        MiniGameManager.instance.HandleGameLoss();
-    }
-
-    public void GameFinished()
-    {
-        StartCoroutine(PlayConfetti());
-    }
-
-    private IEnumerator PlayConfetti()
-    {
-        yield return new WaitForEndOfFrame();
-        timer.DisableTimer();
-        yield return new WaitUntil(() => HasTimingGame == false);
-        Destroy(timingGame);
-        confetti_1.Play();
-        confetti_2.Play();
-        yield return new WaitForSeconds(2.5f);
-        MiniGameManager.instance.NextLevel();
+        base.GameEnd();
     }
 }

@@ -5,10 +5,8 @@ using UnityEngine.InputSystem;
 using UnityEngine.SceneManagement;
 using UnityEngine.UIElements;
 
-public class SlidingGame : MonoBehaviour, IMiniGame
+public class SlidingGame : BaseMiniGame
 {
-    public bool HasTimingGame{ get; set;}
-
     private bool isMoving = false;
     private WaitForFixedUpdate waitForFixedUpdate;
 
@@ -22,35 +20,24 @@ public class SlidingGame : MonoBehaviour, IMiniGame
     SpriteRenderer sRenderer;
     float spriteWidth;
 
-    [Header("Extras")]
-    [SerializeField] Timer timer;
-    [SerializeField] ParticleSystem confetti_1, confetti_2;
-    [SerializeField] GameObject timingGame;
-
-    [Header("Countdown")]
-    [SerializeField] Canvas canvas;
-    [SerializeField] GameObject countdown;
-
     private void Start()
     {
         waitForFixedUpdate = new WaitForFixedUpdate();
         sRenderer = GetComponent<SpriteRenderer>();
         spriteWidth = sRenderer.sprite.bounds.size.x * transform.lossyScale.x / 2;
 
+        gameTime = MiniGameManager.instance.time;
         StartCoroutine(PlayCountdown());
     }
-    public IEnumerator PlayCountdown()
+    public override IEnumerator PlayCountdown()
     {
-        GameObject spawnedObject = Instantiate(countdown, canvas.transform);
-        Animator animator = spawnedObject.GetComponent<Animator>();
-        while (animator && animator.GetCurrentAnimatorStateInfo(0).normalizedTime < 1f) 
-            yield return null;
+        yield return StartCoroutine(base.PlayCountdown());
 
         turnHorizontal.performed += SlideHorizontal;
         turnVertical.performed += SlideVertical;
 
         timer.OnTimeUp += GameEnd;
-        StartCoroutine(timer.DecreaseTimer(MiniGameManager.instance.time));
+        StartCoroutine(timer.DecreaseTimer(gameTime));
     }
 
     private void Awake()
@@ -107,7 +94,7 @@ public class SlidingGame : MonoBehaviour, IMiniGame
                 break;
             }
             player.MovePosition(newPosition);
-            if (Mathf.Abs(newPosition.x) > 110 || Mathf.Abs(newPosition.y) > 70)
+            if (Mathf.Abs(newPosition.x) > 140 || Mathf.Abs(newPosition.y) > 90)
             {
                 GameEnd();
             }
@@ -117,32 +104,20 @@ public class SlidingGame : MonoBehaviour, IMiniGame
         isMoving = false;
     }
 
-    public void GameEnd()
+    public override void GameEnd()
     {
         StopAllCoroutines();
-        timer.DisableTimer();
+        isMoving = false;
         timer.OnTimeUp -= GameEnd;
-        MiniGameManager.instance.HandleGameLoss();
+        base.GameEnd();
     }
 
-    public void GameFinished()
+    public override void GameFinished()
     {
         StopAllCoroutines();
-        StartCoroutine(PlayConfetti());
-    }
-
-    private IEnumerator PlayConfetti()
-    {
         turnHorizontal.performed -= SlideHorizontal;
         turnVertical.performed -= SlideVertical;
         isMoving = false;
-
-        timer.DisableTimer();
-        yield return new WaitUntil(() => HasTimingGame == false);
-        Destroy(timingGame);
-        confetti_1.Play();
-        confetti_2.Play();
-        yield return new WaitForSeconds(2.5f);
-        MiniGameManager.instance.NextLevel();
+        base.GameFinished();
     }
 }

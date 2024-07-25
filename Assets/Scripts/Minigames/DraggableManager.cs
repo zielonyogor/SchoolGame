@@ -17,6 +17,7 @@ public class DraggableManager : MonoBehaviour
         foreach (Transform child in transform)
         {
             items.Add(child);
+            child.position = new Vector2(Random.Range(-62, 48), Random.Range(-60, 40));
         }
 
         for (int i = items.Count - 1; i > 0; i--)
@@ -29,7 +30,6 @@ public class DraggableManager : MonoBehaviour
         {
             pickedChildren.Add(items[i]);
             items[i].gameObject.tag = "DraggableCorrect";
-            items[i].transform.position = new Vector2(Random.Range(-60, 40), Random.Range(-60, 40));
 
             images[i].gameObject.SetActive(true);
             images[i].sprite = items[i].GetComponent<SpriteRenderer>().sprite;

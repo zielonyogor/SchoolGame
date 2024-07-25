@@ -4,27 +4,17 @@ using UnityEngine;
 using TMPro;
 using UnityEngine.UI;
 
-public class DialogueGame : MonoBehaviour, IMiniGame
+public class DialogueGame : BaseMiniGame
 {
-    public bool HasTimingGame {get; set;}
-
     private List<Transform> dialogueButtons = new();
     private string[] dialogueParts;
     private int expectedID;
     private int numberOfButtons;
 
-    [Header("Extras")]
-    [SerializeField] Timer timer;
-    [SerializeField] ParticleSystem confetti_1, confetti_2;
-    [SerializeField] GameObject timingGame;
-
-    [Header("Countdown")]
-    [SerializeField] Canvas canvas;
-    [SerializeField] GameObject countdown;
-
     void Start()
     {
         dialogueParts = MiniGameManager.instance.dialogueText.Split('_');
+        gameTime = MiniGameManager.instance.time;
 
         expectedID = 0;
         numberOfButtons = dialogueParts.Length;
@@ -41,14 +31,11 @@ public class DialogueGame : MonoBehaviour, IMiniGame
         StartCoroutine(PlayCountdown());
     }
 
-    public IEnumerator PlayCountdown()
+    public override IEnumerator PlayCountdown()
     {
-        GameObject spawnedObject = Instantiate(countdown, canvas.transform);
-        Animator animator = spawnedObject.GetComponent<Animator>();
-        while (animator && animator.GetCurrentAnimatorStateInfo(0).normalizedTime < 1f)
-            yield return null;
+        yield return StartCoroutine(base.PlayCountdown());
 
-        StartCoroutine(timer.DecreaseTimer(MiniGameManager.instance.time));
+        StartCoroutine(timer.DecreaseTimer(gameTime));
     }
 
     void ChangePosition(int index)
@@ -92,7 +79,6 @@ public class DialogueGame : MonoBehaviour, IMiniGame
         return false;
     }
 
-
     public void OnButtonClicked(int id)
     {
         dialogueButtons[id].GetComponent<Button>().interactable = false;
@@ -111,31 +97,13 @@ public class DialogueGame : MonoBehaviour, IMiniGame
         }
     }
 
-    public void GameEnd()
+    public override void GameEnd()
     {
         foreach (Transform child in dialogueButtons)
         {
             child.gameObject.SetActive(false);
         }
-        timer.DisableTimer();
         timer.OnTimeUp -= GameEnd;
-        MiniGameManager.instance.HandleGameLoss();
-    }
-
-    public void GameFinished()
-    {
-        StartCoroutine(PlayConfetti());
-    }
-
-    private IEnumerator PlayConfetti()
-    {
-        yield return new WaitForEndOfFrame();
-        timer.DisableTimer();
-        yield return new WaitUntil(() => HasTimingGame == false);
-        Destroy(timingGame);
-        confetti_1.Play();
-        confetti_2.Play();
-        yield return new WaitForSeconds(2.5f);
-        MiniGameManager.instance.NextLevel();
+        base.GameEnd();
     }
 }
