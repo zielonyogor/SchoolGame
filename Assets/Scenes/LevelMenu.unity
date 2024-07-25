@@ -3513,7 +3513,7 @@ MonoBehaviour:
         m_MethodName: LoadDay
         m_Mode: 2
         m_Arguments:
-          m_ObjectArgument: {fileID: 11400000, guid: f858f5f299c5b824995127283c43e156, type: 2}
+          m_ObjectArgument: {fileID: 11400000, guid: a08b896af2b7e6b44b809e8c452299ec, type: 2}
           m_ObjectArgumentAssemblyTypeName: Levelnfo, Assembly-CSharp
           m_IntArgument: 11
           m_FloatArgument: 0
@@ -11144,7 +11144,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 179485169687760114, guid: e5404ba1faabcde4cb9d0dda128369e2, type: 3}
       propertyPath: m_NormalizedViewPortRect.width
-      value: 0.999001
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 1727164618114907356, guid: e5404ba1faabcde4cb9d0dda128369e2, type: 3}
       propertyPath: m_Name

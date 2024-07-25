@@ -70,6 +70,7 @@ public class TiltGame : BaseMiniGame
     {
         StopAllCoroutines();
         actionMap.Gameplay.Tilt.performed -= OnTilt;
+        timer.OnTimeUp -= GameFinished;
         rb.bodyType = RigidbodyType2D.Static;
         base.GameEnd();
     }

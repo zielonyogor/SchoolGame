@@ -115,9 +115,10 @@ public class SlidingGame : BaseMiniGame
     public override void GameFinished()
     {
         StopAllCoroutines();
+        isMoving = false;
         turnHorizontal.performed -= SlideHorizontal;
         turnVertical.performed -= SlideVertical;
-        isMoving = false;
+        timer.OnTimeUp -= GameEnd;
         base.GameFinished();
     }
 }

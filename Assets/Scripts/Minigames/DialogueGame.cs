@@ -106,4 +106,10 @@ public class DialogueGame : BaseMiniGame
         timer.OnTimeUp -= GameEnd;
         base.GameEnd();
     }
+
+    public override void GameFinished()
+    {
+        timer.OnTimeUp -= GameEnd;
+        base.GameFinished();
+    }
 }

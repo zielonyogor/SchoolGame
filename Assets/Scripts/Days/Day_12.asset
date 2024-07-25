@@ -14,5 +14,5 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   miniGames:
   - DragDropGame
-  time: 12
+  time: 10
   numberOfMeds: 4
