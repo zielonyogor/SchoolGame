@@ -23,39 +23,45 @@ MonoBehaviour:
   resultCorrect: 'I was at the party yesterday.
 
     Of course my mother had to interrupt
-    it. She said I have to come home. It was only 11pm...
+    it. She said I have to come home.
 
-    I stayed there LOL
+    It was only 11pm...
 
-    I
-    had great time. I met whole lotta people there.'
+    I stayed there
+    LOL
+
+    I had great time. I met whole lotta people there.'
   resultCorrectRare: 'I was at the party yesterday.
 
     Of course my mother had
-    to interrupt it. She said I have to come home. It was only 11pm...
+    to interrupt it. She said I have to come home.
 
-    I stayed
-    there LOL
+    It was only 11pm...
 
-    I had such a great time but she insisted I come back, yelled at
-    me and came to pick me up from party.
+    I
+    stayed there LOL
+
+    I had such a great time but she insisted I come back, yelled
+    at me and came to pick me up from party.
 
     AAAAAAA
 
     Sometimes she''s just....'
   resultIncorrect: "I was at the party yesterday.\nOf course my mother had to interrupt
-    it. She said I have to come home. It was only 11pm...\nI didn't want her to be
-    mad so I came home.\nShe got mad anyways.\nWell... \nI guess nothing is predictable
+    it. She said I have to come home.\nIt was only 11pm...\nI didn't want her to
+    be mad so I came home.\nShe got mad anyways.\nWell... \nI guess nothing is predictable
     with her..."
   resultIncorrectRare: 'I was at the party yesterday.
 
     Of course my mother had
-    to interrupt it. She said I have to come home. It was only 11pm...
+    to interrupt it. She said I have to come home.
 
-    I didn''t
-    want her to be mad so I came home.
+    It was only 11pm...
 
-    When I came she was asleep. I dodged
-    having a convo with her
+    I
+    didn''t want her to be mad so I came home.
+
+    When I came she was asleep. I
+    dodged having a convo with her
 
     YAY'

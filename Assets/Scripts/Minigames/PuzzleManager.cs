@@ -43,7 +43,7 @@ public class PuzzleManager : MonoBehaviour
         for (int i = 0; i < index; i++)
         {
             float distance = Vector2.Distance(objects[index].position, objects[i].position);
-            if (distance < 16f) //11 or sth was enough but with 14 it's better (holes aren't on each other)
+            if (distance < 24f) //11 or sth was enough but with 14 it's better (holes aren't on each other)
             {
                 return true;
             }

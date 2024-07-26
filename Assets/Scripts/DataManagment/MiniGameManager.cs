@@ -99,12 +99,12 @@ public class MiniGameManager : MonoBehaviour
     {
         gameData.errors += 1;
         gameData.consecutiveErrors += 1;
-        if (gameData.consecutiveErrors == Constants.maxConsecutiveErrors)
+        if (gameData.consecutiveErrors >= Constants.maxConsecutiveErrors || gameData.errors >= Constants.maxErrors)
         {
             SaveSystem.DeleteSaveFile();
             isPlaying = false;
             LoadCutscene("AAAAAAAAAA\nI hate it here!\nI've made a fool out of myself\n" +
-                "I can't be here any longer!\nI NEED to change school again!");
+                "I can't be here any longer!\nI just NEED to change school.\nAGAIN!!!\nI hate myself....");
         }
         else
         {
@@ -116,7 +116,6 @@ public class MiniGameManager : MonoBehaviour
     {
         if (gameData.day >= Constants.lastDay || gameData.consecutiveErrors >= Constants.maxConsecutiveErrors)
         {
-            SaveSystem.DeleteSaveFile();
             isPlaying = false;
         }
         else if (gameData.day != 1)
@@ -133,7 +132,7 @@ public class MiniGameManager : MonoBehaviour
     {
         gameData.consecutiveErrors++;
         gameData.errors++;
-        if (gameData.consecutiveErrors >= Constants.maxConsecutiveErrors)
+        if (gameData.consecutiveErrors >= Constants.maxConsecutiveErrors || gameData.errors >= Constants.maxErrors)
         {
             SaveSystem.DeleteSaveFile();
             isPlaying = false;
