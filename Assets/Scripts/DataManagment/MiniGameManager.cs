@@ -59,7 +59,7 @@ public class MiniGameManager : MonoBehaviour
         if (gameData.day == Constants.lastDay)
         {
             
-            if (gameData.errors == 0)
+            if (gameData.errors <= 0)
             {
                 cutsceneText = "WOW I can't believe it!\nPeople here like me.\n" +
                     "I've made some really cool friends.\nThere's really no cons.\n" +

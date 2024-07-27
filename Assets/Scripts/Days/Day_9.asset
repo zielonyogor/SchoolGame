@@ -18,4 +18,4 @@ MonoBehaviour:
   - SlidingGame
   time: 12
   slidingMapLayout: {fileID: 11400000, guid: a9bcd36c36b9df04c99d9c72ada9a40f, type: 2}
-  dialogueText: Huh?What_is_wrong with_my hair?
+  dialogueText: Huh? What_is wrong_with_my hair?

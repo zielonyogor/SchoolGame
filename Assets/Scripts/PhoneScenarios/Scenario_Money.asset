@@ -25,23 +25,33 @@ MonoBehaviour:
     all LOL.
 
     Who knows when he would return my money???'
-  resultCorrectRare: 'Jake (I think it was him) asked me for 20$ to buy vape. Of
-    course I didn''t give him any.
+  resultCorrectRare: 'Jake (I think it was him) asked me for 20 dollars to buy vape.
+    Of course I didn''t give him any.
 
-    He got a little mad, but I don''t care that
-    much.
+    He got a little mad, but I don''t care
+    that much.
 
     He''s not to be worried about.'
-  resultIncorrect: 'Jake (I think it was him) asked me for 20$ to buy vape. I sent
-    him money.
+  resultIncorrect: 'Jake (I think it was him) asked me for 20 dollars to buy vape.
 
-    He blocked me,,,'
-  resultIncorrectRare: 'Jake (I think it was him) asked me for 20$ to buy vape. I
+    I
     sent him money.
 
     He blocked me,,,
 
-    Fortunately his friend Tom DMed me
-    to apologise for Jake. Also he returned me money.
+    Should have seen it coming.
 
-    Embarassing situation,,,'
+    Who
+    needs 20 dollars for just a vape. I''m really naive.'
+  resultIncorrectRare: 'Jake (I think it was him) asked me for 20 dollars to buy
+    vape.
+
+    I sent him money.
+
+    He blocked me,,,
+
+    Fortunately his friend
+    Tom DMed me to apologise for Jake. Also he returned me money.
+
+    Embarassing
+    situation,,,'

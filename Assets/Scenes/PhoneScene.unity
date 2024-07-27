@@ -920,6 +920,7 @@ MonoBehaviour:
   - {fileID: 11400000, guid: 7f50ff00bed3a2d4391bbc81609cc2fc, type: 2}
   - {fileID: 11400000, guid: f3adb2927efcc454d92a8a26e2faed8c, type: 2}
   - {fileID: 11400000, guid: eb93447be12512f4ea110612acaafe32, type: 2}
+  - {fileID: 11400000, guid: b204af2f3c96b5042911e86827ed8cf4, type: 2}
 --- !u!1 &506756060
 GameObject:
   m_ObjectHideFlags: 0
@@ -1552,7 +1553,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 179485169687760114, guid: e5404ba1faabcde4cb9d0dda128369e2, type: 3}
       propertyPath: m_NormalizedViewPortRect.width
-      value: 1.0001081
+      value: 0.999001
       objectReference: {fileID: 0}
     - target: {fileID: 179485169687760114, guid: e5404ba1faabcde4cb9d0dda128369e2, type: 3}
       propertyPath: m_NormalizedViewPortRect.height
@@ -2224,6 +2225,6 @@ CanvasRenderer:
 SceneRoots:
   m_ObjectHideFlags: 0
   m_Roots:
+  - {fileID: 1409234819}
   - {fileID: 362521829}
   - {fileID: 1729882177}
-  - {fileID: 1409234819}

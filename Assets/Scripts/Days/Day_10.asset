@@ -19,6 +19,6 @@ MonoBehaviour:
   time: 12
   slidingMapLayout: {fileID: 11400000, guid: 6d0bc1983e32e1b418fa25fa758e019d, type: 2}
   numberOfBooks: 5
-  bookSpeed: 40
+  bookSpeed: 50
   tableSize: 100
   numberOfQuestions: 3

@@ -16,6 +16,6 @@ MonoBehaviour:
   - PuzzleGame
   - DialogueGame
   - PuzzleGame
-  time: 10
+  time: 12
   numberOfPuzzles: 4
   dialogueText: Oh,_sorry for_interrupting. I_'ll just_go.

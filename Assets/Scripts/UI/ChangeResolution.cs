@@ -10,7 +10,7 @@ enum ScreenResolution
 }
 public class ChangeResolution : MonoBehaviour
 {
-    private ScreenResolution currentResolution = ScreenResolution.SmallResolution;
+    private ScreenResolution currentResolution = ScreenResolution.MediumResolution;
     public void ToggleResolution()
     {
         switch (currentResolution)

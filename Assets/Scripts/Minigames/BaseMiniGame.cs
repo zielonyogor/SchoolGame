@@ -49,6 +49,7 @@ public abstract class BaseMiniGame : MonoBehaviour, IMiniGame
 
     public IEnumerator PlayGameOverScreen()
     {
+        Destroy(timingGame);
         gameOverScreen.SetActive(true);
         Animator animator = gameOverScreen.GetComponent<Animator>();
         yield return new WaitForFixedUpdate();
