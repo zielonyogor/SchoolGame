@@ -14,7 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   scenarioText: 'hi!!
 
-    could please please please send me math homework???
+    could you please please please send me math homework???
 
     im
     giving up aaaa'
@@ -22,15 +22,19 @@ MonoBehaviour:
   secondScenario: {fileID: 0}
   optionCorrect: np, here you go!
   optionIncorrect: '*leave on read*'
-  resultCorrect: 'Kai just asked me for math homework. I know they''re bad at math,
-    cause they never know anything during classes.
+  resultCorrect: 'Kai just asked me for math homework.
+
+    I know they''re bad at
+    math, cause they never know anything during classes.
 
     I send them my homework.
 
     They''ve
     always been nice to me. That''s one way of repaying them with kindness.'
-  resultCorrectRare: 'Kai just asked me for math homework. I know they''re bad at
-    math, cause they never know anything during classes.
+  resultCorrectRare: 'Kai just asked me for math homework.
+
+    I know they''re bad
+    at math, cause they never know anything during classes.
 
     I send them my homework.
 
@@ -39,16 +43,20 @@ MonoBehaviour:
 
     When it finally worked,
     they told me they got homework from someone else...'
-  resultIncorrect: 'Kai just asked me for math homework. I know they''re bad at math,
-    cause they never know anything during classes.
+  resultIncorrect: 'Kai just asked me for math homework.
+
+    I know they''re bad
+    at math, cause they never know anything during classes.
 
     I left them on read.
 
     Now
     I feel bad. I should''ve just send it...'
-  resultIncorrectRare: 'Kai just asked me for math homework. I know they''re bad
-    at math, cause they never know anything during classes.
+  resultIncorrectRare: 'Kai just asked me for math homework.
 
-    I decided to not
-    send them, but right after I read the message they realized what they did wrong
-    and didn''t need my help anyway.'
+    I know they''re
+    bad at math, cause they never know anything during classes.
+
+    I decided to
+    not send them, but right after I read the message they realized what they did
+    wrong and didn''t need my help anyway.'

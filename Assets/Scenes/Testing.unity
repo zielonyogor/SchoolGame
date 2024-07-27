@@ -142,7 +142,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7438629034090430588, guid: cc1e2cf6a0873894f955eb7fba5744c2, type: 3}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 8932401787638582111, guid: cc1e2cf6a0873894f955eb7fba5744c2, type: 3}
       propertyPath: m_Pivot.x
@@ -359,7 +359,7 @@ Camera:
     serializedVersion: 2
     x: 0
     y: 0
-    width: 0.999001
+    width: 0.9991143
     height: 1
   near clip plane: 0.3
   far clip plane: 1000
@@ -745,7 +745,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2374398887319462458, guid: 7e7263252b6a4b04db5830a9f81767a9, type: 3}
       propertyPath: m_IsActive
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 5943571705588533170, guid: 7e7263252b6a4b04db5830a9f81767a9, type: 3}
       propertyPath: m_fontColor32.rgba

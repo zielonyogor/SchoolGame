@@ -9,13 +9,8 @@ public class MiniGameManager : MonoBehaviour
 
     public int currentGameIndex = 0;
 
-    public string cutsceneText;
-
+    [Header("List of MiniGames")]
     public List<string> miniGames;
-    public float time = 0;
-
-    [Header("Timing Game Object")]
-    [SerializeField] private GameObject timingObject;
 
     [Header("MiniGame variables")]
     public int numberOfPuzzles;
@@ -26,6 +21,12 @@ public class MiniGameManager : MonoBehaviour
     public int bookSpeed;
     public int tableSize;
     public SlidingMapLayout slidingMapLayout;
+
+    [Header("Time")]
+    public float time = 0;
+
+    [Header("Cutscene text")]
+    public string cutsceneText;
 
     [Header("Days variables")]
     public bool isPlaying = false;
@@ -101,8 +102,6 @@ public class MiniGameManager : MonoBehaviour
         gameData.consecutiveErrors += 1;
         if (gameData.consecutiveErrors >= Constants.maxConsecutiveErrors || gameData.errors >= Constants.maxErrors)
         {
-            SaveSystem.DeleteSaveFile();
-            isPlaying = false;
             LoadCutscene("AAAAAAAAAA\nI hate it here!\nI've made a fool out of myself\n" +
                 "I can't be here any longer!\nI just NEED to change school.\nAGAIN!!!\nI hate myself....");
         }
@@ -114,8 +113,9 @@ public class MiniGameManager : MonoBehaviour
 
     public void ExitCutscene()
     {
-        if (gameData.day >= Constants.lastDay || gameData.consecutiveErrors >= Constants.maxConsecutiveErrors)
+        if (gameData.day >= Constants.lastDay || gameData.consecutiveErrors >= Constants.maxConsecutiveErrors || gameData.errors >= Constants.maxErrors)
         {
+            SaveSystem.DeleteSaveFile();
             isPlaying = false;
         }
         else if (gameData.day != 1)
@@ -134,11 +134,23 @@ public class MiniGameManager : MonoBehaviour
         gameData.errors++;
         if (gameData.consecutiveErrors >= Constants.maxConsecutiveErrors || gameData.errors >= Constants.maxErrors)
         {
-            SaveSystem.DeleteSaveFile();
-            isPlaying = false;
             LoadCutscene("AAAAAAAAAA\nI hate it here!\nI've made a fool out of myself\n" +
                 "I can't be here any longer!\nI just NEED to change school.\nAGAIN!!!\nI hate myself....");
         }
 
+    }
+
+    public void ExitPhone()
+    {
+        if (gameData.errors >= Constants.maxErrors)
+        {
+            LoadCutscene("AAAAAAAAAA\nI hate it here!\nI've made a fool out of myself\n" +
+                "I can't be here any longer!\nI just NEED to change school.\nAGAIN!!!\nI hate myself....");
+        }
+        else
+        {
+            gameData.day += 1;
+            SceneManager.LoadScene("LevelMenu");
+        }
     }
 }

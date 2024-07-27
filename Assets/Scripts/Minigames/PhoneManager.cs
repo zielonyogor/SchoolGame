@@ -22,7 +22,7 @@ public class PhoneManager : MonoBehaviour
     [SerializeField] GameObject clockText;
 
     [Header("Result UI")]
-    [SerializeField] TextMeshProUGUI resultTextField;
+    [SerializeField] TextMeshProUGUI resultTextField_1, resultTextField_2;
 
     [Header("Transition")]
     [SerializeField] GameObject transition;
@@ -172,7 +172,7 @@ public class PhoneManager : MonoBehaviour
         messageTextField.transform.parent.gameObject.SetActive(false);
         personTextField.gameObject.SetActive(false);
         clockText.SetActive(false);
-        resultTextField.transform.parent.gameObject.SetActive(true);
+        resultTextField_1.transform.parent.gameObject.SetActive(true);
 
         while (animator.GetCurrentAnimatorStateInfo(0).normalizedTime < 1f)
         {
@@ -181,10 +181,12 @@ public class PhoneManager : MonoBehaviour
         //small delay after transition
         yield return new WaitForSeconds(Constants.letterDelay);
 
-        resultTextField.text = "";
+        resultTextField_1.text = "";
+        resultTextField_2.text = "";
         for (int i = 0; i < resultText.Length; i++)
         {
-            resultTextField.text += resultText[i];
+            resultTextField_1.text += resultText[i];
+            resultTextField_2.text += resultText[i];
             if (resultText[i] == '\n')
             {
                 yield return new WaitForSeconds(1f);
@@ -193,6 +195,6 @@ public class PhoneManager : MonoBehaviour
         }
         yield return new WaitForSeconds(2.0f);
 
-        MiniGameManager.instance.ExitCutscene(); //probably enough for now
+        MiniGameManager.instance.ExitPhone(); //probably enough for now
     }
 }

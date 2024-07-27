@@ -12,14 +12,14 @@ EditorBuildSettings:
     path: Assets/Scenes/TiltGame.unity
     guid: 8c9cfa26abfee488c85f1582747f6a02
   - enabled: 1
-    path: Assets/Scenes/DialogueGame.unity
-    guid: 00323cb74558c5044b436e00093bd68c
-  - enabled: 1
     path: Assets/Scenes/DragDropGame.unity
     guid: be4e577e4a09e3d41be85a2b3906dc53
   - enabled: 1
     path: Assets/Scenes/PuzzleGame.unity
     guid: 7b5826147d2d77942b7904a768ec063f
+  - enabled: 1
+    path: Assets/Scenes/DialogueGame.unity
+    guid: 00323cb74558c5044b436e00093bd68c
   - enabled: 1
     path: Assets/Scenes/QuizGame.unity
     guid: 065123ec0e1075e4aba1c2cbe34351bc
