@@ -5179,7 +5179,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!224 &1078367571
 RectTransform:
   m_ObjectHideFlags: 0
@@ -5427,7 +5427,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!224 &1137428591
 RectTransform:
   m_ObjectHideFlags: 0
@@ -9173,13 +9173,8 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: 'Thank you for playing my game!!! Check my other socials >.<
-
-
-    Twitter:
-    jellycat220
-
-    TikTok: jellycat220'
+  m_text: "Thank you for playing my game!!!\nCheck my other socials >.<\n\nTwitter/Instagram/Tiktok:\n 
+    jellycat220"
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: b17f4f1186d16a94e96419461059f991, type: 2}
   m_sharedMaterial: {fileID: 7559009698402535229, guid: b17f4f1186d16a94e96419461059f991, type: 2}
@@ -9242,7 +9237,7 @@ MonoBehaviour:
   m_VertexBufferAutoSizeReduction: 0
   m_useMaxVisibleDescender: 1
   m_pageToDisplay: 1
-  m_margin: {x: 0, y: 17.758423, z: -5.164857, w: -4.161911}
+  m_margin: {x: 0, y: 17.758423, z: -25.023668, w: -4.161911}
   m_isUsingLegacyAnimationComponent: 0
   m_isVolumetricText: 0
   m_hasFontAssetChanged: 0

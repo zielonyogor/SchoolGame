@@ -66,7 +66,11 @@ public class Puzzle : BaseMiniGame
         while (mouseClick.ReadValue<float>() != 0)
         {
             Vector2 point = mainCamera.ScreenToWorldPoint(Mouse.current.position.ReadValue());
-            clickedObject.transform.position = Vector2.SmoothDamp(clickedObject.transform.position, point, ref velocity, mouseDragTime);
+
+            Vector2 targetPosition = Vector2.SmoothDamp(clickedObject.transform.position, point, ref velocity, mouseDragTime);
+            targetPosition.x = Mathf.Clamp(targetPosition.x, -140, 140);
+            targetPosition.y = Mathf.Clamp(targetPosition.y, -80, 80);
+            clickedObject.transform.position = targetPosition;
             yield return waitForFixedUpdate;
         }
         CheckCollision(clickedObject);

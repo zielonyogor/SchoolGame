@@ -18,20 +18,19 @@ MonoBehaviour:
   secondScenario: {fileID: 0}
   optionCorrect: yea sure when are you free??
   optionIncorrect: sorry i dont feel like it,,
-  resultCorrect: 'I went out for boba with Kate (she has sooo pretty visual kei outfits).
+  resultCorrect: 'I went out for boba with Kate (she has sooo pretty outfits).
 
     It
     was nice talking to her. We both like crocheting!!!'
-  resultCorrectRare: 'I went out for boba with Kate (she has sooo pretty visual kei
-    outfits).
+  resultCorrectRare: 'I went out for boba with Kate (she has sooo pretty outfits).
 
-    It was nice talking to her.
+    It
+    was nice talking to her.
 
-    Unfortunately I spilled my boba
-    all over myself >.<
+    Unfortunately I spilled my boba all over myself
+    >.<
 
-    Embarassing... BUT she was so nice to me and helped
-    me with cleaning.'
+    Embarassing... BUT she was so nice to me and helped me with cleaning.'
   resultIncorrect: "Kate asked me to go out for boba. I refused.\nI think I got too
     nervous. I don't want her to think that I'm weird. \nI would have propably embarass
     myself, I think????\nGod, I'm starting to regret it....."
