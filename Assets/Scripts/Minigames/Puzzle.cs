@@ -83,6 +83,7 @@ public class Puzzle : BaseMiniGame
         {
             clickedObject.tag = "Untagged";
             numberOfPuzzles--;
+            clickedObject.transform.position = clickedObject.transform.parent.position;
         }
         if (numberOfPuzzles == 0)
         {

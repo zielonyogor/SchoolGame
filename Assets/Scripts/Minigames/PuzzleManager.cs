@@ -9,7 +9,7 @@ public class PuzzleManager : MonoBehaviour
 
     void Start()
     {
-        numberOfPuzzles = MiniGameManager.instance.numberOfPuzzles;
+        numberOfPuzzles = 3;//MiniGameManager.instance.numberOfPuzzles;
         objects = new List<Transform>();
         for(int i = 0; i < numberOfPuzzles; i++)
         {
